@@ -1,16 +1,17 @@
 /* ==========================================================================
-   Clean Hero Section (Hero.css)
+   Hero Section (Hero.css) — Mobile Responsive
    ========================================================================== */
 
 .hero-wrapper {
+  position: relative;
   background: var(--canvas);
-  padding: 56px 0 40px;
+  padding: 40px 0 32px;
 }
 
 .hero-grid {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
-  gap: 48px;
+  gap: 40px;
   align-items: center;
 }
 
@@ -20,10 +21,6 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 1.25rem;
-}
-
-.badge-wrapper {
-  margin-bottom: 0.25rem;
 }
 
 .hero-title {
@@ -39,6 +36,16 @@
   display: block;
 }
 
+/* Rotating word */
+.rotator {
+  display: inline-block;
+  position: relative;
+  height: 1.25em;
+  overflow: hidden;
+  vertical-align: bottom;
+  color: var(--primary);
+}
+
 @keyframes slideWord {
   from {
     transform: translateY(50%);
@@ -50,15 +57,6 @@
   }
 }
 
-.rotator {
-  display: inline-block;
-  position: relative;
-  height: 1.25em;
-  overflow: hidden;
-  vertical-align: bottom;
-  color: var(--primary);
-}
-
 .rotator-word-active {
   display: inline-block;
   color: var(--primary);
@@ -68,7 +66,7 @@
 }
 
 .hero-description {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 400;
   line-height: 1.6;
   color: var(--ink-muted);
@@ -79,7 +77,8 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-top: 0.5rem;
+  margin-top: 0.25rem;
+  flex-wrap: wrap;
 }
 
 .learn-more-link {
@@ -116,7 +115,7 @@
   background: #ffffff;
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-light);
-  padding: 24px;
+  padding: 20px;
   width: 100%;
   max-width: 440px;
   box-shadow: var(--shadow-md);
@@ -124,7 +123,7 @@
   z-index: 2;
 }
 
-/* Floating Metrics Card attached to top right */
+/* Floating Metrics Card */
 .savings-floating-card {
   position: absolute;
   top: -20px;
@@ -132,17 +131,17 @@
   background: #ffffff;
   border-radius: var(--radius-md);
   border: 1px solid var(--border-light);
-  padding: 12px 16px;
+  padding: 10px 14px;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   box-shadow: var(--shadow-sm);
   z-index: 10;
 }
 
 .savings-icon-wrapper {
-  width: 38px;
-  height: 38px;
+  width: 36px;
+  height: 36px;
   border-radius: var(--radius-sm);
   background: var(--canvas-subtle);
   color: var(--ink);
@@ -153,7 +152,7 @@
 }
 
 .card-subtitle {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 500;
   color: var(--ink-muted);
   text-transform: uppercase;
@@ -162,7 +161,7 @@
 
 .savings-amount {
   font-family: var(--font-display);
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: var(--ink);
   line-height: 1.2;
@@ -172,18 +171,18 @@
   display: inline-flex;
   align-items: center;
   gap: 3px;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 500;
   color: var(--primary);
 }
 
 .income-card-header {
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .income-amount {
   font-family: var(--font-display);
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 700;
   color: var(--ink);
   letter-spacing: -0.03em;
@@ -193,14 +192,14 @@
 /* Chart */
 .chart-wrapper {
   display: flex;
-  gap: 12px;
+  gap: 10px;
 }
 
 .chart-y-axis {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 500;
   color: var(--ink-faint);
   padding-bottom: 20px;
@@ -231,7 +230,7 @@
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  height: 140px;
+  height: 130px;
   padding-bottom: 20px;
   position: relative;
   z-index: 2;
@@ -243,13 +242,13 @@
   align-items: center;
   flex: 1;
   position: relative;
-  padding: 0 4px;
+  padding: 0 3px;
   cursor: pointer;
 }
 
 .lime-bar {
   width: 100%;
-  max-width: 24px;
+  max-width: 22px;
   background: var(--surface-dark);
   border-radius: 4px 4px 0 0;
   position: relative;
@@ -268,9 +267,9 @@
   bottom: calc(100% + 6px);
   background: var(--surface-dark);
   color: #ffffff;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 500;
-  padding: 4px 8px;
+  padding: 4px 6px;
   border-radius: 4px;
   white-space: nowrap;
   box-shadow: var(--shadow-sm);
@@ -280,7 +279,7 @@
 .chart-x-axis {
   display: flex;
   justify-content: space-between;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 500;
   color: var(--ink-muted);
 }
@@ -290,8 +289,8 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: var(--space-lg);
-  margin-top: 48px;
-  padding-top: 28px;
+  margin-top: 40px;
+  padding-top: 24px;
   border-top: 1px solid var(--border-light);
 }
 
@@ -302,32 +301,55 @@
 
 .hero-stat-num {
   font-family: var(--font-display);
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--ink);
   letter-spacing: -0.02em;
 }
 
 .hero-stat-label {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 400;
   color: var(--ink-muted);
   margin-top: 2px;
 }
 
+/* Responsive Media Queries */
 @media (max-width: 900px) {
   .hero-grid {
     grid-template-columns: 1fr;
-    gap: 36px;
+    gap: 32px;
   }
   .savings-floating-card {
     position: relative;
     top: 0;
     right: 0;
     margin-bottom: 12px;
+    align-self: stretch;
+    justify-content: flex-start;
+  }
+  .hero-actions {
+    width: 100%;
+  }
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
   }
   .hero-stats {
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2.1rem;
+  }
+  .hero-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .hero-stat-num {
+    font-size: 1.3rem;
   }
 }
