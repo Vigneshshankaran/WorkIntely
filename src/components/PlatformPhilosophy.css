@@ -1,0 +1,193 @@
+/* ==========================================================================
+   Platform Philosophy Section (PlatformPhilosophy.css)
+   ========================================================================== */
+
+.philosophy-section {
+  background-color: var(--canvas);
+  padding: var(--space-section) 0;
+}
+
+.philosophy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* Left Visual Container */
+.philosophy-visual-panel {
+  background: var(--canvas-parchment);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  padding: 48px 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.philosophy-mockup-card {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light);
+  padding: 24px;
+  width: 100%;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mockup-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  background: var(--surface-dark);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.profile-name {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.profile-role {
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+}
+
+.single-record-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #10b981;
+  background: #ecfdf5;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+/* Flow Bar */
+.mockup-flow-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--canvas-subtle);
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+}
+
+.flow-step {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--ink-muted);
+}
+
+.flow-step.active {
+  color: var(--ink);
+}
+
+.flow-step-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+}
+
+.flow-line {
+  flex: 1;
+  height: 2px;
+  background: var(--border-light);
+  margin: 0 6px;
+}
+
+/* Metrics Row */
+.mockup-metrics-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.mini-metric-pill {
+  display: flex;
+  flex-direction: column;
+  background: var(--canvas-subtle);
+  padding: 8px 12px;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--border-subtle);
+}
+
+.mini-metric-label {
+  font-size: 0.7rem;
+  color: var(--ink-muted);
+  margin-bottom: 2px;
+}
+
+.mini-metric-val {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.mini-metric-val.green-text {
+  color: #10b981;
+}
+
+/* Right Copy Column */
+.philosophy-content-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.philosophy-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.2vw, 2.75rem);
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.philosophy-title-line {
+  display: block;
+}
+
+.philosophy-desc {
+  font-size: 1.05rem;
+  color: var(--ink-muted);
+  font-weight: 400;
+  line-height: 1.6;
+  max-width: 520px;
+}
+
+@media (max-width: 900px) {
+  .philosophy-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}

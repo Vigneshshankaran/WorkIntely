@@ -1,0 +1,117 @@
+/* ==========================================================================
+   Clean Employee Lifecycle Feature Section (FeatureGrid.css)
+   ========================================================================== */
+
+.lifecycle-section {
+  background-color: var(--canvas-subtle);
+  padding: var(--space-section) 0;
+}
+
+.lifecycle-header {
+  text-align: center;
+  margin-bottom: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.lifecycle-title {
+  font-family: var(--font-display);
+  font-size: var(--text-display);
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.025em;
+  max-width: 800px;
+}
+
+.lifecycle-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.lifecycle-card {
+  background: var(--surface-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light);
+  padding: 28px 20px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.lifecycle-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--ink);
+}
+
+.card-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.step-badge-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-sm);
+  background: var(--surface-dark);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-num {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ink-muted);
+  background: var(--canvas-subtle);
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+}
+
+.card-step-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.card-step-desc {
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+  font-weight: 400;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.card-arrow-link {
+  margin-top: auto;
+  color: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+
+.lifecycle-card:hover .card-arrow-link {
+  color: var(--primary);
+  transform: translateX(4px);
+}
+
+@media (max-width: 1024px) {
+  .lifecycle-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .lifecycle-grid {
+    grid-template-columns: 1fr;
+  }
+}

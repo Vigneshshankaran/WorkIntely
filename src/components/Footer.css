@@ -1,0 +1,247 @@
+/* ==========================================================================
+   Clean Dark Footer (Footer.css)
+   ========================================================================== */
+
+.promora-footer {
+  background: var(--surface-dark);
+  color: var(--white);
+  width: 100%;
+}
+
+.promora-footer-container {
+  padding: 64px 1.5rem 36px;
+}
+
+/* Top Grid */
+.promora-top-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 2fr;
+  gap: 56px;
+  margin-bottom: 48px;
+}
+
+/* Brand Col */
+.promora-brand-col {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.promora-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.promora-logo-badge {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--surface-dark-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.promora-brand-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.promora-tagline {
+  font-size: 0.9rem;
+  color: var(--ondark-muted);
+  line-height: 1.6;
+}
+
+.promora-vision {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+/* Newsletter */
+.promora-newsletter {
+  display: flex;
+  gap: 8px;
+}
+
+.promora-input {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-pill);
+  padding: 10px 18px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--white);
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.promora-input::placeholder {
+  color: var(--ondark-faint);
+}
+
+.promora-input:focus {
+  border-color: var(--primary);
+}
+
+.promora-submit-btn {
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 10px 20px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.promora-submit-btn:hover {
+  background: var(--primary-hover);
+}
+
+.promora-success-msg {
+  font-size: 0.9rem;
+  color: var(--primary);
+  font-weight: 500;
+}
+
+/* Nav Columns */
+.promora-nav-columns {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.promora-col-title {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.promora-links {
+  list-style: none;
+}
+
+.promora-links li {
+  margin-bottom: 8px;
+}
+
+.promora-links a {
+  font-size: 0.88rem;
+  color: var(--ondark-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.promora-links a:hover {
+  color: var(--white);
+}
+
+/* Divider */
+.promora-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin-bottom: 28px;
+}
+
+/* Middle Bar */
+.promora-middle-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.promora-subnote {
+  font-size: 0.82rem;
+  color: var(--ondark-muted);
+}
+
+.promora-socials {
+  display: flex;
+  gap: 14px;
+}
+
+.promora-social-icon {
+  color: var(--ondark-muted);
+  transition: color 0.2s ease;
+}
+
+.promora-social-icon:hover {
+  color: var(--white);
+}
+
+/* Watermark */
+.promora-watermark-wrap {
+  text-align: center;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.promora-giant-text {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 10vw, 8.5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.08);
+  user-select: none;
+}
+
+/* Legal */
+.promora-legal-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--ondark-faint);
+}
+
+.legal-links {
+  display: flex;
+  gap: 10px;
+}
+
+.legal-links a {
+  color: var(--ondark-faint);
+  text-decoration: none;
+}
+
+.legal-links a:hover {
+  color: var(--white);
+}
+
+@media (max-width: 868px) {
+  .promora-top-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .promora-nav-columns {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .promora-nav-columns {
+    grid-template-columns: 1fr;
+  }
+  .promora-legal-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

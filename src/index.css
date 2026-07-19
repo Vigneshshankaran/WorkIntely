@@ -1,0 +1,264 @@
+/* ==========================================================================
+   Clean, Unified Monochromatic Design Tokens (index.css)
+   Single Accent Color, Ultra-Cohesive Palette
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  /* ── Single Primary Accent & Neutrals ── */
+  --primary:          #3b82f6;       /* Clean Professional Blue */
+  --primary-hover:    #2563eb;
+  --primary-light:    #eff6ff;
+  --primary-glow:     rgba(59, 130, 246, 0.15);
+
+  /* ── Surface Tones ── */
+  --canvas:           #ffffff;
+  --canvas-subtle:    #f8fafc;
+  --canvas-parchment: #f1f5f9;
+  --surface-card:     #ffffff;
+  --surface-dark:     #0f172a;       /* Deep Charcoal Slate */
+  --surface-dark-2:   #1e293b;
+
+  /* ── Text Tones ── */
+  --ink:              #0f172a;
+  --ink-secondary:    #334155;
+  --ink-muted:        #64748b;
+  --ink-faint:        #94a3b8;
+  --on-dark:          #ffffff;
+  --ondark-muted:     #94a3b8;
+  --ondark-faint:     #64748b;
+
+  /* ── Borders ── */
+  --border-light:     #e2e8f0;
+  --border-subtle:    #f1f5f9;
+  --border-focus:     rgba(59, 130, 246, 0.4);
+
+  /* ── Shadows ── */
+  --shadow-xs:        0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-sm:        0 2px 8px -2px rgba(15, 23, 42, 0.06);
+  --shadow-md:        0 10px 25px -5px rgba(15, 23, 42, 0.08);
+  --shadow-lg:        0 20px 35px -10px rgba(15, 23, 42, 0.1);
+
+  /* ── Typography ── */
+  --font-display:     'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body:        'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --text-hero:        clamp(2.5rem, 4.2vw, 3.5rem);
+  --text-display:     clamp(2rem, 3.2vw, 2.5rem);
+  --text-display-md:  clamp(1.4rem, 2.2vw, 1.85rem);
+  --text-lead:        1.15rem;
+  --text-tagline:     1.1rem;
+  --text-body-strong: 1rem;
+  --text-body:        0.95rem;
+  --text-caption:     0.875rem;
+  --text-fine:        0.75rem;
+
+  --lh-tight:         1.15;
+  --lh-heading:       1.25;
+  --lh-body:          1.6;
+
+  --track-heading:    -0.025em;
+  --track-body:       -0.01em;
+
+  /* ── Spacing ── */
+  --space-xxs:  4px;
+  --space-xs:   8px;
+  --space-sm:   12px;
+  --space-md:   16px;
+  --space-lg:   24px;
+  --space-xl:   32px;
+  --space-xxl:  48px;
+  --space-section: 80px;
+
+  /* Legacy aliases */
+  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
+  --space-6: 24px; --space-8: 32px; --space-10: 40px; --space-12: 48px;
+  --space-16: 64px; --space-24: 80px;
+
+  /* ── Radii ── */
+  --radius-xs:   6px;
+  --radius-sm:   8px;
+  --radius-md:   12px;
+  --radius-lg:   16px;
+  --radius-xl:   24px;
+  --radius-pill: 9999px;
+  --radius-full: 9999px;
+
+  /* Aliases for components */
+  --bg-main: var(--canvas);
+  --bg-subtle: var(--canvas-subtle);
+  --bg-card: var(--surface-card);
+  --bg-card-subtle: var(--canvas-subtle);
+  --bg-panel: var(--canvas-subtle);
+  --text-dark: var(--ink);
+  --text-secondary: var(--ink-secondary);
+  --text-muted: var(--ink-muted);
+  --text-subtle: var(--ink-faint);
+  --purple-primary: var(--primary);
+  --purple-hover: var(--primary-hover);
+  --purple-light: var(--primary-light);
+  --navy-dark: var(--surface-dark);
+  --navy-hover: var(--surface-dark-2);
+  --lime-accent: var(--primary);
+  --white: #ffffff;
+  --font-family: var(--font-body);
+  --font-h1: var(--text-hero);
+  --font-h2: var(--text-display);
+  --font-h3: var(--text-display-md);
+  --font-subtitle: var(--text-lead);
+  --font-small: var(--text-caption);
+  --font-caption: var(--text-fine);
+  --text-xs: var(--text-fine);
+  --text-sm: var(--text-caption);
+  --text-base: var(--text-body);
+  --text-lg: var(--text-tagline);
+  --text-xl: var(--text-lead);
+  --text-2xl: var(--text-display);
+}
+
+/* ── Reset ── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--canvas);
+  color: var(--ink);
+  font-size: var(--text-body);
+  line-height: var(--lh-body);
+  letter-spacing: var(--track-body);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Headings ── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: var(--track-heading);
+}
+
+h1 {
+  font-size: var(--text-hero);
+  line-height: var(--lh-tight);
+}
+
+h2 {
+  font-size: var(--text-display);
+  line-height: var(--lh-heading);
+}
+
+h3 {
+  font-size: var(--text-display-md);
+  line-height: var(--lh-heading);
+}
+
+p {
+  font-size: var(--text-body);
+  line-height: var(--lh-body);
+  color: var(--ink-muted);
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+/* ── Container ── */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section-1440 {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* ── Single Color Highlight ── */
+.gradient-text {
+  color: var(--primary);
+}
+
+/* ── Standardized Buttons ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: 500;
+  border-radius: var(--radius-pill);
+  padding: 0.65rem 1.4rem;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-primary,
+.btn-purple {
+  background: var(--primary);
+  color: var(--white);
+  box-shadow: 0 4px 12px var(--primary-glow);
+}
+
+.btn-primary:hover,
+.btn-purple:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.3);
+}
+
+.btn-secondary,
+.btn-ghost {
+  background: var(--canvas);
+  color: var(--ink);
+  border: 1px solid var(--border-light);
+}
+
+.btn-secondary:hover,
+.btn-ghost:hover {
+  border-color: var(--ink);
+  transform: translateY(-1px);
+}
+
+.btn-navy {
+  background: var(--surface-dark);
+  color: var(--white);
+}
+
+.btn-navy:hover {
+  background: var(--surface-dark-2);
+}
+
+/* ── Badge ── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-pill);
+  font-size: var(--text-caption);
+  font-weight: 500;
+  background: var(--canvas-subtle);
+  color: var(--ink);
+  border: 1px solid var(--border-light);
+}
+
+/* ── Eyebrow ── */
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--text-fine);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
