@@ -188,6 +188,39 @@
 @media (max-width: 900px) {
   .philosophy-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .philosophy-visual-panel {
+    padding: 20px 14px;
+    border-radius: var(--radius-lg);
+  }
+  .philosophy-mockup-card {
+    padding: 16px;
+    gap: 14px;
+  }
+  .mockup-header {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .mockup-flow-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .flow-line {
+    display: none;
+  }
+  .mockup-metrics-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mockup-metrics-row {
+    grid-template-columns: 1fr;
   }
 }

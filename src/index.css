@@ -117,6 +117,15 @@
   --text-2xl: var(--text-display);
 }
 
+@media (max-width: 768px) {
+  :root {
+    --space-section: 40px;
+  }
+  body {
+    overflow-x: hidden;
+  }
+}
+
 /* ── Reset ── */
 *, *::before, *::after {
   margin: 0;

@@ -341,9 +341,15 @@
   }
 }
 
+@media (max-width: 768px) {
+  .hero-wrapper {
+    padding: 20px 0 16px;
+  }
+}
+
 @media (max-width: 480px) {
   .hero-title {
-    font-size: 2.1rem;
+    font-size: 2rem;
   }
   .hero-stats {
     grid-template-columns: 1fr 1fr;
