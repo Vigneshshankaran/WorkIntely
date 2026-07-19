@@ -38,12 +38,8 @@ export default function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route 
-              path="/modules" 
-              element={<ComingSoonPage title="Modules Coming Soon" />} 
-            />
-            <Route 
               path="/resources" 
-              element={<ComingSoonPage title="Resources & Platform Stats" showStats={true} />} 
+              element={<ComingSoonPage title="Resources Coming Soon" />} 
             />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />

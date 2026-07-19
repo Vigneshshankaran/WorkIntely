@@ -31,7 +31,7 @@ const lifecycleSteps = [
 
 export default function FeatureGrid() {
   return (
-    <section id="lifecycle" className="lifecycle-section section-1440">
+    <section id="modules" className="lifecycle-section section-1440">
       <div className="container">
         
         {/* Section Header */}
