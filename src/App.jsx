@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
+import ComingSoonPage from './pages/ComingSoonPage';
 
 /* Scrolls to top on route change, or to the anchor when a hash is present
    (makes cross-page links like /#modules work). */
@@ -36,6 +37,14 @@ export default function App() {
         <main>
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route 
+              path="/modules" 
+              element={<ComingSoonPage title="Modules Coming Soon" />} 
+            />
+            <Route 
+              path="/resources" 
+              element={<ComingSoonPage title="Resources & Platform Stats" showStats={true} />} 
+            />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="*" element={<HomePage />} />

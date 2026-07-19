@@ -15,13 +15,6 @@ const chartData = [
 /* The four platform modules, as the rotating object of the headline */
 const ROTATING_WORDS = ['hiring', 'people data', 'learning', 'performance'];
 
-const heroStats = [
-  { num: '1.4M+', label: 'employee records' },
-  { num: '38%', label: 'faster time-to-hire' },
-  { num: '40+', label: 'countries supported' },
-  { num: '99.9%', label: 'platform uptime' }
-];
-
 export default function Hero() {
   const [hoveredBar, setHoveredBar] = useState(2);
   const [wordIndex, setWordIndex] = useState(0);
@@ -150,18 +143,6 @@ export default function Hero() {
               </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Honest social proof: platform stats, not fake logos */}
-      <div className="container">
-        <div className="hero-stats" role="list">
-          {heroStats.map((s) => (
-            <div className="hero-stat" role="listitem" key={s.label}>
-              <span className="hero-stat-num">{s.num}</span>
-              <span className="hero-stat-label">{s.label}</span>
-            </div>
-          ))}
         </div>
       </div>
     </section>

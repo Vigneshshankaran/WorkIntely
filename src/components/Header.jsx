@@ -37,9 +37,9 @@ export default function Header() {
         {/* Center Navigation Links (desktop) */}
         <nav className="nav-menu" aria-label="Primary">
           <NavLink to="/" end className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>Platform</NavLink>
-          <Link to="/#lifecycle" className="nav-link">Lifecycle</Link>
-          <Link to="/#modules" className="nav-link">Modules</Link>
+          <Link to="/#lifecycle" className="nav-link">Modules</Link>
           <Link to="/#why-wi" className="nav-link">Why WorkIntely</Link>
+          <NavLink to="/resources" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>Resources</NavLink>
           <NavLink to="/about" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>About Us</NavLink>
         </nav>
 
@@ -67,9 +67,9 @@ export default function Header() {
       {open && (
         <nav id="mobile-menu" className="mobile-menu" aria-label="Primary mobile">
           <NavLink to="/" end className="mobile-link" onClick={() => setOpen(false)}>Platform</NavLink>
-          <Link to="/#lifecycle" className="mobile-link" onClick={() => setOpen(false)}>Lifecycle</Link>
-          <Link to="/#modules" className="mobile-link" onClick={() => setOpen(false)}>Modules</Link>
+          <Link to="/#lifecycle" className="mobile-link" onClick={() => setOpen(false)}>Modules</Link>
           <Link to="/#why-wi" className="mobile-link" onClick={() => setOpen(false)}>Why WorkIntely</Link>
+          <NavLink to="/resources" className="mobile-link" onClick={() => setOpen(false)}>Resources</NavLink>
           <NavLink to="/about" className="mobile-link" onClick={() => setOpen(false)}>About Us</NavLink>
           <Link to="/contact" className="btn btn-primary mobile-cta" onClick={() => setOpen(false)}>
             <MessageSquare size={16} />

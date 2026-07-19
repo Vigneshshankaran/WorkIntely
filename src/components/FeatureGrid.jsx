@@ -1,10 +1,6 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { ArrowRight, UserPlus, Layers, GraduationCap, Target } from 'lucide-react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './FeatureGrid.css';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const lifecycleSteps = [
   {
@@ -34,27 +30,8 @@ const lifecycleSteps = [
 ];
 
 export default function FeatureGrid() {
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from('.lifecycle-card', {
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 85%',
-        },
-        y: 30,
-        duration: 0.6,
-        stagger: 0.1,
-        ease: 'power2.out'
-      });
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section id="lifecycle" className="lifecycle-section section-1440" ref={sectionRef}>
+    <section id="lifecycle" className="lifecycle-section section-1440">
       <div className="container">
         
         {/* Section Header */}

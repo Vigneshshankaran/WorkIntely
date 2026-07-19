@@ -29,6 +29,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
+  align-items: stretch;
 }
 
 .lifecycle-card {
@@ -38,6 +39,7 @@
   padding: 28px 20px;
   display: flex;
   flex-direction: column;
+  height: 100%;
   position: relative;
   transition: transform 0.2s ease, border-color 0.2s ease;
 }

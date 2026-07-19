@@ -61,30 +61,6 @@ export default function AboutPage() {
 
         </div>
 
-        {/* Stats Grid */}
-        <div className="about-stats-grid">
-          <div className="stat-card">
-            <Users className="stat-icon" size={28} />
-            <span className="stat-num">1.4M+</span>
-            <span className="stat-desc">Employee records managed</span>
-          </div>
-          <div className="stat-card">
-            <Target className="stat-icon" size={28} />
-            <span className="stat-num">38%</span>
-            <span className="stat-desc">Reduction in time-to-hire</span>
-          </div>
-          <div className="stat-card">
-            <Globe className="stat-icon" size={28} />
-            <span className="stat-num">40+</span>
-            <span className="stat-desc">Countries supported</span>
-          </div>
-          <div className="stat-card">
-            <Award className="stat-icon" size={28} />
-            <span className="stat-num">99.9%</span>
-            <span className="stat-desc">Platform uptime</span>
-          </div>
-        </div>
-
       </div>
     </section>
   );
