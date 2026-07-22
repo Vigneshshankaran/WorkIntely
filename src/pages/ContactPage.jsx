@@ -26,7 +26,7 @@ export default function ContactPage() {
           
           {/* Left Column: Headline, Subtitle, Direct Reach Info */}
           <div className="contact-left-col">
-            <h1 className="contact-title">Talk to Us</h1>
+            <h1 className="contact-title">Talk to WI</h1>
             
             <p className="contact-subtitle">
               Tell us about your team and we'll show you how WorkIntel fits your talent management needs.

@@ -47,7 +47,7 @@ export default function Header() {
         <div className="nav-actions">
           <Link to="/contact" className="btn btn-primary btn-talk">
             <MessageSquare size={16} />
-            <span>Talk to Us</span>
+            <span>Talk to WI</span>
           </Link>
 
           <button
@@ -73,7 +73,7 @@ export default function Header() {
           <NavLink to="/about" className="mobile-link" onClick={() => setOpen(false)}>About Us</NavLink>
           <Link to="/contact" className="btn btn-primary mobile-cta" onClick={() => setOpen(false)}>
             <MessageSquare size={16} />
-            <span>Talk to Us</span>
+            <span>Talk to WI</span>
           </Link>
         </nav>
       )}
