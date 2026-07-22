@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowRight, TrendingUp, Users, MessageSquare } from 'lucide-react';
+import { MessageSquare, TrendingUp, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import './Hero.css';
@@ -12,68 +12,102 @@ const chartData = [
   { month: 'Jun', height: 66, val: '5,280 Onboarded' }
 ];
 
-/* The four platform modules, as the rotating object of the headline */
 const ROTATING_WORDS = ['hiring', 'people data', 'learning', 'performance'];
 
 export default function Hero() {
   const [hoveredBar, setHoveredBar] = useState(2);
-  const [wordIndex, setWordIndex] = useState(0);
+  const [displayedText, setDisplayedText] = useState('');
+  const [wordIdx, setWordIdx] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
   const heroRef = useRef(null);
 
+  // Typewriter effect with fixed word sizing & smooth pauses
   useEffect(() => {
-    const interval = setInterval(() => {
-      setWordIndex((prev) => (prev + 1) % ROTATING_WORDS.length);
-    }, 2400);
-    return () => clearInterval(interval);
-  }, []);
+    const currentWord = ROTATING_WORDS[wordIdx];
+    let timer;
+
+    if (!isDeleting) {
+      if (displayedText.length < currentWord.length) {
+        timer = setTimeout(() => {
+          setDisplayedText(currentWord.slice(0, displayedText.length + 1));
+        }, 95);
+      } else {
+        // Hold complete word for 2.2 seconds
+        timer = setTimeout(() => {
+          setIsDeleting(true);
+        }, 2200);
+      }
+    } else {
+      if (displayedText.length > 0) {
+        timer = setTimeout(() => {
+          setDisplayedText(currentWord.slice(0, displayedText.length - 1));
+        }, 50);
+      } else {
+        // Brief pause before typing next word
+        timer = setTimeout(() => {
+          setIsDeleting(false);
+          setWordIdx((prev) => (prev + 1) % ROTATING_WORDS.length);
+        }, 250);
+      }
+    }
+
+    return () => clearTimeout(timer);
+  }, [displayedText, isDeleting, wordIdx]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from('.hero-visual', { y: 20, duration: 0.8, delay: 0.2 });
-      gsap.from('.hero-stat', { y: 16, duration: 0.6, stagger: 0.08, delay: 0.4 });
+      gsap.from('.hero-badge-light', { y: -15, opacity: 0, duration: 0.6 });
+      gsap.from('.hero-title-light', { y: 20, opacity: 0, duration: 0.8, delay: 0.1 });
+      gsap.from('.hero-desc-light', { y: 15, opacity: 0, duration: 0.6, delay: 0.2 });
+      gsap.from('.hero-cta-wrap-light', { scale: 0.95, opacity: 0, duration: 0.6, delay: 0.3 });
+      gsap.from('.hero-visual-single', { y: 30, opacity: 0, duration: 0.9, delay: 0.4 });
     }, heroRef);
 
     return () => ctx.revert();
   }, []);
 
   return (
-    <section className="hero-wrapper" ref={heroRef}>
-      <div className="container hero-grid">
-        {/* Left Column: Hero Content */}
-        <div className="hero-content">
-          <h1 className="hero-title">
-            <span className="hero-title-line">The intelligent</span>
-            <span className="hero-title-line">platform for</span>
-            <span className="rotator" aria-label={ROTATING_WORDS.join(', ')}>
-              <span key={ROTATING_WORDS[wordIndex]} className="rotator-word-active">
-                {ROTATING_WORDS[wordIndex]}.
-              </span>
-            </span>
-          </h1>
-
-          <p className="hero-description">
-            WorkIntely unifies hiring, people data, growth, and performance
-            into one intelligent system — built around a single employee record.
-          </p>
-
-          <div className="hero-actions">
-            <Link to="/contact" className="btn btn-primary">
-              <MessageSquare size={16} />
-              <span>Talk to Us</span>
-            </Link>
-
-            <a href="#modules" className="learn-more-link">
-              <span>Explore Platform</span>
-              <ArrowRight size={18} />
-            </a>
-          </div>
+    <section className="hero-wrapper-light" ref={heroRef}>
+      <div className="container hero-container-single-col">
+        
+        {/* Eyebrow Badge */}
+        <div className="hero-badge-light">
+          <span className="badge-dot-purple"></span>
+          <span className="badge-text-light">WELCOME TO WORKINTEL</span>
         </div>
 
-        {/* Right Column: Product Visual */}
-        <div className="hero-visual">
+        {/* Main Headline with Non-shifting Typewriter Animation */}
+        <h1 className="hero-title-light">
+          <span className="hero-title-prefix">The intelligent platform for</span>{' '}
+          <span className="typewriter-wrapper">
+            <span className="typewriter-word">{displayedText}.</span>
+            <span className="typewriter-cursor" aria-hidden="true">|</span>
+          </span>
+        </h1>
+
+        {/* Description */}
+        <p className="hero-desc-light">
+          WorkIntel unifies hiring, people data, growth, and performance
+          into one intelligent system — built around a single employee record.
+        </p>
+
+        {/* CTA Actions */}
+        <div className="hero-cta-wrap-light">
+          <Link to="/contact" className="btn-primary-purple btn-no-arrow">
+            <MessageSquare size={16} />
+            <span>Book a Demo</span>
+          </Link>
+
+          <a href="#modules" className="btn-secondary-light">
+            <span>Explore Platform</span>
+          </a>
+        </div>
+
+        {/* Centered Dashboard Chart Visual */}
+        <div className="hero-visual-single">
           <div className="card-ambient-glow"></div>
 
-          {/* Floating Card: Active Talent Pool */}
+          {/* Floating Metrics Card */}
           <div className="savings-floating-card">
             <div className="savings-icon-wrapper">
               <Users size={20} className="wallet-icon" />
@@ -144,6 +178,7 @@ export default function Hero() {
             </div>
           </div>
         </div>
+
       </div>
     </section>
   );

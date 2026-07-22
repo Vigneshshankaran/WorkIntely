@@ -24,12 +24,12 @@ export default function Footer() {
           
           {/* Left Column: Brand, Tagline, Vision & Newsletter */}
           <div className="promora-brand-col">
-            <Link to="/" className="promora-logo" aria-label="WorkIntely Home">
+            <Link to="/" className="promora-logo" aria-label="WorkIntel Home">
               <Logo dark={true} height={32} />
             </Link>
 
             <p className="promora-tagline">
-              WorkIntely creates optimized talent pipelines by analyzing your enterprise workforce.
+              WorkIntel creates optimized talent pipelines by analyzing your enterprise workforce.
             </p>
 
             <h3 className="promora-vision">
@@ -39,7 +39,7 @@ export default function Footer() {
             {/* Newsletter Input Box */}
             {subscribed ? (
               <div className="promora-success-msg">
-                ✓ Thank you for joining WorkIntely!
+                ✓ Thank you for joining WorkIntel!
               </div>
             ) : (
               <form onSubmit={handleSubscribe} className="promora-newsletter">
@@ -76,7 +76,7 @@ export default function Footer() {
               <ul className="promora-links">
                 <li><Link to="/">Overview</Link></li>
                 <li><Link to="/#modules">Modules</Link></li>
-                <li><Link to="/#why-wi">Why WorkIntely</Link></li>
+                <li><Link to="/#why-wi">Why WorkIntel</Link></li>
               </ul>
             </div>
 
@@ -108,7 +108,7 @@ export default function Footer() {
         {/* Middle Bar: Sub-note & Social Icons */}
         <div className="promora-middle-bar">
           <div className="promora-subnote">
-            Part of the WorkIntely platform family, including Staffing Services.
+            Part of the WorkIntel platform family, including Staffing Services.
           </div>
 
           <div className="promora-socials">
@@ -144,12 +144,12 @@ export default function Footer() {
 
         {/* Bottom Giant Brand Typography Watermark Banner */}
         <div className="promora-watermark-wrap">
-          <h1 className="promora-giant-text">WorkIntely</h1>
+          <h1 className="promora-giant-text">WorkIntel</h1>
         </div>
 
         {/* Legal & Copyright */}
         <div className="promora-legal-row">
-          <span>© 2026 WorkIntely. All rights reserved.</span>
+          <span>© 2026 WorkIntel. All rights reserved.</span>
           <div className="legal-links">
             <a href="#privacy">Privacy</a>
             <span>•</span>

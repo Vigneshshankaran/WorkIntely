@@ -85,7 +85,7 @@ export default function WhyChooseWi() {
         {/* Top Header Row with Title & Arrow Controls */}
         <div className="why-wi-top-bar">
           <div className="why-wi-title-area">
-            <span className="why-wi-track-label">WHY WORKINTELY</span>
+            <span className="why-wi-track-label">WHY WORKINTEL</span>
             <h2 className="why-wi-title">Built for how modern HR teams work</h2>
           </div>
 

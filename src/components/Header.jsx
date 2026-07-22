@@ -30,7 +30,7 @@ export default function Header() {
     <header className={`navbar-wrapper ${scrolled || open ? 'scrolled' : ''}`}>
       <div className="container navbar-container">
         {/* Brand Logo */}
-        <Link to="/" className="brand-logo" aria-label="WorkIntely Home">
+        <Link to="/" className="brand-logo" aria-label="WorkIntel Home">
           <Logo height={32} />
         </Link>
 
@@ -38,7 +38,7 @@ export default function Header() {
         <nav className="nav-menu" aria-label="Primary">
           <NavLink to="/" end className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>Platform</NavLink>
           <Link to="/#modules" className="nav-link">Modules</Link>
-          <Link to="/#why-wi" className="nav-link">Why WorkIntely</Link>
+          <Link to="/#why-wi" className="nav-link">Why WorkIntel</Link>
           <NavLink to="/resources" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>Resources</NavLink>
           <NavLink to="/about" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>About Us</NavLink>
         </nav>
@@ -68,7 +68,7 @@ export default function Header() {
         <nav id="mobile-menu" className="mobile-menu" aria-label="Primary mobile">
           <NavLink to="/" end className="mobile-link" onClick={() => setOpen(false)}>Platform</NavLink>
           <Link to="/#modules" className="mobile-link" onClick={() => setOpen(false)}>Modules</Link>
-          <Link to="/#why-wi" className="mobile-link" onClick={() => setOpen(false)}>Why WorkIntely</Link>
+          <Link to="/#why-wi" className="mobile-link" onClick={() => setOpen(false)}>Why WorkIntel</Link>
           <NavLink to="/resources" className="mobile-link" onClick={() => setOpen(false)}>Resources</NavLink>
           <NavLink to="/about" className="mobile-link" onClick={() => setOpen(false)}>About Us</NavLink>
           <Link to="/contact" className="btn btn-primary mobile-cta" onClick={() => setOpen(false)}>

@@ -48,7 +48,7 @@ export default function Logo({ dark = false, height = 32, showText = true }) {
           alignItems: 'center'
         }}>
           <span style={{ color: dark ? '#ffffff' : '#0f172a' }}>Work</span>
-          <span style={{ color: '#8b5cf6' }}>Intely</span>
+          <span style={{ color: '#8b5cf6' }}>Intel</span>
         </span>
       )}
     </div>

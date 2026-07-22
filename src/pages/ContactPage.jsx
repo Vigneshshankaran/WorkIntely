@@ -29,7 +29,7 @@ export default function ContactPage() {
             <h1 className="contact-title">Talk to Us</h1>
             
             <p className="contact-subtitle">
-              Tell us about your team and we'll show you how WorkIntely fits your talent management needs.
+              Tell us about your team and we'll show you how WorkIntel fits your talent management needs.
             </p>
 
             <div className="direct-reach-box">
@@ -37,8 +37,8 @@ export default function ContactPage() {
               
               <div className="reach-email-row">
                 <Mail size={16} className="reach-icon" />
-                <a href="mailto:connect@workintely.com" className="email-link">
-                  connect@workintely.com
+                <a href="mailto:connect@workintel.com" className="email-link">
+                  connect@workintel.com
                 </a>
               </div>
 
@@ -83,7 +83,7 @@ export default function ContactPage() {
               <div className="contact-success">
                 <CheckCircle size={48} className="success-check-icon" />
                 <h3>Thank You, {formData.fullName}!</h3>
-                <p>We've received your request. A WorkIntely advisor will be in touch with you shortly at {formData.workEmail}.</p>
+                <p>We've received your request. A WorkIntel advisor will be in touch with you shortly at {formData.workEmail}.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="talk-form">

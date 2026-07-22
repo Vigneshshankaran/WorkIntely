@@ -37,7 +37,7 @@ export default function PlatformBento() {
         
         {/* Section Header */}
         <div className="nia-bento-header">
-          <span className="eyebrow">The WorkIntely Platform</span>
+          <span className="eyebrow">The WorkIntel Platform</span>
           <h2 className="nia-bento-title">Four connected modules. One employee record.</h2>
         </div>
 
@@ -58,10 +58,10 @@ export default function PlatformBento() {
                 <p className="nia-card-desc">
                   Attract and hire top talent faster with AI-assisted recruiting pipelines.
                 </p>
-                <Link to="/contact" className="nia-card-link">
+                <a href="https://hirehub-global.com" target="_blank" rel="noopener noreferrer" className="nia-card-link">
                   <span>Learn More</span>
                   <ArrowRight size={14} />
-                </Link>
+                </a>
               </div>
             </div>
 

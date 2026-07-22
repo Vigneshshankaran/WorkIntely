@@ -22,7 +22,7 @@ export default function AboutPage() {
           <div className="about-visual-panel">
             <div className="story-mockup-card">
               <div className="story-card-badge">
-                <Sparkles size={16} /> WorkIntely Platform Origin
+                <Sparkles size={16} /> WorkIntel Platform Origin
               </div>
               <h3 className="story-card-title">Unified Talent Architecture</h3>
               <p className="story-card-sub">
@@ -53,7 +53,7 @@ export default function AboutPage() {
               Built from the everyday friction of managing talent.
             </h2>
             <p className="story-desc">
-              WiTalents was built inside the WorkIntely platform to close the gap between hiring,
+              WiTalents was built inside the WorkIntel platform to close the gap between hiring,
               people data, growth, and performance — replacing disconnected tools with one intelligent
               system that grows with every organization it serves.
             </p>

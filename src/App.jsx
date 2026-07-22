@@ -30,7 +30,7 @@ function ScrollManager() {
 export default function App() {
   return (
     <Router>
-      <div className="workintely-app">
+      <div className="workintel-app">
         <ScrollManager />
         <Header />
         
