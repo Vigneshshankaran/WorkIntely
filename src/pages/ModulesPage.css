@@ -1,0 +1,205 @@
+/* ==========================================================================
+   Modules Page Stylesheet (ModulesPage.css)
+   Exact Lifecycle Card UI Alignment
+   ========================================================================== */
+
+.modules-page {
+  padding-top: var(--space-section);
+  padding-bottom: var(--space-section);
+  background-color: var(--canvas);
+}
+
+/* Header Section */
+.modules-hero-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 48px auto;
+}
+
+.modules-hero-header .eyebrow {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: var(--primary);
+  letter-spacing: 0.08em;
+}
+
+.modules-page-title {
+  font-family: var(--font-display);
+  font-size: var(--text-hero);
+  font-weight: 800;
+  color: var(--ink);
+  line-height: var(--lh-tight);
+  margin-bottom: 16px;
+  letter-spacing: var(--track-heading);
+}
+
+.modules-page-subtitle {
+  font-family: var(--font-body);
+  font-size: var(--text-lead);
+  color: var(--ink-muted);
+  line-height: var(--lh-body);
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* 6 Cards Grid Layout (3x2 on desktop) */
+.modules-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 48px;
+  align-items: stretch;
+}
+
+/* Lifecycle Card Variant for Modules Page */
+.lifecycle-card.module-card-variant {
+  background: var(--surface-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light);
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.lifecycle-card.module-card-variant:hover {
+  transform: translateY(-4px);
+  border-color: var(--ink);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Top Row Layout */
+.card-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* Circle Badge Icon */
+.step-badge-icon.circle-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--canvas-subtle);
+  border: 1.5px solid var(--border-light);
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.lifecycle-card.module-card-variant:hover .step-badge-icon.circle-icon {
+  background: var(--surface-dark);
+  color: var(--white);
+  border-color: var(--surface-dark);
+  transform: scale(1.05);
+}
+
+.step-num {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ink-muted);
+  background: var(--canvas-subtle);
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+}
+
+/* Title & Description */
+.card-step-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 8px;
+  line-height: var(--lh-heading);
+}
+
+.card-step-desc {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+  font-weight: 400;
+  line-height: 1.55;
+  margin-bottom: 24px;
+}
+
+/* Bottom Arrow Link */
+.card-arrow-link {
+  margin-top: auto;
+  color: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.lifecycle-card.module-card-variant:hover .card-arrow-link {
+  color: var(--primary);
+  transform: translateX(4px);
+}
+
+/* Bottom CTA Row */
+.modules-bottom-cta {
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: var(--ink-secondary);
+  font-weight: 500;
+  margin-top: 16px;
+}
+
+.modules-cta-link {
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s ease;
+}
+
+.modules-cta-link:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
+}
+
+.modules-cta-link .inline-arrow {
+  transition: transform 0.2s ease;
+}
+
+.modules-cta-link:hover .inline-arrow {
+  transform: translateX(4px);
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1024px) {
+  .modules-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .modules-page {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .modules-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .lifecycle-card.module-card-variant {
+    padding: 24px 20px;
+  }
+
+  .modules-page-title {
+    font-size: 2rem;
+  }
+}

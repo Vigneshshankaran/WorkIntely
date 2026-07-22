@@ -58,10 +58,10 @@ export default function PlatformBento() {
                 <p className="nia-card-desc">
                   Attract and hire top talent faster with AI-assisted recruiting pipelines.
                 </p>
-                <a href="https://hirehub-global.com" target="_blank" rel="noopener noreferrer" className="nia-card-link">
+                <Link to="/modules" className="nia-card-link">
                   <span>Learn More</span>
                   <ArrowRight size={14} />
-                </a>
+                </Link>
               </div>
             </div>
 

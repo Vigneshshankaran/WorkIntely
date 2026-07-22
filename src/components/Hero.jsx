@@ -107,9 +107,9 @@ export default function Hero() {
             <span>Book a Demo</span>
           </Link>
 
-          <a href="#modules" className="btn-secondary-light">
+          <Link to="/modules" className="btn-secondary-light">
             <span>Explore Platform</span>
-          </a>
+          </Link>
         </div>
 
         {/* Centered Dashboard Chart Visual */}
