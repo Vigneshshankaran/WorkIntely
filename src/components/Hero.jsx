@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { MessageSquare, TrendingUp, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
@@ -12,47 +12,56 @@ const chartData = [
   { month: 'Jun', height: 66, val: '5,280 Onboarded' }
 ];
 
-const ROTATING_WORDS = ['hiring', 'people data', 'learning', 'performance'];
+const FULL_TEXT = 'hiring, people data, learning, and performance.';
 
 export default function Hero() {
-  const [hoveredBar, setHoveredBar] = useState(2);
-  const [displayedText, setDisplayedText] = useState('');
-  const [wordIdx, setWordIdx] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
   const heroRef = useRef(null);
+  const [hoveredBar, setHoveredBar] = useState(null);
+  const [displayText, setDisplayText] = useState('');
+  const [fadeState, setFadeState] = useState('visible');
 
-  // Typewriter effect with fixed word sizing & smooth pauses
   useEffect(() => {
-    const currentWord = ROTATING_WORDS[wordIdx];
-    let timer;
+    let index = 0;
+    let isCancelled = false;
+    let timerId = null;
 
-    if (!isDeleting) {
-      if (displayedText.length < currentWord.length) {
-        timer = setTimeout(() => {
-          setDisplayedText(currentWord.slice(0, displayedText.length + 1));
-        }, 95);
-      } else {
-        // Hold complete word for 2.2 seconds
-        timer = setTimeout(() => {
-          setIsDeleting(true);
-        }, 2200);
-      }
-    } else {
-      if (displayedText.length > 0) {
-        timer = setTimeout(() => {
-          setDisplayedText(currentWord.slice(0, displayedText.length - 1));
-        }, 50);
-      } else {
-        // Brief pause before typing next word
-        timer = setTimeout(() => {
-          setIsDeleting(false);
-          setWordIdx((prev) => (prev + 1) % ROTATING_WORDS.length);
-        }, 250);
-      }
+    function runTypingSequence() {
+      if (isCancelled) return;
+      index = 0;
+      setDisplayText('');
+      setFadeState('visible');
+
+      const interval = setInterval(() => {
+        if (isCancelled) {
+          clearInterval(interval);
+          return;
+        }
+        index++;
+        if (index <= FULL_TEXT.length) {
+          setDisplayText(FULL_TEXT.slice(0, index));
+        } else {
+          clearInterval(interval);
+          // Hold full text for 6.5s so it is easy to read
+          timerId = setTimeout(() => {
+            if (isCancelled) return;
+            setFadeState('fading-out');
+            // Smooth 0.8s fade out before restarting
+            timerId = setTimeout(() => {
+              if (isCancelled) return;
+              runTypingSequence();
+            }, 800);
+          }, 6500);
+        }
+      }, 70);
     }
 
-    return () => clearTimeout(timer);
-  }, [displayedText, isDeleting, wordIdx]);
+    runTypingSequence();
+
+    return () => {
+      isCancelled = true;
+      if (timerId) clearTimeout(timerId);
+    };
+  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -76,12 +85,12 @@ export default function Hero() {
           <span className="badge-text-light">WELCOME TO WORKINTEL</span>
         </div>
 
-        {/* Main Headline with Non-shifting Typewriter Animation */}
+        {/* Main Headline with Slow & Smooth Full Text Typing Animation */}
         <h1 className="hero-title-light">
-          <span className="hero-title-prefix">The intelligent platform for</span>{' '}
-          <span className="typewriter-wrapper">
-            <span className="typewriter-word">{displayedText}.</span>
-            <span className="typewriter-cursor" aria-hidden="true">|</span>
+          The intelligent platform for{' '}
+          <span className={`purple-highlight-text typewriter-full-wrap ${fadeState}`}>
+            <span className="gradient-shimmer-all">{displayText}</span>
+            <span className="typewriter-cursor">|</span>
           </span>
         </h1>
 

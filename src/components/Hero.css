@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Hero Section (Hero.css) — Single Column & Non-Shifting Typewriter Theme
+   Hero Section (Hero.css) — Single Column Full-Text Theme
    ========================================================================== */
 
 .hero-wrapper-light {
@@ -51,45 +51,67 @@
 /* Main Headline */
 .hero-title-light {
   font-family: var(--font-display);
-  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  font-size: clamp(2.4rem, 5.2vw, 4.4rem);
   font-weight: 800;
   color: var(--ink, #0f172a);
-  line-height: 1.25;
+  line-height: 1.18;
   letter-spacing: -0.025em;
-  max-width: 980px;
+  max-width: 1000px;
   margin: 0 auto;
   text-align: center;
 }
 
-.hero-title-prefix {
-  display: inline;
-}
-
-/* Typewriter Animation Styles - Fixed Reserved Inline Width */
-.typewriter-wrapper {
-  display: inline-block;
-  color: #8b5cf6;
+.purple-highlight-text {
+  background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 50%, #0284c7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   font-weight: 800;
-  white-space: nowrap;
-  text-align: left;
-  min-width: 320px; /* Reserves space so typing never breaks line layout */
-  vertical-align: bottom;
 }
 
-.typewriter-word {
-  color: #8b5cf6;
+/* Full Text Gradient Shimmer */
+.gradient-shimmer-all {
+  background: linear-gradient(120deg, #8b5cf6 0%, #6366f1 25%, #38bdf8 50%, #6366f1 75%, #8b5cf6 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: fullTextShimmer 5s linear infinite;
+}
+
+@keyframes fullTextShimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* Typewriter Cursor & Layout Wrapper */
+.typewriter-full-wrap {
+  position: relative;
   display: inline;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.typewriter-full-wrap.visible {
+  opacity: 1;
+  filter: blur(0px);
+}
+
+.typewriter-full-wrap.fading-out {
+  opacity: 0;
+  filter: blur(6px);
 }
 
 .typewriter-cursor {
   display: inline-block;
-  color: #8b5cf6;
+  margin-left: 3px;
   font-weight: 300;
-  margin-left: 2px;
-  animation: cursorBlink 0.75s infinite;
+  color: #8b5cf6;
+  -webkit-text-fill-color: #8b5cf6;
+  animation: typewriterCursorBlink 0.75s infinite;
+  vertical-align: baseline;
 }
 
-@keyframes cursorBlink {
+@keyframes typewriterCursorBlink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
 }
@@ -365,9 +387,6 @@
   }
   .hero-title-light {
     font-size: 2.1rem;
-  }
-  .typewriter-wrapper {
-    min-width: 200px;
   }
   .hero-cta-wrap-light {
     width: 100%;
