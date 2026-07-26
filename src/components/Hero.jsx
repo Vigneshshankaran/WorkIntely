@@ -80,7 +80,7 @@ export default function Hero() {
         {/* Eyebrow Badge */}
         <div className="hero-badge-light">
           <span className="badge-dot-purple"></span>
-          <span className="badge-text-light">Making Work More Intelligently</span>
+          <span className="badge-text-light">Making Work More Intelligent</span>
         </div>
 
         {/* Main Headline */}
@@ -111,7 +111,7 @@ export default function Hero() {
           </Link>
 
           <Link to="/modules" className="btn-secondary-light">
-            <span>Explore Platform</span>
+            <span>Explore Modules</span>
           </Link>
         </div>
 

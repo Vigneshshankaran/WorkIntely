@@ -36,8 +36,7 @@ export default function Header() {
 
         {/* Center Navigation Links (desktop) */}
         <nav className="nav-menu" aria-label="Primary">
-          <NavLink to="/" end className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>Platform</NavLink>
-          <NavLink to="/modules" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>Modules</NavLink>
+          <NavLink to="/modules" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>Explore Modules</NavLink>
           <Link to="/#why-wi" className="nav-link">Why WorkIntel</Link>
           <NavLink to="/resources" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>Resources</NavLink>
           <NavLink to="/about" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>About Us</NavLink>
@@ -66,8 +65,7 @@ export default function Header() {
       {/* Mobile menu sheet */}
       {open && (
         <nav id="mobile-menu" className="mobile-menu" aria-label="Primary mobile">
-          <NavLink to="/" end className="mobile-link" onClick={() => setOpen(false)}>Platform</NavLink>
-          <NavLink to="/modules" className="mobile-link" onClick={() => setOpen(false)}>Modules</NavLink>
+          <NavLink to="/modules" className="mobile-link" onClick={() => setOpen(false)}>Explore Modules</NavLink>
           <Link to="/#why-wi" className="mobile-link" onClick={() => setOpen(false)}>Why WorkIntel</Link>
           <NavLink to="/resources" className="mobile-link" onClick={() => setOpen(false)}>Resources</NavLink>
           <NavLink to="/about" className="mobile-link" onClick={() => setOpen(false)}>About Us</NavLink>

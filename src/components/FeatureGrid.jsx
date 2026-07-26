@@ -36,7 +36,7 @@ export default function FeatureGrid() {
         
         {/* Section Header */}
         <div className="lifecycle-header">
-          <span className="eyebrow">Platform Modules</span>
+          <span className="eyebrow">WI Family of Products</span>
           <h2 className="lifecycle-title">
             One Intelligent Platform Across the Employee Lifecycle
           </h2>

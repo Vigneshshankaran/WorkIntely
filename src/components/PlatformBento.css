@@ -30,16 +30,9 @@
   gap: 20px;
 }
 
-.nia-grid-top-row {
+.nia-bento-grid-6 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  align-items: stretch;
-}
-
-.nia-grid-bottom-row {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   align-items: stretch;
 }
@@ -179,8 +172,7 @@
 }
 
 @media (max-width: 992px) {
-  .nia-grid-top-row,
-  .nia-grid-bottom-row {
+  .nia-bento-grid-6 {
     grid-template-columns: 1fr;
   }
 }

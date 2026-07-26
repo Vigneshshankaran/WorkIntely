@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ListFilter, UserCheck, Headphones, TrendingUp, CheckSquare, Star, ArrowRight } from 'lucide-react';
+import { ListFilter, UserCheck, Headphones, TrendingUp, CheckSquare, Star, ArrowRight, Sparkles } from 'lucide-react';
 import './ModulesPage.css';
+
+const modulesPills = ['WiTalents', 'WiPeople', 'WiGrow', 'WiPerform', 'WiSales', 'WiBooks'];
 
 const modulesList = [
   {
@@ -49,13 +51,15 @@ const modulesList = [
 ];
 
 export default function ModulesPage() {
+  const [activeModule, setActiveModule] = useState('WiTalents');
+
   return (
     <div className="modules-page section-1440">
       <div className="container">
         
         {/* Page Header */}
         <header className="modules-hero-header">
-          <span className="eyebrow">PLATFORM MODULES</span>
+          <span className="eyebrow">WI Family of Products</span>
           <h1 className="modules-page-title">
             Intelligent Solutions for the Modern Workforce
           </h1>
@@ -64,31 +68,59 @@ export default function ModulesPage() {
           </p>
         </header>
 
-        {/* 6 Cards Grid (3x2 on desktop) matching lifecycle-card structure */}
-        <div className="modules-cards-grid">
-          {modulesList.map((item) => (
-            <div key={item.id} className="lifecycle-card module-card-variant">
-              
-              {/* Top Row: Circle Badge Icon + Step Badge */}
-              <div className="card-top-row">
-                <div className="step-badge-icon circle-icon">
-                  {item.icon}
-                </div>
-                <span className="step-num">0{item.step}</span>
-              </div>
-
-              {/* Title & Description */}
-              <h2 className="card-step-title">{item.title}</h2>
-              <p className="card-step-desc">{item.description}</p>
-
-              {/* Bottom Right Arrow Action */}
-              <div className="card-arrow-link">
-                <ArrowRight size={18} />
-              </div>
-
-            </div>
+        {/* Product Selector Tabs */}
+        <div className="modules-tabs-list">
+          {modulesPills.map((item) => (
+            <button
+              key={item}
+              className={`module-tab-btn ${activeModule === item ? 'active' : ''}`}
+              onClick={() => setActiveModule(item)}
+            >
+              {item}
+            </button>
           ))}
         </div>
+
+        {/* Tab Content Display */}
+        {activeModule === 'WiTalents' ? (
+          <div className="modules-cards-grid">
+            {modulesList.map((item) => (
+              <div key={item.id} className="lifecycle-card module-card-variant">
+                
+                {/* Top Row: Circle Badge Icon + Step Badge */}
+                <div className="card-top-row">
+                  <div className="step-badge-icon circle-icon">
+                    {item.icon}
+                  </div>
+                  <span className="step-num">0{item.step}</span>
+                </div>
+
+                {/* Title & Description */}
+                <h2 className="card-step-title">{item.title}</h2>
+                <p className="card-step-desc">{item.description}</p>
+
+                {/* Bottom Right Arrow Action */}
+                <div className="card-arrow-link">
+                  <ArrowRight size={18} />
+                </div>
+
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="coming-soon-module-panel">
+            <div className="coming-soon-module-icon">
+              <Sparkles size={32} style={{ color: 'var(--primary)' }} />
+            </div>
+            <h2 className="coming-soon-module-title">{activeModule} Details</h2>
+            <p className="coming-soon-text-small">
+              Getting updated shortly. Reach out to us if you are interested in this particular module.
+            </p>
+            <Link to="/contact" className="btn btn-primary" style={{ marginTop: '12px' }}>
+              <span>Inquire About {activeModule}</span>
+            </Link>
+          </div>
+        )}
 
         {/* Bottom CTA Text Bar */}
         <div className="modules-bottom-cta">

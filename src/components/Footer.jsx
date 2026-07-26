@@ -67,22 +67,15 @@ export default function Footer() {
               <ul className="promora-links">
                 <li><Link to="/about">About Us</Link></li>
                 <li><Link to="/contact">Careers</Link></li>
-                <li><a href="#newsroom">Newsroom</a></li>
-              </ul>
-            </div>
-
-            <div className="promora-col">
-              <h4 className="promora-col-title">Platform</h4>
-              <ul className="promora-links">
-                <li><Link to="/">Overview</Link></li>
-                <li><Link to="/modules">Modules</Link></li>
                 <li><Link to="/#why-wi">Why WorkIntel</Link></li>
+                <li><a href="#newsroom">Newsroom</a></li>
               </ul>
             </div>
 
             <div className="promora-col">
               <h4 className="promora-col-title">Modules</h4>
               <ul className="promora-links">
+                <li><Link to="/">Overview</Link></li>
                 <li><Link to="/modules">ATS</Link></li>
                 <li><Link to="/modules">People</Link></li>
                 <li><Link to="/modules">Grow</Link></li>
