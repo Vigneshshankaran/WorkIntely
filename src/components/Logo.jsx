@@ -12,9 +12,8 @@ export default function Logo({ dark = false, height = 32, showText = true }) {
       >
         <defs>
           <linearGradient id="wiLogoGrad" x1="0" y1="90" x2="100" y2="0" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stopColor="#8b5cf6" />
-            <stop offset="50%" stopColor="#6366f1" />
-            <stop offset="100%" stopColor="#0284c7" />
+            <stop offset="0%" stopColor="#ffffff" />
+            <stop offset="100%" stopColor="var(--primary)" />
           </linearGradient>
         </defs>
 
@@ -47,8 +46,8 @@ export default function Logo({ dark = false, height = 32, showText = true }) {
           display: 'inline-flex',
           alignItems: 'center'
         }}>
-          <span style={{ color: dark ? '#ffffff' : '#0f172a' }}>Work</span>
-          <span style={{ color: '#8b5cf6' }}>Intel</span>
+          <span style={{ color: 'var(--ink)' }}>Work</span>
+          <span style={{ color: 'var(--primary)' }}>Intel</span>
         </span>
       )}
     </div>

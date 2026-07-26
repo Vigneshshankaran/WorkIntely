@@ -7,32 +7,32 @@
 
 :root {
   /* ── Single Primary Accent & Neutrals ── */
-  --primary:          #3b82f6;       /* Clean Professional Blue */
-  --primary-hover:    #2563eb;
-  --primary-light:    #eff6ff;
-  --primary-glow:     rgba(59, 130, 246, 0.15);
+  --primary:          #ccff00;       /* Electric Lime Accent */
+  --primary-hover:    #d9ff33;
+  --primary-light:    rgba(204, 255, 0, 0.08);
+  --primary-glow:     rgba(204, 255, 0, 0.15);
 
   /* ── Surface Tones ── */
-  --canvas:           #ffffff;
-  --canvas-subtle:    #f8fafc;
-  --canvas-parchment: #f1f5f9;
-  --surface-card:     #ffffff;
-  --surface-dark:     #0f172a;       /* Deep Charcoal Slate */
-  --surface-dark-2:   #1e293b;
+  --canvas:           #000000;       /* Pitch Black Canvas */
+  --canvas-subtle:    #09090b;       /* Deep Charcoal Canvas */
+  --canvas-parchment: #141416;       /* Dark Gray Canvas */
+  --surface-card:     #0c0c0e;       /* Bento/Card Base Surface */
+  --surface-dark:     #000000;
+  --surface-dark-2:   #09090b;
 
   /* ── Text Tones ── */
-  --ink:              #0f172a;
-  --ink-secondary:    #334155;
-  --ink-muted:        #64748b;
-  --ink-faint:        #94a3b8;
+  --ink:              #ffffff;       /* Crisp White text */
+  --ink-secondary:    #e4e4e7;       /* Silver text */
+  --ink-muted:        #a1a1aa;       /* Zinc text */
+  --ink-faint:        #71717a;       /* Deep Muted Zinc */
   --on-dark:          #ffffff;
-  --ondark-muted:     #94a3b8;
-  --ondark-faint:     #64748b;
+  --ondark-muted:     #a1a1aa;
+  --ondark-faint:     #71717a;
 
   /* ── Borders ── */
-  --border-light:     #e2e8f0;
-  --border-subtle:    #f1f5f9;
-  --border-focus:     rgba(59, 130, 246, 0.4);
+  --border-light:     #1f1f23;       /* Subtle dark borders */
+  --border-subtle:    #141416;
+  --border-focus:     rgba(204, 255, 0, 0.4);
 
   /* ── Shadows ── */
   --shadow-xs:        0 1px 2px rgba(15, 23, 42, 0.04);
@@ -215,7 +215,7 @@ a {
 .btn-primary,
 .btn-purple {
   background: var(--primary);
-  color: var(--white);
+  color: #000000;
   box-shadow: 0 4px 12px var(--primary-glow);
 }
 
@@ -223,7 +223,7 @@ a {
 .btn-purple:hover {
   background: var(--primary-hover);
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 6px 16px rgba(204, 255, 0, 0.25);
 }
 
 .btn-secondary,

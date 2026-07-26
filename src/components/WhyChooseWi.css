@@ -53,15 +53,16 @@
 
 .slider-btn:hover {
   background: var(--primary);
-  color: var(--white);
+  color: #000000;
   border-color: var(--primary);
   box-shadow: var(--shadow-sm);
   transform: translateY(-2px);
 }
 
 .slider-btn.active {
-  background: var(--surface-dark);
-  color: var(--white);
+  background: var(--primary);
+  color: #000000;
+  border-color: var(--primary);
 }
 
 /* Carousel Track */
@@ -96,7 +97,7 @@
 .why-wi-card:hover {
   transform: translateY(-6px);
   box-shadow: var(--shadow-md);
-  border-color: rgba(99, 102, 241, 0.3);
+  border-color: rgba(204, 255, 0, 0.3);
 }
 
 .why-icon-avatar {

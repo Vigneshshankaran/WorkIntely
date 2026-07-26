@@ -12,8 +12,6 @@ const chartData = [
   { month: 'Jun', height: 66, val: '5,280 Onboarded' }
 ];
 
-const FULL_TEXT = 'hiring, people data, learning, and performance.';
-
 export default function Hero() {
   const heroRef = useRef(null);
   const [hoveredBar, setHoveredBar] = useState(null);
@@ -24,6 +22,7 @@ export default function Hero() {
     let index = 0;
     let isCancelled = false;
     let timerId = null;
+    const FULL_TEXT = 'hiring, people data, learning, and performance.';
 
     function runTypingSequence() {
       if (isCancelled) return;
@@ -41,11 +40,9 @@ export default function Hero() {
           setDisplayText(FULL_TEXT.slice(0, index));
         } else {
           clearInterval(interval);
-          // Hold full text for 6.5s so it is easy to read
           timerId = setTimeout(() => {
             if (isCancelled) return;
             setFadeState('fading-out');
-            // Smooth 0.8s fade out before restarting
             timerId = setTimeout(() => {
               if (isCancelled) return;
               runTypingSequence();
@@ -68,6 +65,7 @@ export default function Hero() {
       gsap.from('.hero-badge-light', { y: -15, opacity: 0, duration: 0.6 });
       gsap.from('.hero-title-light', { y: 20, opacity: 0, duration: 0.8, delay: 0.1 });
       gsap.from('.hero-desc-light', { y: 15, opacity: 0, duration: 0.6, delay: 0.2 });
+      gsap.from('.hero-typewriter-tagline', { y: 15, opacity: 0, duration: 0.6, delay: 0.25 });
       gsap.from('.hero-cta-wrap-light', { scale: 0.95, opacity: 0, duration: 0.6, delay: 0.3 });
       gsap.from('.hero-visual-single', { y: 30, opacity: 0, duration: 0.9, delay: 0.4 });
     }, heroRef);
@@ -82,23 +80,28 @@ export default function Hero() {
         {/* Eyebrow Badge */}
         <div className="hero-badge-light">
           <span className="badge-dot-purple"></span>
-          <span className="badge-text-light">WELCOME TO WORKINTEL</span>
+          <span className="badge-text-light">Making Work More Intelligently</span>
         </div>
 
-        {/* Main Headline with Slow & Smooth Full Text Typing Animation */}
+        {/* Main Headline */}
         <h1 className="hero-title-light">
-          The intelligent platform for{' '}
-          <span className={`purple-highlight-text typewriter-full-wrap ${fadeState}`}>
-            <span className="gradient-shimmer-all">{displayText}</span>
-            <span className="typewriter-cursor">|</span>
-          </span>
+          Building AI Solutions that help{' '}
+          <span className="purple-highlight-text gradient-shimmer-all">organisations work smarter</span>
         </h1>
 
         {/* Description */}
         <p className="hero-desc-light">
-          WorkIntel unifies hiring, people data, growth, and performance
-          into one intelligent system — built around a single employee record.
+          starting with talent management and expanding across the enterprise
         </p>
+
+        {/* Dynamic Typewriter Tagline */}
+        <div className="hero-typewriter-tagline">
+          The intelligent platform for{' '}
+          <span className={`purple-highlight-text typewriter-wrap ${fadeState}`}>
+            <span className="gradient-shimmer-all">{displayText}</span>
+            <span className="typewriter-cursor">|</span>
+          </span>
+        </div>
 
         {/* CTA Actions */}
         <div className="hero-cta-wrap-light">

@@ -8,7 +8,8 @@
 }
 
 .cta-banner-card {
-  background: var(--surface-dark);
+  background: var(--surface-card);
+  border: 1px solid var(--border-light);
   border-radius: var(--radius-xl);
   padding: 56px 48px;
   display: flex;
@@ -60,8 +61,8 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  background: #ffffff;
-  color: #0f172a;
+  background: var(--primary);
+  color: #000000;
   font-family: var(--font-display);
   font-size: 0.95rem;
   font-weight: 700;
@@ -74,10 +75,10 @@
 
 .cta-banner-btn:hover,
 .cta-orange-btn:hover {
-  background: #f8fafc;
-  color: var(--primary);
+  background: var(--primary-hover);
+  color: #000000;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 20px rgba(204, 255, 0, 0.25);
 }
 
 @media (max-width: 868px) {
