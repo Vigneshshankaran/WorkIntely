@@ -94,7 +94,7 @@
   background: var(--primary-light);
   padding: 2px 7px;
   border-radius: var(--radius-pill);
-  border: 1px solid rgba(204, 255, 0, 0.2);
+  border: 1px solid rgba(140, 82, 255, 0.2);
   white-space: nowrap;
   letter-spacing: 0.02em;
 }
@@ -120,7 +120,7 @@
 
 .btn-talk {
   background: var(--primary);
-  color: #000000;
+  color: #ffffff;
   font-family: var(--font-body);
   font-size: 0.875rem;
   font-weight: 600;

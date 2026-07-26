@@ -7,32 +7,32 @@
 
 :root {
   /* ── Single Primary Accent & Neutrals ── */
-  --primary:          #ccff00;       /* Electric Lime Accent */
-  --primary-hover:    #d9ff33;
-  --primary-light:    rgba(204, 255, 0, 0.08);
-  --primary-glow:     rgba(204, 255, 0, 0.15);
+  --primary:          #8c52ff;       /* Electric Purple Accent */
+  --primary-hover:    #a270ff;
+  --primary-light:    rgba(140, 82, 255, 0.08);
+  --primary-glow:     rgba(140, 82, 255, 0.15);
 
   /* ── Surface Tones ── */
-  --canvas:           #000000;       /* Pitch Black Canvas */
-  --canvas-subtle:    #09090b;       /* Deep Charcoal Canvas */
-  --canvas-parchment: #141416;       /* Dark Gray Canvas */
-  --surface-card:     #0c0c0e;       /* Bento/Card Base Surface */
-  --surface-dark:     #000000;
-  --surface-dark-2:   #09090b;
+  --canvas:           #030008;       /* Pitch Black Canvas */
+  --canvas-subtle:    #0a0712;       /* Deep Charcoal Canvas with Violet Tint */
+  --canvas-parchment: #130f22;       /* Dark Purple-Gray Canvas */
+  --surface-card:     #0a0712;       /* Bento/Card Base Surface */
+  --surface-dark:     #030008;
+  --surface-dark-2:   #0a0712;
 
   /* ── Text Tones ── */
   --ink:              #ffffff;       /* Crisp White text */
-  --ink-secondary:    #e4e4e7;       /* Silver text */
-  --ink-muted:        #a1a1aa;       /* Zinc text */
-  --ink-faint:        #71717a;       /* Deep Muted Zinc */
+  --ink-secondary:    #e9d5ff;       /* Silver Purple text */
+  --ink-muted:        #94a3b8;       /* Slate text */
+  --ink-faint:        #6b7280;       /* Muted Slate */
   --on-dark:          #ffffff;
-  --ondark-muted:     #a1a1aa;
-  --ondark-faint:     #71717a;
+  --ondark-muted:     #d8b4fe;       /* Silver Purple */
+  --ondark-faint:     #a78bfa;       /* Muted Violet */
 
   /* ── Borders ── */
-  --border-light:     #1f1f23;       /* Subtle dark borders */
-  --border-subtle:    #141416;
-  --border-focus:     rgba(204, 255, 0, 0.4);
+  --border-light:     #211a36;       /* Subtle dark borders with Violet hint */
+  --border-subtle:    #18132b;
+  --border-focus:     rgba(140, 82, 255, 0.4);
 
   /* ── Shadows ── */
   --shadow-xs:        0 1px 2px rgba(15, 23, 42, 0.04);
@@ -215,7 +215,7 @@ a {
 .btn-primary,
 .btn-purple {
   background: var(--primary);
-  color: #000000;
+  color: #ffffff;
   box-shadow: 0 4px 12px var(--primary-glow);
 }
 
@@ -223,7 +223,7 @@ a {
 .btn-purple:hover {
   background: var(--primary-hover);
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(204, 255, 0, 0.25);
+  box-shadow: 0 6px 16px rgba(140, 82, 255, 0.25);
 }
 
 .btn-secondary,
