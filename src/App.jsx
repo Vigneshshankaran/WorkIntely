@@ -38,7 +38,7 @@ export default function App() {
         <main>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/modules" element={<ModulesPage />} />
+            <Route path="/solution" element={<ModulesPage />} />
             <Route 
               path="/resources" 
               element={<ComingSoonPage title="Resources Coming Soon" />} 

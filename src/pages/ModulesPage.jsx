@@ -38,6 +38,7 @@ const rolesData = [
     ],
     image: growImg,
     imageAlt: 'Wi Grow learning and career development dashboard',
+    videoUrl: 'https://player.vimeo.com/external/434045526.sd.mp4?s=c27d2ad6cfed9dcb12f39eec49285290000ecdc9&profile_id=139&oauth2_token_id=57447761',
     whyChooseTitle: 'Why Talent Management Teams Choose WorkIntel',
     whyChoose: [
       { title: 'Performance Management', desc: 'Run continuous performance reviews, goal tracking, feedback cycles, and development conversations.' },
@@ -65,6 +66,7 @@ const rolesData = [
     ],
     image: peopleImg,
     imageAlt: 'Wi People employee records and directory dashboard',
+    videoUrl: 'https://player.vimeo.com/external/403788534.sd.mp4?s=d0014da4d5386af4ee2678f1f7e34f664df0d7fb&profile_id=139&oauth2_token_id=57447761',
     whyChooseTitle: 'Why HR Operations Teams Choose WorkIntel',
     whyChoose: [
       { title: 'Employee Lifecycle Management', desc: 'Manage onboarding, employee records, transfers, promotions, exits, and everything in between.' },
@@ -92,6 +94,7 @@ const rolesData = [
     ],
     image: atsImg,
     imageAlt: 'Wi Talents recruiting pipeline and candidate dashboard',
+    videoUrl: 'https://player.vimeo.com/external/371433846.sd.mp4?s=236da2f3c054f4d9b3e007353f81e27e702c2187&profile_id=139&oauth2_token_id=57447761',
     whyChooseTitle: 'Why Hiring Teams Choose WorkIntel',
     whyChoose: [
       { title: 'AI-Powered Candidate Matching', desc: 'Automatically identify the most relevant candidates based on skills, experience, competencies, and role requirements.' },
@@ -227,6 +230,22 @@ export default function ModulesPage() {
               className={`hero-slide-item ${isActive ? 'active' : ''}`}
               aria-hidden={!isActive}
             >
+              {/* Immersive Background Video */}
+              {role.videoUrl && (
+                <div className="hero-slide-bg-video-wrapper">
+                  <video
+                    key={role.id}
+                    src={role.videoUrl}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="hero-slide-bg-video"
+                  />
+                  <div className="hero-slide-bg-video-overlay" />
+                </div>
+              )}
+
               {/* Inner container to align text copy with grid */}
               <div className="container hero-slide-inner">
                 <div className="hero-slide-content">

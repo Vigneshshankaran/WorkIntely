@@ -76,10 +76,10 @@ export default function Footer() {
               <h4 className="promora-col-title">Modules</h4>
               <ul className="promora-links">
                 <li><Link to="/">Overview</Link></li>
-                <li><Link to="/modules">ATS</Link></li>
-                <li><Link to="/modules">People</Link></li>
-                <li><Link to="/modules">Grow</Link></li>
-                <li><Link to="/modules">Perform</Link></li>
+                <li><Link to="/solution">ATS</Link></li>
+                <li><Link to="/solution">People</Link></li>
+                <li><Link to="/solution">Grow</Link></li>
+                <li><Link to="/solution">Perform</Link></li>
               </ul>
             </div>
 

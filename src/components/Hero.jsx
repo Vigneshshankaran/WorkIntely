@@ -75,6 +75,19 @@ export default function Hero() {
 
   return (
     <section className="hero-wrapper-light" ref={heroRef}>
+      {/* Light Abstract Technology Background Video */}
+      <div className="hero-bg-video-wrapper">
+        <video
+          src="https://player.vimeo.com/external/459389137.sd.mp4?s=887d0e4c6c9f6d70df88c0353f81e27e702c2187&profile_id=139&oauth2_token_id=57447761"
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="hero-bg-video"
+        />
+        <div className="hero-bg-video-overlay" />
+      </div>
+
       <div className="container hero-container-single-col">
         
         {/* Eyebrow Badge */}
@@ -108,10 +121,6 @@ export default function Hero() {
           <Link to="/contact" className="btn-primary-purple btn-no-arrow">
             <MessageSquare size={16} />
             <span>Book a Demo</span>
-          </Link>
-
-          <Link to="/modules" className="btn-secondary-light">
-            <span>Explore Modules</span>
           </Link>
         </div>
 

@@ -58,7 +58,7 @@ export default function PlatformBento() {
                 <p className="nia-card-desc">
                   Attract and hire top talent faster with AI-assisted recruiting pipelines.
                 </p>
-                <Link to="/modules" className="nia-card-link">
+                <Link to="/solution" className="nia-card-link">
                   <span>Learn More</span>
                   <ArrowRight size={14} />
                 </Link>
@@ -76,7 +76,7 @@ export default function PlatformBento() {
                 <p className="nia-card-desc">
                   One centralized system of record for every employee, everywhere.
                 </p>
-                <Link to="/modules" className="nia-card-link">
+                <Link to="/solution" className="nia-card-link">
                   <span>Learn More</span>
                   <ArrowRight size={14} />
                 </Link>
@@ -94,7 +94,7 @@ export default function PlatformBento() {
                 <p className="nia-card-desc">
                   Personalized learning journeys that build critical skills and expertise.
                 </p>
-                <Link to="/modules" className="nia-card-link">
+                <Link to="/solution" className="nia-card-link">
                   <span>Learn More</span>
                   <ArrowRight size={14} />
                 </Link>
@@ -112,7 +112,7 @@ export default function PlatformBento() {
                 <p className="nia-card-desc">
                   Continuous feedback, goals, and automated performance reviews.
                 </p>
-                <Link to="/modules" className="nia-card-link">
+                <Link to="/solution" className="nia-card-link">
                   <span>Learn More</span>
                   <ArrowRight size={14} />
                 </Link>
@@ -134,7 +134,7 @@ export default function PlatformBento() {
                 <p className="nia-card-desc">
                   Accelerate revenue growth with AI-powered sales pipeline optimization and training.
                 </p>
-                <Link to="/modules" className="nia-card-link">
+                <Link to="/solution" className="nia-card-link">
                   <span>Learn More</span>
                   <ArrowRight size={14} />
                 </Link>
@@ -156,7 +156,7 @@ export default function PlatformBento() {
                 <p className="nia-card-desc">
                   Optimize financial planning, accounting, and expense operations.
                 </p>
-                <Link to="/modules" className="nia-card-link">
+                <Link to="/solution" className="nia-card-link">
                   <span>Learn More</span>
                   <ArrowRight size={14} />
                 </Link>
