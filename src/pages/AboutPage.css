@@ -3,7 +3,7 @@
    ========================================================================== */
 
 .about-page {
-  padding: 64px 0 80px;
+  padding: var(--space-section) 0;
   background: var(--canvas);
 }
 
@@ -11,7 +11,7 @@
 .about-hero {
   text-align: center;
   max-width: 840px;
-  margin: 0 auto 64px;
+  margin: 0 auto var(--space-xxl);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -37,7 +37,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 56px;
   align-items: center;
-  margin-bottom: 80px;
+  margin-bottom: var(--space-section);
 }
 
 .about-visual-panel {

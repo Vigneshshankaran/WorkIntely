@@ -76,7 +76,7 @@ export default function PlatformPhilosophy() {
             </h2>
 
             <p className="philosophy-desc">
-              Every module in WiTalents shares a single source of employee truth —
+              Every module in Wi Talents shares a single source of employee truth —
               so data flows seamlessly from hiring through performance, with no
               duplicate systems or manual handoffs.
             </p>

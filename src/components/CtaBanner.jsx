@@ -34,14 +34,14 @@ export default function CtaBanner() {
           <div className="cta-banner-text">
             <h2 className="cta-banner-title">Grow your team intelligently</h2>
             <p className="cta-banner-desc">
-              Streamline hiring, people data, growth, and performance into one unified AI platform.
+              Streamline hiring, people operations, growth, and performance into one unified AI platform.
             </p>
           </div>
 
           {/* Right Action Button */}
           <div className="cta-banner-action">
             <Link to="/contact" className="cta-banner-btn">
-              <span>Talk to WI</span>
+              <span>Talk to Wi</span>
               <ArrowUpRight size={18} />
             </Link>
           </div>

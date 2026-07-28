@@ -53,8 +53,8 @@ export default function AboutPage() {
               Built from the everyday friction of managing talent.
             </h2>
             <p className="story-desc">
-              WiTalents was built inside the WorkIntel platform to close the gap between hiring,
-              people data, growth, and performance — replacing disconnected tools with one intelligent
+              Wi Talents was built inside the WorkIntel platform to close the gap between hiring,
+              people operations, growth, and performance — replacing disconnected tools with one intelligent
               system that grows with every organization it serves.
             </p>
           </div>

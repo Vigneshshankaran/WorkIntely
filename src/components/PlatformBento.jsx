@@ -37,7 +37,7 @@ export default function PlatformBento() {
         
         {/* Section Header */}
         <div className="nia-bento-header">
-          <span className="eyebrow">The WI Family of Products</span>
+          <span className="eyebrow">The Wi Family of Products</span>
           <h2 className="nia-bento-title">Connected Modules. Unified Operations. Smarter Business.</h2>
         </div>
 
@@ -47,14 +47,14 @@ export default function PlatformBento() {
           {/* Main Grid: 6 Modules */}
           <div className="nia-bento-grid-6">
             
-            {/* Card 1: WiTalents */}
+            {/* Card 1: Wi Talents */}
             <div className="nia-card">
               <div className="nia-card-visual img-visual">
-                <img src={atsImg} alt="WiTalents Sourcing Dashboard Mockup" className="bento-card-img" loading="lazy" decoding="async" />
+                <img src={atsImg} alt="Wi Talents Sourcing Dashboard Mockup" className="bento-card-img" loading="lazy" decoding="async" />
               </div>
 
               <div className="nia-card-body">
-                <h3 className="nia-card-title">WiTalents</h3>
+                <h3 className="nia-card-title">Wi Talents</h3>
                 <p className="nia-card-desc">
                   Attract and hire top talent faster with AI-assisted recruiting pipelines.
                 </p>
@@ -65,14 +65,14 @@ export default function PlatformBento() {
               </div>
             </div>
 
-            {/* Card 2: WiPeople */}
+            {/* Card 2: Wi People */}
             <div className="nia-card">
               <div className="nia-card-visual img-visual">
-                <img src={peopleImg} alt="WiPeople Records Directory Mockup" className="bento-card-img" loading="lazy" decoding="async" />
+                <img src={peopleImg} alt="Wi People Records Directory Mockup" className="bento-card-img" loading="lazy" decoding="async" />
               </div>
 
               <div className="nia-card-body">
-                <h3 className="nia-card-title">WiPeople</h3>
+                <h3 className="nia-card-title">Wi People</h3>
                 <p className="nia-card-desc">
                   One centralized system of record for every employee, everywhere.
                 </p>
@@ -83,14 +83,14 @@ export default function PlatformBento() {
               </div>
             </div>
 
-            {/* Card 3: WiGrow */}
+            {/* Card 3: Wi Grow */}
             <div className="nia-card">
               <div className="nia-card-visual img-visual">
-                <img src={growImg} alt="WiGrow Learning Analytics Mockup" className="bento-card-img" loading="lazy" decoding="async" />
+                <img src={growImg} alt="Wi Grow Learning Analytics Mockup" className="bento-card-img" loading="lazy" decoding="async" />
               </div>
 
               <div className="nia-card-body">
-                <h3 className="nia-card-title">WiGrow</h3>
+                <h3 className="nia-card-title">Wi Grow</h3>
                 <p className="nia-card-desc">
                   Personalized learning journeys that build critical skills and expertise.
                 </p>
@@ -101,14 +101,14 @@ export default function PlatformBento() {
               </div>
             </div>
 
-            {/* Card 4: WiPerform */}
+            {/* Card 4: Wi Perform */}
             <div className="nia-card">
               <div className="nia-card-visual img-visual">
-                <img src={performImg} alt="WiPerform Goals Review Mockup" className="bento-card-img" loading="lazy" decoding="async" />
+                <img src={performImg} alt="Wi Perform Goals Review Mockup" className="bento-card-img" loading="lazy" decoding="async" />
               </div>
 
               <div className="nia-card-body">
-                <h3 className="nia-card-title">WiPerform</h3>
+                <h3 className="nia-card-title">Wi Perform</h3>
                 <p className="nia-card-desc">
                   Continuous feedback, goals, and automated performance reviews.
                 </p>
@@ -119,7 +119,7 @@ export default function PlatformBento() {
               </div>
             </div>
 
-            {/* Card 5: WiSales */}
+            {/* Card 5: Wi Sales */}
             <div className="nia-card">
               <div className="nia-card-visual intel-visual" aria-hidden="true" style={{ minHeight: '200px' }}>
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', textAlign: 'center' }}>
@@ -130,7 +130,7 @@ export default function PlatformBento() {
               </div>
 
               <div className="nia-card-body">
-                <h3 className="nia-card-title">WiSales</h3>
+                <h3 className="nia-card-title">Wi Sales</h3>
                 <p className="nia-card-desc">
                   Accelerate revenue growth with AI-powered sales pipeline optimization and training.
                 </p>
@@ -141,7 +141,7 @@ export default function PlatformBento() {
               </div>
             </div>
 
-            {/* Card 6: WiBooks */}
+            {/* Card 6: Wi Books */}
             <div className="nia-card">
               <div className="nia-card-visual intel-visual" aria-hidden="true" style={{ minHeight: '200px' }}>
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', textAlign: 'center' }}>
@@ -152,7 +152,7 @@ export default function PlatformBento() {
               </div>
 
               <div className="nia-card-body">
-                <h3 className="nia-card-title">WiBooks</h3>
+                <h3 className="nia-card-title">Wi Books</h3>
                 <p className="nia-card-desc">
                   Optimize financial planning, accounting, and expense operations.
                 </p>
@@ -169,12 +169,12 @@ export default function PlatformBento() {
           <div className="nia-card wide-card">
             <div className="nia-card-visual intel-visual" aria-hidden="true">
               <div className="intel-chips">
-                <span className="intel-chip">WiTalents</span>
-                <span className="intel-chip">WiPeople</span>
-                <span className="intel-chip">WiGrow</span>
-                <span className="intel-chip">WiPerform</span>
-                <span className="intel-chip">WiSales</span>
-                <span className="intel-chip">WiBooks</span>
+                <span className="intel-chip">Wi Talents</span>
+                <span className="intel-chip">Wi People</span>
+                <span className="intel-chip">Wi Grow</span>
+                <span className="intel-chip">Wi Perform</span>
+                <span className="intel-chip">Wi Sales</span>
+                <span className="intel-chip">Wi Books</span>
               </div>
               <div className="intel-connector"></div>
               <div className="intel-core">

@@ -36,17 +36,20 @@ export default function Header() {
 
         {/* Center Navigation Links (desktop) */}
         <nav className="nav-menu" aria-label="Primary">
-          <NavLink to="/modules" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>Explore Modules</NavLink>
-          <Link to="/#why-wi" className="nav-link">Why WorkIntel</Link>
+          <NavLink to="/" end className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>Platform</NavLink>
+          <NavLink to="/modules" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>Solutions</NavLink>
           <NavLink to="/resources" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>Resources</NavLink>
           <NavLink to="/about" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>About Us</NavLink>
         </nav>
 
         {/* Right CTA Action */}
         <div className="nav-actions">
+          <Link to="/login" className="nav-link nav-login-link" style={{ marginRight: '0.5rem' }}>
+            Login
+          </Link>
           <Link to="/contact" className="btn btn-primary btn-talk">
             <MessageSquare size={16} />
-            <span>Talk to WI</span>
+            <span>Talk to Wi</span>
           </Link>
 
           <button
@@ -65,13 +68,14 @@ export default function Header() {
       {/* Mobile menu sheet */}
       {open && (
         <nav id="mobile-menu" className="mobile-menu" aria-label="Primary mobile">
-          <NavLink to="/modules" className="mobile-link" onClick={() => setOpen(false)}>Explore Modules</NavLink>
-          <Link to="/#why-wi" className="mobile-link" onClick={() => setOpen(false)}>Why WorkIntel</Link>
+          <NavLink to="/" end className="mobile-link" onClick={() => setOpen(false)}>Platform</NavLink>
+          <NavLink to="/modules" className="mobile-link" onClick={() => setOpen(false)}>Solutions</NavLink>
           <NavLink to="/resources" className="mobile-link" onClick={() => setOpen(false)}>Resources</NavLink>
           <NavLink to="/about" className="mobile-link" onClick={() => setOpen(false)}>About Us</NavLink>
+          <NavLink to="/login" className="mobile-link" onClick={() => setOpen(false)}>Login</NavLink>
           <Link to="/contact" className="btn btn-primary mobile-cta" onClick={() => setOpen(false)}>
             <MessageSquare size={16} />
-            <span>Talk to WI</span>
+            <span>Talk to Wi</span>
           </Link>
         </nav>
       )}

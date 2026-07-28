@@ -32,7 +32,7 @@ export default function WhyWiPlatform() {
         
         {/* Section Title */}
         <h2 className="why-platform-title">
-          Why WiTalents Platform?
+          Why Wi Talents Platform?
         </h2>
 
         {/* 4 Cards Grid */}

@@ -22,7 +22,7 @@ export default function Hero() {
     let index = 0;
     let isCancelled = false;
     let timerId = null;
-    const FULL_TEXT = 'hiring, people data, learning, and performance.';
+    const FULL_TEXT = 'hiring, people operations, learning, and performance.';
 
     function runTypingSequence() {
       if (isCancelled) return;
