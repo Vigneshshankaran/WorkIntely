@@ -4,7 +4,7 @@ export default function Logo({ dark = false, height = 32, showText = true }) {
   return (
     <div className="brand-logo-wrap" style={{ display: 'inline-flex', alignItems: 'center', gap: '10px' }}>
       <img 
-        src="/wi_logo_transparent.png" 
+        src="/wi Logo (1).png" 
         alt="WorkIntel Logo" 
         style={{ 
           height: `${height}px`, 

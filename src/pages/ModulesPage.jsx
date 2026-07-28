@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import {
   ArrowRight,
   ChevronLeft,
@@ -12,7 +12,9 @@ import {
   UserCheck,
   ClipboardCheck,
   CalendarClock,
-  FileSignature
+  FileSignature,
+  Briefcase,
+  Cpu
 } from 'lucide-react';
 import atsImg from '../assets/ats_recruiting.png';
 import peopleImg from '../assets/people_records.png';
@@ -24,88 +26,79 @@ const AUTOPLAY_MS = 7000;
 /* Role-based solutions, in the order they appear in the hero slider. */
 const rolesData = [
   {
-    id: 'talent-management',
-    title: 'Talent Management',
-    subtitle: 'Develop Talent. Unlock Potential. Build Future Leaders.',
-    tagline: 'Develop Talent. Unlock Potential. Build Future Leaders.',
+    id: 'staffing',
+    title: 'Staffing',
+    subtitle: 'Find. Match. Place. Grow.',
+    tagline: 'Find. Match. Place. Grow.',
     summary:
-      'Identify, develop, engage, and retain top talent with continuous performance cycles, skills intelligence, and career pathways in one connected place.',
-    desc: 'Your people are your greatest competitive advantage. WorkIntel helps organizations identify, develop, engage, and retain top talent through intelligent talent management powered by data and AI.',
+      'Scale your client placements, manage contractor pipelines, and find top talent faster with intelligent matching and automated scheduling.',
+    desc: 'Empower your staffing agency or internal talent team with automated candidate pipelines, advanced matching algorithms, and streamlined placement tracking built to scale.',
     highlights: [
-      'Continuous performance and goal cycles',
-      'Skills intelligence and gap analysis',
-      'Succession and internal mobility planning'
-    ],
-    image: growImg,
-    imageAlt: 'Wi Grow learning and career development dashboard',
-    videoUrl: 'https://player.vimeo.com/external/434045526.sd.mp4?s=c27d2ad6cfed9dcb12f39eec49285290000ecdc9&profile_id=139&oauth2_token_id=57447761',
-    whyChooseTitle: 'Why Talent Management Teams Choose WorkIntel',
-    whyChoose: [
-      { title: 'Performance Management', desc: 'Run continuous performance reviews, goal tracking, feedback cycles, and development conversations.' },
-      { title: 'Skills Intelligence', desc: 'Understand workforce capabilities, identify skill gaps, and build future-ready talent strategies.' },
-      { title: 'Career Development', desc: 'Provide personalized growth plans, career pathways, mentoring opportunities, and learning recommendations.' },
-      { title: 'Succession Planning', desc: 'Identify high-potential employees, build leadership pipelines, and prepare future leaders with confidence.' },
-      { title: 'Internal Talent Mobility', desc: 'Promote internal hiring, career progression, and cross-functional opportunities based on employee skills and aspirations.' },
-      { title: 'Talent Analytics', desc: 'Measure employee engagement, performance trends, retention risks, succession readiness, and workforce capabilities.' }
-    ],
-    builtFor: ['Talent Management Leaders', 'Learning & Development Teams', 'Performance Management Teams', 'HR Business Partners', 'Leadership Development Teams', 'Organizational Development Teams'],
-    outcomes: ['Improve Employee Retention', 'Build Future Leaders', 'Increase Workforce Agility', 'Strengthen Employee Engagement', 'Develop Critical Skills', 'Align Talent with Business Strategy']
-  },
-  {
-    id: 'hr-operations',
-    title: 'HR Operations',
-    subtitle: 'Simplify HR Operations. Elevate Employee Experience.',
-    tagline: 'Simplify HR Operations. Elevate Employee Experience.',
-    summary:
-      'Centralize employee records, automate approvals and documentation, and give HR teams live visibility across the entire workforce.',
-    desc: 'HR operations should enable people—not slow them down. WorkIntel centralizes your employee operations, automates repetitive processes, and gives HR teams the visibility they need to deliver exceptional employee experiences across the entire workforce.',
-    highlights: [
-      'One record for the full employee lifecycle',
-      'Automated approvals and document generation',
-      'Audit-ready compliance trails'
-    ],
-    image: peopleImg,
-    imageAlt: 'Wi People employee records and directory dashboard',
-    videoUrl: 'https://player.vimeo.com/external/403788534.sd.mp4?s=d0014da4d5386af4ee2678f1f7e34f664df0d7fb&profile_id=139&oauth2_token_id=57447761',
-    whyChooseTitle: 'Why HR Operations Teams Choose WorkIntel',
-    whyChoose: [
-      { title: 'Employee Lifecycle Management', desc: 'Manage onboarding, employee records, transfers, promotions, exits, and everything in between.' },
-      { title: 'HR Workflow Automation', desc: 'Automate approvals, document generation, notifications, reminders, and recurring HR activities.' },
-      { title: 'Centralized Employee Data', desc: 'Maintain a single source of truth for employee information, organizational structures, and HR documentation.' },
-      { title: 'Compliance Made Simple', desc: 'Stay audit-ready with standardized processes, digital records, approval trails, and configurable compliance workflows.' },
-      { title: 'Employee Self-Service', desc: 'Empower employees and managers to complete everyday HR tasks independently through intuitive self-service portals.' },
-      { title: 'HR Analytics & Dashboards', desc: 'Monitor HR operations with real-time insights into workforce trends, service requests, productivity, and compliance metrics.' }
-    ],
-    builtFor: ['HR Shared Services', 'HR Business Partners', 'HR Administrators', 'Employee Services', 'People Operations Teams', 'Global HR Operations'],
-    outcomes: ['Reduce Administrative Work', 'Improve Process Efficiency', 'Increase Data Accuracy', 'Strengthen Compliance', 'Deliver Better Employee Experiences', 'Scale HR Operations with Confidence']
-  },
-  {
-    id: 'hiring-teams',
-    title: 'Hiring Teams',
-    subtitle: 'Hire Better. Hire Faster. Hire with Confidence.',
-    tagline: 'Hire Better. Hire Faster. Hire with Confidence.',
-    summary:
-      'Run requisition-to-offer hiring on one platform, with AI matching, structured scorecards, and pipeline visibility for every stakeholder.',
-    desc: 'Transform your hiring process with AI-powered recruitment that helps your teams identify the right talent, reduce time-to-hire, and deliver an exceptional experience. From requisition to offer, WorkIntel keeps hiring managers, recruiters, and interviewers aligned on a single intelligent platform.',
-    highlights: [
-      'AI matching against role competencies',
-      'Structured scorecards and interview feedback',
-      'Live pipeline and time-to-hire metrics'
+      'Fast AI candidate matching',
+      'Unified requisition-to-placement pipeline',
+      'Automated contractor scheduling and onboarding'
     ],
     image: atsImg,
-    imageAlt: 'Wi Talents recruiting pipeline and candidate dashboard',
+    imageAlt: 'Staffing recruitment and placement dashboard',
     videoUrl: 'https://player.vimeo.com/external/371433846.sd.mp4?s=236da2f3c054f4d9b3e007353f81e27e702c2187&profile_id=139&oauth2_token_id=57447761',
-    whyChooseTitle: 'Why Hiring Teams Choose WorkIntel',
+    whyChooseTitle: 'Why Staffing Teams Choose WorkIntel',
     whyChoose: [
-      { title: 'AI-Powered Candidate Matching', desc: 'Automatically identify the most relevant candidates based on skills, experience, competencies, and role requirements.' },
-      { title: 'End-to-End Recruitment Workflow', desc: 'Manage job requisitions, sourcing, interview scheduling, evaluations, offers, and onboarding from one platform.' },
-      { title: 'Collaborative Hiring', desc: 'Enable recruiters, hiring managers, and interview panels to evaluate candidates together with structured feedback and scorecards.' },
-      { title: 'Intelligent Interview Management', desc: 'Automate interview scheduling, reminders, interviewer assignments, and candidate communications.' },
-      { title: 'Faster Decision Making', desc: 'Gain real-time visibility into hiring pipelines, bottlenecks, recruiter performance, and hiring metrics.' },
-      { title: 'Exceptional Candidate Experience', desc: 'Deliver a seamless, transparent, and engaging hiring journey that strengthens your employer brand.' }
+      { title: 'Automated Sourcing', desc: 'Distribute roles to boards and direct agency talent pools in seconds.' },
+      { title: 'Skills Match Scoring', desc: 'Leverage AI to rank candidates based on background, competencies, and rate parameters.' },
+      { title: 'Client Feedback Portal', desc: 'Route candidate profiles to external hiring managers for fast panel evaluation.' }
     ],
-    builtFor: ['Talent Acquisition Teams', 'Recruitment Agencies', 'Hiring Managers', 'Startup Founders', 'Enterprise Talent Teams', 'High-Volume Recruitment Teams'],
-    outcomes: ['Reduce Time-to-Hire', 'Improve Candidate Quality', 'Increase Recruiter Productivity', 'Eliminate Manual Coordination', 'Enhance Hiring Collaboration', 'Make Data-Driven Hiring Decisions']
+    builtFor: ['Staffing Agencies', 'Contractor Brokers', 'Client Account Managers', 'High-Volume Recruiters'],
+    outcomes: ['Reduce Sourcing Time', 'Improve Placement Quality', 'Increase Requisition Fill Rates', 'Enhance Contractor Retention']
+  },
+  {
+    id: 'human-resource',
+    title: 'Human Resource',
+    subtitle: 'For corporate HR and talent teams.',
+    tagline: 'For corporate HR and talent teams.',
+    summary:
+      'Manage corporate lifecycles, centralize employee records, and run development programs on a unified record.',
+    desc: 'Bring your organization’s people operations, performance, learning, and records together. Keep corporate HR and talent teams aligned and efficient.',
+    highlights: [
+      'Centralized employee records directory',
+      'Continuous development and career paths',
+      'Automated performance and review cycles'
+    ],
+    image: peopleImg,
+    imageAlt: 'Human resource portal and employee directory',
+    videoUrl: 'https://player.vimeo.com/external/403788534.sd.mp4?s=d0014da4d5386af4ee2678f1f7e34f664df0d7fb&profile_id=139&oauth2_token_id=57447761',
+    whyChooseTitle: 'Why Human Resource Teams Choose WorkIntel',
+    whyChoose: [
+      { title: 'All-In-One HR Records', desc: 'Keep a single, secure digital file for every employee from onboarding to exit.' },
+      { title: 'Employee Growth Tracks', desc: 'Design learning journeys and skills matrices to retain top corporate talent.' },
+      { title: 'Feedback & Reviews', desc: 'Run automated, constructive, and comprehensive reviews without manual spreadsheets.' }
+    ],
+    builtFor: ['Corporate HR Leaders', 'HR Business Partners', 'Learning & Development Managers', 'People Operations Teams'],
+    outcomes: ['Increase Employee Retention', 'Strengthen Organization Trust', 'Scale Internal Promotion Rates', 'Reduce HR Administrative Overhead']
+  },
+  {
+    id: 'operations',
+    title: 'Operations',
+    subtitle: 'Automate Workflows and AI Assisted decision making',
+    tagline: 'Automate Workflows and AI Assisted decision making',
+    summary:
+      'Optimize back-office processes, automate business workflows, and drive decisions with real-time org-level data insights.',
+    desc: 'Unify company operations, expense reporting, approvals, and AI auditing to eliminate administrative friction and scale efficiently.',
+    highlights: [
+      'AI-assisted auditing and decision checks',
+      'Custom approval workflows and triggers',
+      'Centralized organizational dashboard'
+    ],
+    image: growImg,
+    imageAlt: 'Business operations and workflow dashboard',
+    videoUrl: 'https://player.vimeo.com/external/434045526.sd.mp4?s=c27d2ad6cfed9dcb12f39eec49285290000ecdc9&profile_id=139&oauth2_token_id=57447761',
+    whyChooseTitle: 'Why Operations Teams Choose WorkIntel',
+    whyChoose: [
+      { title: 'Intelligent Workflows', desc: 'Configure custom multi-level approvals for requisitions, expense checks, and hiring needs.' },
+      { title: 'AI Audit Assistance', desc: 'Scan files, detect anomalies in org records, and flag compliance alerts automatically.' },
+      { title: 'Cross-Module Flow', desc: 'Pass data smoothly between hiring, employee directory, and back-office databases.' }
+    ],
+    builtFor: ['Operations Directors', 'Back-Office System Admins', 'Business Unit Leaders', 'Finance & Compliance Teams'],
+    outcomes: ['Eliminate Process Bottlenecks', 'Enforce Compliance Controls', 'Reduce Billing & Expense Errors', 'Improve System Interoperability']
   }
 ];
 
@@ -170,6 +163,13 @@ export default function ModulesPage() {
 
   const slideCount = rolesData.length;
   const currentModule = modulesData.find((m) => m.id === activeModule) ?? modulesData[0];
+
+  const scrollToSection = (id) => {
+    const el = document.getElementById(`${id}-section`);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
 
   const goToSlide = useCallback(
     (index) => {
@@ -249,7 +249,7 @@ export default function ModulesPage() {
               {/* Inner container to align text copy with grid */}
               <div className="container hero-slide-inner">
                 <div className="hero-slide-content">
-                  <span className="hero-slide-eyebrow">Solutions by Role</span>
+                  <span className="hero-slide-eyebrow">Solution by function</span>
 
                   <h1 className="hero-slide-headline">
                     <span className="headline-line">{role.title}</span>
@@ -263,7 +263,7 @@ export default function ModulesPage() {
                     <button
                       type="button"
                       className="btn btn-primary"
-                      onClick={() => setSelectedRole(role)}
+                      onClick={() => scrollToSection(role.id)}
                     >
                       <span>Learn More</span>
                       <ArrowRight size={16} />
@@ -320,124 +320,112 @@ export default function ModulesPage() {
       {/* Main Container for subsequent sections */}
       <div className="container">
 
-        {/* Section: Solutions by Role — scannable card view */}
-        <section className="roles-section">
-          <div className="roles-header">
-            <span className="eyebrow">Solutions by Role</span>
-            <h2 className="roles-title">Tailored for your people teams</h2>
-            <p className="roles-desc">Select a team below to explore custom workflows, feature deep-dives, and target operational outcomes.</p>
-          </div>
 
-          <div className="roles-grid">
-            {rolesData.map((role) => (
+        {/* Section: Staffing Core Modules */}
+        <section id="staffing-section" className="core-modules-card-v2 staffing-theme">
+          <div className="card-v2-main-content">
+            <span className="card-v2-eyebrow">Staffing</span>
+            <h2 className="card-v2-title">Staffing Core Modules</h2>
+            
+            <div className="card-v2-modules-tags">
+              <Link to="/WiTalents" className="card-v2-tag">Talent Sourcing</Link>
+              <Link to="/WiTalents" className="card-v2-tag">Candidate Matching</Link>
+              <Link to="/WiTalents" className="card-v2-tag">Recruitment</Link>
+              <Link to="/WiTalents" className="card-v2-tag">Client Management</Link>
+            </div>
+
+            <div className="card-v2-action-row">
               <button
-                key={role.id}
                 type="button"
-                className="role-card"
-                onClick={() => setSelectedRole(role)}
-                aria-label={`Open ${role.title} details`}
+                className="btn btn-primary"
+                onClick={() => {
+                  const staffingRole = rolesData.find(r => r.id === 'staffing') ?? rolesData[0];
+                  setSelectedRole(staffingRole);
+                }}
               >
-                <span className="role-card-image-box">
-                  <img
-                    src={role.image}
-                    alt=""
-                    className="role-card-img"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </span>
-                <span className="role-card-content">
-                  <span className="role-card-title">{role.title}</span>
-                  <span className="role-card-subtitle">{role.subtitle}</span>
-                  <span className="role-card-desc">{role.summary}</span>
-                  <span className="role-card-link">
-                    <span>Learn More</span>
-                    <ArrowRight size={14} />
-                  </span>
-                </span>
+                <span>Explore More</span>
+                <ArrowRight size={16} />
               </button>
-            ))}
+            </div>
+          </div>
+          
+          <div className="card-v2-visual-glow">
+            <div className="card-v2-icon-glow-wrapper">
+              <Briefcase size={64} className="card-v2-icon-glow" />
+            </div>
           </div>
         </section>
 
-        {/* Section: Wi Family of Products */}
-        <section className="products-section">
-          <div className="products-header">
-            <span className="eyebrow">Wi Family of Products</span>
-            <h2 className="products-title">Explore Core Modules</h2>
-            <p className="products-desc">
-              Six modules on one unified employee record. Adopt the module you need today and
-              connect the rest as you grow.
-            </p>
-          </div>
+        {/* Section: Human Resource Core Modules */}
+        <section id="human-resource-section" className="core-modules-card-v2 hr-theme">
+          <div className="card-v2-main-content">
+            <span className="card-v2-eyebrow">Human Resource</span>
+            <h2 className="card-v2-title">Human Resource Core Modules</h2>
+            
+            <div className="card-v2-modules-tags">
+              <Link to="/WiTalents" className="card-v2-tag">ATS</Link>
+              <Link to="/WiPeople" className="card-v2-tag">Employee Records</Link>
+              <Link to="/WiGrow" className="card-v2-tag">Skill Development</Link>
+              <Link to="/WiPerform" className="card-v2-tag">Performance</Link>
+            </div>
 
-          {/* Product Selector Tabs */}
-          <div className="modules-tabs-list" role="tablist" aria-label="Wi product modules">
-            {modulesData.map((item) => (
+            <div className="card-v2-action-row">
               <button
-                key={item.id}
                 type="button"
-                role="tab"
-                aria-selected={activeModule === item.id}
-                className={`module-tab-btn ${activeModule === item.id ? 'active' : ''}`}
-                onClick={() => setActiveModule(item.id)}
+                className="btn btn-primary"
+                onClick={() => {
+                  const hrRole = rolesData.find(r => r.id === 'human-resource') ?? rolesData[0];
+                  setSelectedRole(hrRole);
+                }}
               >
-                {item.id.replace('Wi', 'Wi ')}
+                <span>Explore More</span>
+                <ArrowRight size={16} />
               </button>
-            ))}
+            </div>
           </div>
-
-          {/* Active Module Detail */}
-          <p className="module-tagline">{currentModule.tagline}</p>
-
-          {currentModule.features ? (
-            <div className="modules-cards-grid">
-              {currentModule.features.map((item, index) => (
-                <div key={item.id} className="lifecycle-card module-card-variant">
-
-                  {/* Top Row: Circle Badge Icon + Step Badge */}
-                  <div className="card-top-row">
-                    <div className="step-badge-icon circle-icon">
-                      {item.icon}
-                    </div>
-                    <span className="step-num">0{index + 1}</span>
-                  </div>
-
-                  {/* Title & Description */}
-                  <h3 className="card-step-title">{item.title}</h3>
-                  <p className="card-step-desc">{item.description}</p>
-
-                  {/* Bottom Right Arrow Action */}
-                  <div className="card-arrow-link">
-                    <ArrowRight size={18} />
-                  </div>
-
-                </div>
-              ))}
+          
+          <div className="card-v2-visual-glow">
+            <div className="card-v2-icon-glow-wrapper">
+              <UserCheck size={64} className="card-v2-icon-glow" />
             </div>
-          ) : (
-            <div className="coming-soon-module-panel">
-              <div className="coming-soon-module-icon">
-                <Sparkles size={32} style={{ color: 'var(--primary)' }} />
-              </div>
-              <h3 className="coming-soon-module-title">{activeModule.replace('Wi', 'Wi ')} Details</h3>
-              <p className="coming-soon-text-small">
-                Getting updated shortly. Reach out to us if you are interested in this particular module.
-              </p>
-              <Link to="/contact" className="btn btn-primary" style={{ marginTop: '12px' }}>
-                <span>Inquire About {activeModule.replace('Wi', 'Wi ')}</span>
-              </Link>
-            </div>
-          )}
-
-          {/* Bottom CTA Text Bar */}
-          <div className="modules-bottom-cta">
-            <span>Let&rsquo;s make your process faster &mdash;</span>{" "}
-            <Link to="/contact" className="modules-cta-link">
-              Get In Touch Today! <ArrowRight size={16} className="inline-arrow" />
-            </Link>
           </div>
         </section>
+
+        {/* Section: Operations Core Modules */}
+        <section id="operations-section" className="core-modules-card-v2 operations-theme">
+          <div className="card-v2-main-content">
+            <span className="card-v2-eyebrow">Operations</span>
+            <h2 className="card-v2-title">Operations Core Modules</h2>
+            
+            <div className="card-v2-modules-tags">
+              <Link to="/WiSales" className="card-v2-tag">CRM</Link>
+              <Link to="/WiBooks" className="card-v2-tag">Accounts Receivables</Link>
+              <Link to="/WiBooks" className="card-v2-tag">Accounts Payables</Link>
+            </div>
+
+            <div className="card-v2-action-row">
+              <button
+                type="button"
+                className="btn btn-primary"
+                onClick={() => {
+                  const operationsRole = rolesData.find(r => r.id === 'operations') ?? rolesData[0];
+                  setSelectedRole(operationsRole);
+                }}
+              >
+                <span>Explore More</span>
+                <ArrowRight size={16} />
+              </button>
+            </div>
+          </div>
+          
+          <div className="card-v2-visual-glow">
+            <div className="card-v2-icon-glow-wrapper">
+              <Cpu size={64} className="card-v2-icon-glow" />
+            </div>
+          </div>
+        </section>
+
+
 
       </div>
 
@@ -460,7 +448,7 @@ export default function ModulesPage() {
               <X size={20} />
             </button>
             <div className="role-modal-body">
-              <span className="role-modal-eyebrow">Solutions by Role</span>
+              <span className="role-modal-eyebrow">Solution by function</span>
               <h2 className="role-modal-title" id="role-modal-title">{selectedRole.title}</h2>
               <p className="role-modal-subtitle">{selectedRole.subtitle}</p>
               <p className="role-modal-desc">{selectedRole.desc}</p>

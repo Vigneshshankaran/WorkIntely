@@ -34,11 +34,16 @@ export default function App() {
       <div className="workintel-app">
         <ScrollManager />
         <Header />
-        
         <main>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/solution" element={<ModulesPage />} />
+            <Route path="/WiTalents" element={<ComingSoonPage title="Wi Talents Coming Soon" />} />
+            <Route path="/WiPeople" element={<ComingSoonPage title="Wi People Coming Soon" />} />
+            <Route path="/WiGrow" element={<ComingSoonPage title="Wi Grow Coming Soon" />} />
+            <Route path="/WiPerform" element={<ComingSoonPage title="Wi Perform Coming Soon" />} />
+            <Route path="/WiSales" element={<ComingSoonPage title="Wi Sales Coming Soon" />} />
+            <Route path="/WiBooks" element={<ComingSoonPage title="Wi Books Coming Soon" />} />
             <Route 
               path="/resources" 
               element={<ComingSoonPage title="Resources Coming Soon" />} 
