@@ -1,0 +1,341 @@
+/* ==========================================================================
+   Wi Talents Product Page (WiTalentsPage.css)
+   Hiring process steps + capability grid + personalised platform section
+   ========================================================================== */
+
+.wt-page {
+  background-color: var(--canvas);
+  padding-bottom: var(--space-section);
+}
+
+.wt-cta-btn {
+  align-self: flex-start;
+}
+
+/* ==========================================================================
+   Process Section
+   ========================================================================== */
+
+.wt-process-section {
+  padding: var(--space-section) 0 0;
+}
+
+.wt-process-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.wt-process-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  position: sticky;
+  top: 104px;
+}
+
+.wt-eyebrow {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.wt-process-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.4vw, 3rem);
+  font-weight: 800;
+  color: var(--ink);
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+}
+
+.wt-process-desc {
+  font-size: 1.05rem;
+  color: var(--ink-muted);
+  line-height: var(--lh-body);
+  max-width: 520px;
+}
+
+/* Stepped list */
+.wt-steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  list-style: none;
+}
+
+.wt-step-card {
+  background: var(--surface-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 24px 28px 28px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.wt-step-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(140, 82, 255, 0.3);
+  box-shadow: var(--shadow-md);
+}
+
+.wt-step-badge {
+  display: inline-flex;
+  align-items: center;
+  background: var(--primary);
+  color: #ffffff;
+  font-size: var(--text-fine);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 16px;
+}
+
+.wt-step-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.wt-step-desc {
+  font-size: var(--text-body);
+  color: var(--ink-muted);
+  line-height: 1.55;
+}
+
+/* ==========================================================================
+   Capability Grid
+   ========================================================================== */
+
+.wt-capabilities-section {
+  padding: var(--space-xxl) 0;
+  background-color: var(--canvas-subtle);
+}
+
+.wt-capabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.wt-capability-card {
+  background: var(--surface-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.wt-capability-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(140, 82, 255, 0.3);
+  box-shadow: var(--shadow-md);
+}
+
+.wt-capability-card.featured {
+  background: var(--primary);
+  border-color: var(--primary);
+  box-shadow: 0 10px 28px var(--primary-glow);
+}
+
+.wt-capability-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background: var(--primary-light);
+  border: 1px solid var(--border-focus);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.wt-capability-card.featured .wt-capability-icon {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+}
+
+.wt-capability-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+
+.wt-capability-desc {
+  font-size: var(--text-body);
+  color: var(--ink-muted);
+  line-height: 1.6;
+}
+
+.wt-capability-card.featured .wt-capability-title,
+.wt-capability-card.featured .wt-capability-desc {
+  color: #ffffff;
+}
+
+.wt-capabilities-footnote {
+  margin-top: 40px;
+  text-align: center;
+  font-size: var(--text-tagline);
+  color: var(--ink-muted);
+}
+
+.wt-footnote-link {
+  color: var(--primary);
+  font-weight: 700;
+  border-bottom: 1px solid currentColor;
+}
+
+.wt-footnote-link:hover {
+  color: var(--primary-hover);
+}
+
+/* ==========================================================================
+   Personalised Platform Section
+   ========================================================================== */
+
+.wt-platform-section {
+  padding: var(--space-section) 0;
+}
+
+.wt-platform-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.wt-platform-visual {
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: var(--canvas-parchment);
+  box-shadow: var(--shadow-md);
+}
+
+.wt-platform-visual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wt-platform-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.wt-platform-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 3.2vw, 2.75rem);
+  font-weight: 800;
+  color: var(--ink);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.wt-platform-desc {
+  font-size: 1.05rem;
+  color: var(--ink-muted);
+  line-height: var(--lh-body);
+  max-width: 560px;
+}
+
+.wt-audience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  list-style: none;
+  margin: 4px 0;
+}
+
+.wt-audience-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.wt-audience-icon {
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background: var(--primary-light);
+  border: 1px solid var(--border-focus);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wt-audience-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.wt-audience-desc {
+  font-size: var(--text-body);
+  color: var(--ink-muted);
+  line-height: 1.55;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .wt-capabilities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .wt-process-grid,
+  .wt-platform-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .wt-process-intro {
+    position: static;
+    top: auto;
+  }
+
+  /* Lead the stacked page with the headline, not the visual. */
+  .wt-platform-content {
+    order: 1;
+  }
+
+  .wt-platform-visual {
+    order: 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .wt-capabilities-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wt-step-card,
+  .wt-capability-card {
+    padding: 24px 20px;
+  }
+
+  .wt-capabilities-footnote {
+    text-align: left;
+  }
+}

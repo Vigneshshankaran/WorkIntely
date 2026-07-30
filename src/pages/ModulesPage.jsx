@@ -16,9 +16,12 @@ import {
   Briefcase,
   Cpu
 } from 'lucide-react';
+import WhyChooseWi from '../components/WhyChooseWi';
+import WiWordmark from '../components/WiWordmark';
 import atsImg from '../assets/ats_recruiting.png';
 import peopleImg from '../assets/people_records.png';
 import growImg from '../assets/learning_growth.png';
+import performanceImg from '../assets/performance_goals.png';
 import './ModulesPage.css';
 
 const AUTOPLAY_MS = 7000;
@@ -349,10 +352,8 @@ export default function ModulesPage() {
             </div>
           </div>
           
-          <div className="card-v2-visual-glow">
-            <div className="card-v2-icon-glow-wrapper">
-              <Briefcase size={64} className="card-v2-icon-glow" />
-            </div>
+          <div className="card-v2-cover-panel">
+            <img src={atsImg} alt="Staffing & Recruiting" className="card-v2-cover-img" />
           </div>
         </section>
 
@@ -384,10 +385,8 @@ export default function ModulesPage() {
             </div>
           </div>
           
-          <div className="card-v2-visual-glow">
-            <div className="card-v2-icon-glow-wrapper">
-              <UserCheck size={64} className="card-v2-icon-glow" />
-            </div>
+          <div className="card-v2-cover-panel">
+            <img src={peopleImg} alt="Human Resource" className="card-v2-cover-img" />
           </div>
         </section>
 
@@ -418,16 +417,17 @@ export default function ModulesPage() {
             </div>
           </div>
           
-          <div className="card-v2-visual-glow">
-            <div className="card-v2-icon-glow-wrapper">
-              <Cpu size={64} className="card-v2-icon-glow" />
-            </div>
+          <div className="card-v2-cover-panel">
+            <img src={performanceImg} alt="Operations" className="card-v2-cover-img" />
           </div>
         </section>
 
 
 
       </div>
+
+      {/* Why WorkIntel carousel (own container/width) */}
+      <WhyChooseWi />
 
       {/* Role Details Modal */}
       {selectedRole && (
@@ -439,17 +439,22 @@ export default function ModulesPage() {
             aria-labelledby="role-modal-title"
             onClick={(e) => e.stopPropagation()}
           >
-            <button
-              type="button"
-              className="role-modal-close"
-              onClick={() => setSelectedRole(null)}
-              aria-label="Close details"
-            >
-              <X size={20} />
-            </button>
+            {/* Sticky top bar holding the close control. */}
+            <div className="role-modal-topbar">
+              <button
+                type="button"
+                className="role-modal-close"
+                onClick={() => setSelectedRole(null)}
+                aria-label="Close details"
+              >
+                <X size={20} />
+              </button>
+            </div>
             <div className="role-modal-body">
               <span className="role-modal-eyebrow">Solution by function</span>
-              <h2 className="role-modal-title" id="role-modal-title">{selectedRole.title}</h2>
+              <h2 className="role-modal-title" id="role-modal-title">
+                <WiWordmark className="role-modal-wordmark" /> {selectedRole.title}
+              </h2>
               <p className="role-modal-subtitle">{selectedRole.subtitle}</p>
               <p className="role-modal-desc">{selectedRole.desc}</p>
 

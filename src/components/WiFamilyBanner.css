@@ -1,0 +1,27 @@
+.wi-family-banner-wrapper {
+  width: 100%;
+  background: var(--canvas, #030008);
+  padding: var(--space-xl) 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.container-full-width {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+.wi-family-banner-img {
+  width: 100%;
+  height: auto;
+  max-width: 900px;
+  display: block;
+  border-radius: var(--radius-sm);
+  border: none;
+  box-shadow: none;
+}

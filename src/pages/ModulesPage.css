@@ -770,10 +770,21 @@
   flex-direction: column;
 }
 
+/* Close control, pinned while the card body scrolls. */
+.role-modal-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  padding: 16px 20px 8px;
+  background: var(--surface-card);
+}
+
 .role-modal-close {
-  position: absolute;
-  top: 20px;
-  right: 20px;
+  flex: 0 0 auto;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--border-light);
   color: var(--ink);
@@ -795,7 +806,7 @@
 }
 
 .role-modal-body {
-  padding: 40px;
+  padding: 16px 40px 40px;
 }
 
 .role-modal-eyebrow {
@@ -806,6 +817,16 @@
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-bottom: 8px;
+}
+
+/* Logo mark sized to the heading's cap height so it reads as part of the line. */
+.role-modal-wordmark {
+  height: 0.96em;
+  width: auto;
+  display: inline-block;
+  vertical-align: -0.04em;
+  margin-right: 0.08em;
+  overflow: visible;
 }
 
 .role-modal-title {
@@ -927,7 +948,6 @@
 /* Core Modules Premium Card Stack */
 .core-modules-card-v2 {
   margin-bottom: 40px;
-  padding: 48px;
   background: rgba(9, 6, 17, 0.4);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -936,9 +956,8 @@
   position: relative;
   overflow: hidden;
   display: grid;
-  grid-template-columns: 1fr 180px;
-  gap: 32px;
-  align-items: center;
+  grid-template-columns: 1fr 220px;
+  min-height: 240px;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   scroll-margin-top: 100px;
 }
@@ -967,6 +986,7 @@
   flex-direction: column;
   align-items: flex-start;
   z-index: 2;
+  padding: 48px;
 }
 
 .card-v2-eyebrow {
@@ -1056,23 +1076,41 @@
   display: flex;
 }
 
-/* Visual Glow Column */
-.card-v2-visual-glow {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* Inset Right Panel — image sits centred instead of bleeding to the card edge */
+.card-v2-cover-panel {
   position: relative;
-  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 24px;
+  overflow: hidden;
+}
+
+.card-v2-cover-img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: var(--radius-lg);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: brightness(0.85);
+}
+
+.core-modules-card-v2:hover .card-v2-cover-img {
+  transform: scale(1.04);
+  filter: brightness(1);
 }
 
 .card-v2-icon-glow-wrapper {
   position: relative;
-  width: 120px;
-  height: 120px;
+  width: 200px;
+  height: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
+  border-radius: 16px;
   transition: all 0.4s ease;
 }
 
@@ -1080,6 +1118,23 @@
   position: relative;
   z-index: 2;
   transition: all 0.4s ease;
+}
+
+.card-v2-icon-img {
+  position: relative;
+  z-index: 2;
+  width: 190px;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 2px solid var(--border-light, #211a36);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.core-modules-card-v2:hover .card-v2-icon-img {
+  transform: scale(1.06);
+  box-shadow: 0 12px 32px rgba(140, 82, 255, 0.25);
 }
 
 .staffing-theme .card-v2-icon-glow {
@@ -1232,8 +1287,12 @@
     padding: 24px 20px;
   }
 
+  .role-modal-topbar {
+    padding: 12px 16px 8px;
+  }
+
   .role-modal-body {
-    padding: 24px;
+    padding: 8px 24px 24px;
   }
 
   .role-modal-features-grid {

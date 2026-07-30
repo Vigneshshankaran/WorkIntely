@@ -8,6 +8,7 @@ import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import ComingSoonPage from './pages/ComingSoonPage';
 import ModulesPage from './pages/ModulesPage';
+import WiTalentsPage from './pages/WiTalentsPage';
 
 /* Scrolls to top on route change, or to the anchor when a hash is present
    (makes cross-page links like /#modules work). */
@@ -38,7 +39,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/solution" element={<ModulesPage />} />
-            <Route path="/WiTalents" element={<ComingSoonPage title="Wi Talents Coming Soon" />} />
+            <Route path="/WiTalents" element={<WiTalentsPage />} />
             <Route path="/WiPeople" element={<ComingSoonPage title="Wi People Coming Soon" />} />
             <Route path="/WiGrow" element={<ComingSoonPage title="Wi Grow Coming Soon" />} />
             <Route path="/WiPerform" element={<ComingSoonPage title="Wi Perform Coming Soon" />} />

@@ -71,7 +71,6 @@ export default function PlatformPhilosophy() {
             
             <h2 className="philosophy-title">
               <span className="philosophy-title-line">One platform.</span>
-              <span className="philosophy-title-line">One employee record.</span>
               <span className="philosophy-title-line">One intelligent experience.</span>
             </h2>
 

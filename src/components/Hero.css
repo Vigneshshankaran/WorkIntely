@@ -451,3 +451,98 @@
     justify-content: flex-start;
   }
 }
+
+/* ==========================================================================
+   Overlay Background Image Hero Styling
+   ========================================================================== */
+
+.hero-bg-image-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 55%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hero-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.35; /* Faint but clearly recognizable */
+  filter: saturate(0.85); /* Slightly desaturate to blend in elegantly */
+}
+
+.hero-bg-image-fade {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 78% 50%, rgba(3, 0, 8, 0) 25%, var(--canvas, #030008) 85%),
+              linear-gradient(180deg, var(--canvas, #030008) 0%, rgba(3, 0, 8, 0) 15%, rgba(3, 0, 8, 0) 85%, var(--canvas, #030008) 100%);
+}
+
+.hero-container-overlay {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 80px 24px;
+}
+
+.hero-container-overlay .hero-title-light {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 1000px;
+  font-size: clamp(2.4rem, 4.8vw, 4.2rem);
+}
+
+.hero-container-overlay .hero-desc-light {
+  text-align: center;
+  margin: 20px auto 0 auto;
+  max-width: 640px;
+}
+
+.hero-container-overlay .hero-typewriter-tagline {
+  text-align: center;
+  margin-top: 24px;
+  max-width: 720px;
+}
+
+.hero-container-overlay .hero-cta-wrap-light {
+  justify-content: center;
+  margin-bottom: 0;
+}
+
+/* Responsive Styles for Overlay Hero */
+@media (max-width: 991px) {
+  .hero-bg-image-right {
+    width: 100%;
+    opacity: 0.22;
+  }
+  
+  .hero-bg-image-fade {
+    background: radial-gradient(circle at center, rgba(3, 0, 8, 0.4) 0%, var(--canvas, #030008) 95%);
+  }
+
+  .hero-container-overlay {
+    align-items: center;
+    text-align: center;
+    padding: 48px 16px;
+  }
+
+  .hero-container-overlay .hero-title-light,
+  .hero-container-overlay .hero-desc-light,
+  .hero-container-overlay .hero-typewriter-tagline {
+    text-align: center;
+  }
+
+  .hero-container-overlay .hero-cta-wrap-light {
+    justify-content: center;
+  }
+}

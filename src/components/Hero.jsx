@@ -1,20 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { MessageSquare, TrendingUp, Users } from 'lucide-react';
+import { MessageSquare } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import './Hero.css';
-
-const chartData = [
-  { month: 'Feb', height: 42, val: '3,360 Candidates' },
-  { month: 'Mar', height: 58, val: '4,640 Screened' },
-  { month: 'Apr', height: 74, val: '5,920 Matched' },
-  { month: 'May', height: 98, val: '7,840 Interviewed' },
-  { month: 'Jun', height: 66, val: '5,280 Onboarded' }
-];
+import realHumanRobotBg from '../assets/real_human_robot_bg.png';
 
 export default function Hero() {
   const heroRef = useRef(null);
-  const [hoveredBar, setHoveredBar] = useState(null);
   const [displayText, setDisplayText] = useState('');
   const [fadeState, setFadeState] = useState('visible');
 
@@ -67,7 +59,7 @@ export default function Hero() {
       gsap.from('.hero-desc-light', { y: 15, opacity: 0, duration: 0.6, delay: 0.2 });
       gsap.from('.hero-typewriter-tagline', { y: 15, opacity: 0, duration: 0.6, delay: 0.25 });
       gsap.from('.hero-cta-wrap-light', { scale: 0.95, opacity: 0, duration: 0.6, delay: 0.3 });
-      gsap.from('.hero-visual-single', { y: 30, opacity: 0, duration: 0.9, delay: 0.4 });
+      gsap.from('.hero-bg-image-right', { x: 50, opacity: 0, duration: 1.2, delay: 0.1 });
     }, heroRef);
 
     return () => ctx.revert();
@@ -88,12 +80,17 @@ export default function Hero() {
         <div className="hero-bg-video-overlay" />
       </div>
 
-      <div className="container hero-container-single-col">
-        
+      {/* Real Human & AI Robot Background Image (Right Side) */}
+      <div className="hero-bg-image-right">
+        <img src={realHumanRobotBg} alt="Real Human and AI Robot" className="hero-bg-img" />
+        <div className="hero-bg-image-fade" />
+      </div>
+
+      <div className="container hero-container-overlay">
         {/* Eyebrow Badge */}
         <div className="hero-badge-light">
           <span className="badge-dot-purple"></span>
-          <span className="badge-text-light">Making Work More Intelligent</span>
+          <span className="badge-text-light">Making Work More Intelligently</span>
         </div>
 
         {/* Main Headline */}
@@ -123,83 +120,6 @@ export default function Hero() {
             <span>Book a Demo</span>
           </Link>
         </div>
-
-        {/* Centered Dashboard Chart Visual */}
-        <div className="hero-visual-single">
-          <div className="card-ambient-glow"></div>
-
-          {/* Floating Metrics Card */}
-          <div className="savings-floating-card">
-            <div className="savings-icon-wrapper">
-              <Users size={20} className="wallet-icon" />
-            </div>
-            <div className="savings-info">
-              <span className="card-subtitle">Active Talent Pool</span>
-              <div className="savings-amount">375,809</div>
-              <div className="trend-badge positive">
-                <TrendingUp size={13} />
-                <span>+9.2% candidate velocity</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Main Chart Card */}
-          <div className="income-main-card">
-            <div className="income-card-header">
-              <span className="card-subtitle">AI Talent Match Rate</span>
-              <div className="income-amount">98.4%</div>
-              <div className="trend-badge positive purple-trend">
-                <TrendingUp size={14} />
-                <span>+2.1% vs last quarter</span>
-              </div>
-            </div>
-
-            <div className="chart-wrapper">
-              <div className="chart-y-axis">
-                <span>8k</span>
-                <span>6k</span>
-                <span>4k</span>
-                <span>2k</span>
-                <span>0</span>
-              </div>
-
-              <div className="chart-bars-area">
-                <div className="chart-grid-lines">
-                  <div className="grid-line"></div>
-                  <div className="grid-line"></div>
-                  <div className="grid-line"></div>
-                  <div className="grid-line"></div>
-                  <div className="grid-line"></div>
-                </div>
-
-                <div className="bars-flex">
-                  {chartData.map((item, index) => (
-                    <div
-                      key={index}
-                      className={`bar-container ${hoveredBar === index ? 'active' : ''}`}
-                      onMouseEnter={() => setHoveredBar(index)}
-                    >
-                      {hoveredBar === index && (
-                        <div className="bar-tooltip">{item.val}</div>
-                      )}
-                      <div
-                        className="lime-bar"
-                        style={{ height: `${item.height}%` }}
-                      ></div>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="chart-x-axis">
-                  {chartData.map((item, idx) => (
-                    <span key={idx}>{item.month}</span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
       </div>
     </section>
   );
