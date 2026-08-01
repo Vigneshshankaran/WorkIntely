@@ -75,11 +75,11 @@ export default function Footer() {
             <div className="promora-col">
               <h4 className="promora-col-title">Modules</h4>
               <ul className="promora-links">
-                <li><Link to="/">Overview</Link></li>
-                <li><Link to="/solution">ATS</Link></li>
-                <li><Link to="/solution">People</Link></li>
-                <li><Link to="/solution">Grow</Link></li>
-                <li><Link to="/solution">Perform</Link></li>
+                <li><Link to="/platform">Overview</Link></li>
+                <li><Link to="/WiTalents">ATS</Link></li>
+                <li><Link to="/WiPeople">People</Link></li>
+                <li><Link to="/WiGrow">Grow</Link></li>
+                <li><Link to="/WiPerform">Perform</Link></li>
               </ul>
             </div>
 

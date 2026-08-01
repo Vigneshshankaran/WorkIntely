@@ -29,7 +29,7 @@ export default function CtaBanner() {
   return (
     <section className="cta-banner-section section-1440" ref={bannerRef}>
       <div className="container">
-        <div className="cta-banner-card">
+        <div className="cta-banner-card section-dark">
           {/* Left Text Content */}
           <div className="cta-banner-text">
             <h2 className="cta-banner-title">Grow your team intelligently</h2>

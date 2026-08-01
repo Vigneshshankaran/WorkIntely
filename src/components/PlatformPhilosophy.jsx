@@ -70,7 +70,7 @@ export default function PlatformPhilosophy() {
             <span className="eyebrow">PLATFORM PHILOSOPHY</span>
             
             <h2 className="philosophy-title">
-              <span className="philosophy-title-line">One platform.</span>
+              <span className="philosophy-title-line">One platform.</span>{' '}
               <span className="philosophy-title-line">One intelligent experience.</span>
             </h2>
 

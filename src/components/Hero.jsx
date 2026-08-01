@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { MessageSquare } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import './Hero.css';
@@ -66,7 +66,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="hero-wrapper-light" ref={heroRef}>
+    <section className="hero-wrapper-light section-dark" ref={heroRef}>
       {/* Light Abstract Technology Background Video */}
       <div className="hero-bg-video-wrapper">
         <video
@@ -90,7 +90,7 @@ export default function Hero() {
         {/* Eyebrow Badge */}
         <div className="hero-badge-light">
           <span className="badge-dot-purple"></span>
-          <span className="badge-text-light">Making Work More Intelligently</span>
+          <span className="badge-text-light">Empowering People to Work More Intelligently</span>
         </div>
 
         {/* Main Headline */}
@@ -115,9 +115,9 @@ export default function Hero() {
 
         {/* CTA Actions */}
         <div className="hero-cta-wrap-light">
-          <Link to="/contact" className="btn-primary-purple btn-no-arrow">
-            <MessageSquare size={16} />
-            <span>Book a Demo</span>
+          <Link to="/platform" className="btn-primary-purple btn-no-arrow">
+            <span>Explore Platform</span>
+            <ArrowRight size={16} />
           </Link>
         </div>
       </div>

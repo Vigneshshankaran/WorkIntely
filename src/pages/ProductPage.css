@@ -1,6 +1,6 @@
 /* ==========================================================================
-   Wi Talents Product Page (WiTalentsPage.css)
-   Hiring process steps + capability grid + personalised platform section
+   Wi Product Page (ProductPage.css)
+   Shared by every /Wi* route: platform intro + capability grid + process steps
    ========================================================================== */
 
 .wt-page {
@@ -114,6 +114,11 @@
 
 .wt-capabilities-section {
   padding: var(--space-xxl) 0;
+}
+
+/* On the dark surface this band lifts slightly; on a light one the
+   section-light canvas already separates it from the white cards. */
+.wt-capabilities-section:not(.section-light) {
   background-color: var(--canvas-subtle);
 }
 
@@ -214,12 +219,10 @@
   align-items: center;
 }
 
+/* Just the photograph — no panel, tint, or frame behind it. */
 .wt-platform-visual {
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-sm);
   overflow: hidden;
-  background: var(--canvas-parchment);
-  box-shadow: var(--shadow-md);
 }
 
 .wt-platform-visual img {
@@ -228,6 +231,7 @@
   height: 100%;
   object-fit: cover;
 }
+
 
 .wt-platform-content {
   display: flex;

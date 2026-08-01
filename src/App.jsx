@@ -7,8 +7,10 @@ import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import ComingSoonPage from './pages/ComingSoonPage';
-import ModulesPage from './pages/ModulesPage';
-import WiTalentsPage from './pages/WiTalentsPage';
+/* Solutions is hidden for now — restore this import with the route below. */
+// import ModulesPage from './pages/ModulesPage';
+import PlatformPage from './pages/PlatformPage';
+import ProductPage from './pages/ProductPage';
 
 /* Scrolls to top on route change, or to the anchor when a hash is present
    (makes cross-page links like /#modules work). */
@@ -38,13 +40,15 @@ export default function App() {
         <main>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/solution" element={<ModulesPage />} />
-            <Route path="/WiTalents" element={<WiTalentsPage />} />
-            <Route path="/WiPeople" element={<ComingSoonPage title="Wi People Coming Soon" />} />
-            <Route path="/WiGrow" element={<ComingSoonPage title="Wi Grow Coming Soon" />} />
-            <Route path="/WiPerform" element={<ComingSoonPage title="Wi Perform Coming Soon" />} />
-            <Route path="/WiSales" element={<ComingSoonPage title="Wi Sales Coming Soon" />} />
-            <Route path="/WiBooks" element={<ComingSoonPage title="Wi Books Coming Soon" />} />
+            <Route path="/platform" element={<PlatformPage />} />
+            {/* Hidden for now — un-comment to bring the solution page back.
+                <Route path="/solution" element={<ModulesPage />} /> */}
+            <Route path="/WiTalents" element={<ProductPage productId="WiTalents" />} />
+            <Route path="/WiPeople" element={<ProductPage productId="WiPeople" />} />
+            <Route path="/WiGrow" element={<ProductPage productId="WiGrow" />} />
+            <Route path="/WiPerform" element={<ProductPage productId="WiPerform" />} />
+            <Route path="/WiSales" element={<ProductPage productId="WiSales" />} />
+            <Route path="/WiBooks" element={<ProductPage productId="WiBooks" />} />
             <Route 
               path="/resources" 
               element={<ComingSoonPage title="Resources Coming Soon" />} 

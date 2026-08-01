@@ -1,9 +1,7 @@
 import React from 'react';
 import Hero from '../components/Hero';
 import WiFamilyBanner from '../components/WiFamilyBanner';
-import FeatureGrid from '../components/FeatureGrid';
-import PlatformBento from '../components/PlatformBento';
-import WhyWiPlatform from '../components/WhyWiPlatform';
+import CoreModulesCta from '../components/CoreModulesCta';
 import PlatformPhilosophy from '../components/PlatformPhilosophy';
 
 export default function HomePage() {
@@ -11,9 +9,7 @@ export default function HomePage() {
     <>
       <Hero />
       <WiFamilyBanner />
-      <FeatureGrid />
-      <PlatformBento />
-      <WhyWiPlatform />
+      <CoreModulesCta />
       <PlatformPhilosophy />
     </>
   );

@@ -1,0 +1,330 @@
+/* ==========================================================================
+   Talent Category Explorer (TalentCategoryExplorer.css)
+   Tab row of Wi Talents categories + detail panel for the selected one
+   ========================================================================== */
+
+.tce-section {
+  background-color: var(--canvas-subtle);
+  padding: var(--space-section) 0;
+}
+
+.tce-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.tce-eyebrow {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.tce-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  max-width: 760px;
+}
+
+/* ── Tabs ───────────────────────────────────────────────────────────── */
+
+.tce-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.tce-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--ink-muted);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  padding: 10px 18px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.tce-tab:hover {
+  color: var(--ink);
+  border-color: var(--border-light);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.tce-tab:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+.tce-tab.active {
+  color: #ffffff;
+  background: var(--primary);
+  border-color: var(--primary);
+  box-shadow: 0 6px 18px var(--primary-glow);
+}
+
+.tce-tab-icon {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ── Detail panel ───────────────────────────────────────────────────── */
+
+.tce-panel {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 48px;
+  align-items: center;
+  background: var(--surface-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  padding: 48px;
+}
+
+.tce-panel:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+.tce-panel-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.tce-panel-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tce-panel-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  background: var(--primary-light);
+  border: 1px solid var(--border-focus);
+  color: var(--primary);
+}
+
+.tce-panel-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.2vw, 1.85rem);
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+
+.tce-panel-desc {
+  font-size: 1.02rem;
+  color: var(--ink-muted);
+  line-height: var(--lh-body);
+  max-width: 480px;
+}
+
+.tce-panel-points {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+}
+
+.tce-panel-points li {
+  position: relative;
+  padding-left: 22px;
+  font-size: var(--text-body);
+  color: var(--ink-secondary);
+  line-height: 1.5;
+}
+
+.tce-panel-points li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+}
+
+.tce-panel-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+  padding: 10px 22px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-light);
+  color: var(--ink);
+  font-size: var(--text-body);
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.tce-panel-cta:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-1px);
+}
+
+/* ── Illustrative mock ──────────────────────────────────────────────── */
+
+.tce-panel-visual {
+  display: flex;
+  justify-content: center;
+}
+
+.tce-mock {
+  width: 100%;
+  max-width: 460px;
+  background: var(--canvas-parchment);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: var(--shadow-md);
+}
+
+.tce-mock-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.tce-mock-title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.tce-mock-action {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: var(--primary);
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+}
+
+.tce-mock-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tce-mock-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+}
+
+.tce-mock-row.strong {
+  border-color: rgba(140, 82, 255, 0.35);
+  background: rgba(140, 82, 255, 0.06);
+}
+
+.tce-mock-row-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.tce-mock-row-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.tce-mock-row-sub {
+  font-size: 0.75rem;
+  color: var(--ink-muted);
+}
+
+.tce-mock-row-value {
+  flex: 0 0 auto;
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.tce-mock-badge {
+  align-self: flex-start;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--ondark-muted);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+}
+
+/* ── Responsive ─────────────────────────────────────────────────────── */
+
+@media (max-width: 900px) {
+  .tce-panel {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 32px;
+  }
+
+  .tce-panel-visual {
+    order: 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .tce-tabs {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+  }
+
+  .tce-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tce-tab {
+    flex: 0 0 auto;
+  }
+
+  .tce-header {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .tce-panel {
+    padding: 24px 20px;
+  }
+}

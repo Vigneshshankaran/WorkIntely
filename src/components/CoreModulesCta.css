@@ -1,0 +1,141 @@
+/* ==========================================================================
+   Core Modules CTA (CoreModulesCta.css)
+   Same card treatment as CtaBanner, with a three-row module breakdown
+   ========================================================================== */
+
+.core-cta-section {
+  padding: 48px 0;
+  background: var(--canvas);
+}
+
+.core-cta-card {
+  background: var(--surface-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  padding: 48px;
+}
+
+/* ── Accordion ── */
+
+.core-cta-item {
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.core-cta-item:last-child {
+  border-bottom: none;
+}
+
+.core-cta-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 24px 8px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  color: var(--ink);
+  transition: all 0.25s ease;
+}
+
+.core-cta-trigger:hover {
+  padding-left: 18px;
+}
+
+.core-cta-trigger:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: -2px;
+  border-radius: var(--radius-xs);
+}
+
+.core-cta-num {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--primary);
+  letter-spacing: 0.06em;
+  flex: 0 0 auto;
+}
+
+.core-cta-row-title {
+  flex: 1;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.core-cta-icon {
+  flex: 0 0 auto;
+  color: var(--ink-faint);
+  transition: transform 0.3s ease, color 0.25s ease;
+}
+
+.core-cta-trigger:hover .core-cta-icon {
+  color: var(--primary);
+}
+
+.core-cta-item.open .core-cta-icon {
+  color: var(--primary);
+  transform: rotate(45deg);
+}
+
+/* Height is driven by GSAP; start collapsed so there is no flash on load. */
+.core-cta-panel {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.core-cta-panel-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 0 8px 28px 52px;
+}
+
+.core-cta-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.core-cta-tag {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ink-secondary);
+  background: var(--canvas-subtle);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-pill);
+  padding: 7px 16px;
+  transition: all 0.2s ease;
+}
+
+.core-cta-tag:hover {
+  color: var(--primary);
+  border-color: rgba(140, 82, 255, 0.4);
+  background: rgba(140, 82, 255, 0.06);
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 868px) {
+  .core-cta-card {
+    padding: 32px 24px;
+  }
+
+  .core-cta-trigger {
+    padding: 20px 4px;
+    gap: 14px;
+  }
+
+  .core-cta-row-title {
+    font-size: 1.05rem;
+  }
+
+  .core-cta-panel-inner {
+    padding: 0 4px 24px 34px;
+  }
+}

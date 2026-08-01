@@ -27,7 +27,7 @@ export default function WiFamilyBanner() {
   }, []);
 
   return (
-    <section className="wi-family-banner-wrapper" ref={bannerRef}>
+    <section className="wi-family-banner-wrapper section-dark" ref={bannerRef}>
       <div className="container-full-width">
         <img
           src={wiFamilyProducts}

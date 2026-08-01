@@ -24,7 +24,7 @@ export default function Logo({ dark = false, height = 32, showText = true }) {
           display: 'inline-flex',
           alignItems: 'center'
         }}>
-          <span style={{ color: 'var(--ink)' }}>Work</span>
+          <span style={{ color: dark ? 'var(--white)' : 'var(--ink)' }}>Work</span>
           <span style={{ color: '#8b5cf6' }}>Intel</span>
         </span>
       )}
