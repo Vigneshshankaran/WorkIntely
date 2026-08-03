@@ -53,9 +53,17 @@ export default function App() {
               path="/resources" 
               element={<ComingSoonPage title="Resources Coming Soon" />} 
             />
-            <Route 
-              path="/login" 
-              element={<ComingSoonPage title="Login Coming Soon" />} 
+            <Route
+              path="/login"
+              element={<ComingSoonPage title="Login Coming Soon" />}
+            />
+            <Route
+              path="/industry-solutions"
+              element={<ComingSoonPage title="Industry Solutions Coming Soon" />}
+            />
+            <Route
+              path="/community"
+              element={<ComingSoonPage title="Community Coming Soon" />}
             />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />

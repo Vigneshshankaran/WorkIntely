@@ -39,6 +39,7 @@ export default function Header() {
           <NavLink to="/platform" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>Platform</NavLink>
           <NavLink to="/resources" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>Resources</NavLink>
           <NavLink to="/about" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>About Us</NavLink>
+          <NavLink to="/community" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>Community</NavLink>
         </nav>
 
         {/* Right CTA Action */}
@@ -70,6 +71,7 @@ export default function Header() {
           <NavLink to="/platform" className="mobile-link" onClick={() => setOpen(false)}>Platform</NavLink>
           <NavLink to="/resources" className="mobile-link" onClick={() => setOpen(false)}>Resources</NavLink>
           <NavLink to="/about" className="mobile-link" onClick={() => setOpen(false)}>About Us</NavLink>
+          <NavLink to="/community" className="mobile-link" onClick={() => setOpen(false)}>Community</NavLink>
           <NavLink to="/login" className="mobile-link" onClick={() => setOpen(false)}>Login</NavLink>
           <Link to="/contact" className="btn btn-primary mobile-cta" onClick={() => setOpen(false)}>
             <MessageSquare size={16} />

@@ -1,7 +1,7 @@
 import React from 'react';
 import Hero from '../components/Hero';
 import WiFamilyBanner from '../components/WiFamilyBanner';
-import CoreModulesCta from '../components/CoreModulesCta';
+import IndustrySolutions from '../components/IndustrySolutions';
 import PlatformPhilosophy from '../components/PlatformPhilosophy';
 
 export default function HomePage() {
@@ -9,7 +9,7 @@ export default function HomePage() {
     <>
       <Hero />
       <WiFamilyBanner />
-      <CoreModulesCta />
+      <IndustrySolutions />
       <PlatformPhilosophy />
     </>
   );

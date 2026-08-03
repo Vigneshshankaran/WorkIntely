@@ -98,12 +98,8 @@ export default function Footer() {
         {/* Divider Line */}
         <div className="promora-divider"></div>
 
-        {/* Middle Bar: Sub-note & Social Icons */}
+        {/* Middle Bar: Social Icons */}
         <div className="promora-middle-bar">
-          <div className="promora-subnote">
-            Part of the WorkIntel platform family, including Staffing Services.
-          </div>
-
           <div className="promora-socials">
             {/* LinkedIn */}
             <a href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="promora-social-icon">

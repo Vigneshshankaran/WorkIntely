@@ -166,14 +166,10 @@
   margin-bottom: 32px;
 }
 
-.promora-subnote {
-  font-size: 0.82rem;
-  color: var(--ondark-muted);
-}
-
 .promora-socials {
   display: flex;
   gap: 14px;
+  margin-left: auto;
 }
 
 .promora-social-icon {

@@ -139,11 +139,12 @@
 
 .wt-capability-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(140, 82, 255, 0.3);
-  box-shadow: var(--shadow-md);
 }
 
-.wt-capability-card.featured {
+/* The purple "featured" look is a hover effect; `.featured` is only added
+   briefly by the hero quicklinks to flash the card they scrolled to. */
+.wt-capability-card.featured,
+.wt-capability-card:hover {
   background: var(--primary);
   border-color: var(--primary);
   box-shadow: 0 10px 28px var(--primary-glow);
@@ -162,7 +163,8 @@
   margin-bottom: 24px;
 }
 
-.wt-capability-card.featured .wt-capability-icon {
+.wt-capability-card.featured .wt-capability-icon,
+.wt-capability-card:hover .wt-capability-icon {
   background: rgba(255, 255, 255, 0.16);
   border-color: rgba(255, 255, 255, 0.35);
   color: #ffffff;
@@ -183,7 +185,9 @@
 }
 
 .wt-capability-card.featured .wt-capability-title,
-.wt-capability-card.featured .wt-capability-desc {
+.wt-capability-card.featured .wt-capability-desc,
+.wt-capability-card:hover .wt-capability-title,
+.wt-capability-card:hover .wt-capability-desc {
   color: #ffffff;
 }
 
@@ -230,6 +234,36 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* Quick-jump list of every capability title, sitting under the hero photo.
+   Clicking one scrolls to and briefly highlights its card below. */
+.wt-capability-quicklinks {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.wt-capability-quicklink {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink-secondary);
+  background: var(--canvas-subtle);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-pill);
+  padding: 7px 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.wt-capability-quicklink:hover,
+.wt-capability-quicklink:focus-visible {
+  color: #ffffff;
+  background: var(--primary);
+  border-color: var(--primary);
 }
 
 

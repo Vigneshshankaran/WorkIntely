@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { productPages } from '../data/productPages';
@@ -20,6 +20,22 @@ export default function ProductPage({ productId }) {
 
   const { platform, audiences, capabilities, process } = product;
 
+  /* No card is highlighted by default — the purple "featured" look is a hover
+     effect. Clicking a quicklink under the hero image scrolls to its card and
+     flashes that same highlight briefly so the destination is obvious. */
+  const [highlightedId, setHighlightedId] = useState(null);
+  const cardRefs = useRef({});
+  const highlightTimeoutRef = useRef(null);
+
+  useEffect(() => () => window.clearTimeout(highlightTimeoutRef.current), []);
+
+  const jumpToCapability = (id) => {
+    cardRefs.current[id]?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    setHighlightedId(id);
+    window.clearTimeout(highlightTimeoutRef.current);
+    highlightTimeoutRef.current = window.setTimeout(() => setHighlightedId(null), 1600);
+  };
+
   return (
     <div className="wt-page">
 
@@ -29,6 +45,20 @@ export default function ProductPage({ productId }) {
 
           <div className="wt-platform-visual">
             <img src={platform.image} alt={platform.imageAlt} />
+
+            <ul className="wt-capability-quicklinks">
+              {capabilities.map(({ id, title }) => (
+                <li key={id}>
+                  <button
+                    type="button"
+                    className="wt-capability-quicklink"
+                    onClick={() => jumpToCapability(id)}
+                  >
+                    {title}
+                  </button>
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div className="wt-platform-content">
@@ -64,8 +94,12 @@ export default function ProductPage({ productId }) {
         <div className="container">
 
           <div className="wt-capabilities-grid">
-            {capabilities.map(({ id, icon: Icon, title, description, featured }) => (
-              <article key={id} className={`wt-capability-card ${featured ? 'featured' : ''}`}>
+            {capabilities.map(({ id, icon: Icon, title, description }) => (
+              <article
+                key={id}
+                ref={(el) => { cardRefs.current[id] = el; }}
+                className={`wt-capability-card ${id === highlightedId ? 'featured' : ''}`}
+              >
                 <div className="wt-capability-icon"><Icon size={20} /></div>
                 <h3 className="wt-capability-title">{title}</h3>
                 <p className="wt-capability-desc">{description}</p>

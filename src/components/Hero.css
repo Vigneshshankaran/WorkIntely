@@ -4,6 +4,9 @@
 
 .hero-wrapper-light {
   position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
   background: var(--canvas, #ffffff);
   overflow: hidden;
   color: var(--ink, #0f172a);
@@ -161,9 +164,13 @@
   font-family: var(--font-display);
   font-size: 1.3rem;
   font-weight: 700;
+  line-height: 1.5;
   color: var(--ink);
   margin-top: 24px;
   text-align: center;
+  /* Reserves room for two lines up front so the typewriter filling in text
+     never grows the section and shoves the CTA / rest of the page down. */
+  min-height: calc(1.3rem * 1.5 * 2);
 }
 
 .typewriter-wrap {
