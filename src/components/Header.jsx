@@ -11,7 +11,7 @@ const productLinks = [
 ];
 
 const resourceLinks = [
-  { label: 'Contact Us', to: '/contact' }
+  { label: 'Connect Wi', to: '/contact' }
 ];
 
 /* Click-only dropdown: opening on hover would make the click that follows
@@ -155,9 +155,6 @@ export default function Header() {
             </NavLink>
           ))}
 
-          <Link to="/business-login" className="btn btn-nav-business mobile-cta" onClick={() => setOpen(false)}>
-            <span>Business Login</span>
-          </Link>
           <Link to="/candidate-login" className="btn btn-nav-candidate mobile-cta" onClick={() => setOpen(false)}>
             <span>Candidate Login</span>
           </Link>
