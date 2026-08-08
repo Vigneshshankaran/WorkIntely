@@ -1,35 +1,12 @@
 /* Pricing content.
 
-   WiTalents is the full tier breakdown supplied in the pricing document. The
-   other three products carry the same three-tier shape with `TODO —` capability
-   lists: the document only covered WiTalents and noted WiPeople was in a
-   separate spreadsheet, which is not in the repo. Search for "TODO" to find
-   every list still awaiting copy. */
+   WiTalents comes from the pricing document; WiPeople from the feature/tier
+   spreadsheet. Spreadsheet rows with no tier assigned (Time Tracking, Accrual
+   Rules, Shift Scheduling, Payroll, Benefits Enrolment, Wage & Tax Compliance)
+   are deliberately left out until they are packaged. */
 
 export const SALES_EMAIL = 'sales@workintely.com';
 export const GENERAL_EMAIL = 'connect@workintely.com';
-
-const draftTiers = (product) => [
-  {
-    id: 'basic',
-    name: 'Basic',
-    summary: `TODO — who the Basic ${product} plan is for.`,
-    features: ['TODO — capability one', 'TODO — capability two', 'TODO — capability three']
-  },
-  {
-    id: 'standard',
-    name: 'Standard',
-    summary: `TODO — who the Standard ${product} plan is for.`,
-    features: [`Everything in Basic`, 'TODO — capability one', 'TODO — capability two']
-  },
-  {
-    id: 'premium',
-    name: 'Premium',
-    summary: `TODO — who the Premium ${product} plan is for.`,
-    badge: 'Most Intelligent',
-    features: [`Everything in Standard`, 'TODO — capability one', 'TODO — capability two']
-  }
-];
 
 export const pricingProducts = [
   {
@@ -105,11 +82,58 @@ export const pricingProducts = [
   {
     id: 'WiPeople',
     name: 'WiPeople',
-    strapline: 'TODO — one line on what WiPeople covers',
-    tiers: draftTiers('WiPeople')
+    strapline: 'One centralized system of record for every employee, everywhere',
+    tiers: [
+      {
+        id: 'basic',
+        name: 'Basic',
+        summary: 'Core functionality required for the product to be usable day one.',
+        features: [
+          'Centralized Employee Database',
+          'Document Storage',
+          'Leave & PTO Requests',
+          'Business Unit Structure',
+          'Manager Hierarchy Mapping',
+          'Employee Self-Service Portal',
+          'Manager Self-Service'
+        ]
+      },
+      {
+        id: 'standard',
+        name: 'Standard',
+        summary:
+          'Workflow, automation, and reporting features expected by most paying customers.',
+        features: [
+          'Everything in Basic',
+          'Org Chart Visualization',
+          'Employment History Log',
+          'Digital Onboarding Checklists',
+          'E-Signature for Policies',
+          'New-Hire Portal',
+          'Structured Offboarding Workflow',
+          'Position Management',
+          'Policy Library & Acknowledgment',
+          'Document Expiry Alerts',
+          'Mobile App Access',
+          'Headcount & Turnover Reporting'
+        ]
+      },
+      {
+        id: 'premium',
+        name: 'Premium',
+        badge: 'Most Intelligent',
+        summary:
+          'Advanced, AI-powered, or cross-module features suited to higher-tier and enterprise pricing.',
+        features: [
+          'Everything in Standard',
+          'Sensitive Record Audit Trail',
+          'Custom Report Builder',
+          'HR Dashboards'
+        ]
+      }
+    ]
   }
-  /* WiGrow and WiPerform are out of the tab row until their tiers are written —
-     add them back here with draftTiers('WiGrow') / draftTiers('WiPerform'). */
+  /* WiGrow and WiPerform stay out of the tab row until their tiers exist. */
 ];
 
 /* The enquiry form offers the whole suite, including products that have no
