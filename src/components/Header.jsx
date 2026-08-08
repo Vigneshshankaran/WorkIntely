@@ -1,8 +1,76 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
-import { MessageSquare, Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import Logo from './Logo';
 import './Header.css';
+
+/* Nav menus. A `to` on the group makes the label itself a plain link. */
+const platformLinks = [
+  { label: 'WiTalents', to: '/WiTalents' },
+  { label: 'WiPeople', to: '/WiPeople' }
+];
+
+const resourceLinks = [
+  { label: 'Contact Us', to: '/contact' }
+];
+
+/* Click-only dropdown: opening on hover would make the click that follows
+   toggle it straight back shut, and click keeps touch and keyboard identical. */
+function NavDropdown({ id, label, items, onNavigate }) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef(null);
+  const location = useLocation();
+
+  useEffect(() => { setOpen(false); }, [location.pathname, location.hash]);
+
+  useEffect(() => {
+    if (!open) return;
+
+    const onKey = (e) => { if (e.key === 'Escape') setOpen(false); };
+    const onPointer = (e) => {
+      if (!ref.current?.contains(e.target)) setOpen(false);
+    };
+
+    window.addEventListener('keydown', onKey);
+    document.addEventListener('mousedown', onPointer);
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      document.removeEventListener('mousedown', onPointer);
+    };
+  }, [open]);
+
+  return (
+    <div className="nav-dropdown" ref={ref}>
+      <button
+        type="button"
+        className={`nav-link nav-dropdown-trigger ${open ? 'open' : ''}`}
+        aria-expanded={open}
+        aria-haspopup="true"
+        aria-controls={`${id}-menu`}
+        onClick={() => setOpen((v) => !v)}
+      >
+        <span>{label}</span>
+        <ChevronDown size={15} aria-hidden="true" />
+      </button>
+
+      {open && (
+        <div className="nav-dropdown-panel" id={`${id}-menu`} role="menu">
+          {items.map((item) => (
+            <NavLink
+              key={item.to}
+              to={item.to}
+              role="menuitem"
+              className="nav-dropdown-item"
+              onClick={() => { setOpen(false); onNavigate?.(); }}
+            >
+              {item.label}
+            </NavLink>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -36,20 +104,19 @@ export default function Header() {
 
         {/* Center Navigation Links (desktop) */}
         <nav className="nav-menu" aria-label="Primary">
-          <NavLink to="/platform" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>Platform</NavLink>
-          <NavLink to="/resources" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>Resources</NavLink>
+          <NavDropdown id="platform" label="Platform" items={platformLinks} />
+          <NavLink to="/pricing" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>Pricing</NavLink>
           <NavLink to="/about" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>About Us</NavLink>
-          <NavLink to="/community" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>Community</NavLink>
+          <NavDropdown id="resources" label="Resources" items={resourceLinks} />
         </nav>
 
-        {/* Right CTA Action */}
+        {/* Right actions: the two sign-in paths */}
         <div className="nav-actions">
-          <Link to="/login" className="nav-link nav-login-link" style={{ marginRight: '0.5rem' }}>
-            Login
+          <Link to="/business-login" className="nav-link nav-login-link" style={{ marginRight: '0.5rem' }}>
+            Business Login
           </Link>
-          <Link to="/contact" className="btn btn-primary btn-talk">
-            <MessageSquare size={16} />
-            <span>Talk to Wi</span>
+          <Link to="/candidate-login" className="btn btn-primary btn-talk">
+            <span>Candidate Login</span>
           </Link>
 
           <button
@@ -65,17 +132,29 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile menu sheet */}
+      {/* Mobile menu sheet — the dropdown groups flatten into labelled lists */}
       {open && (
         <nav id="mobile-menu" className="mobile-menu" aria-label="Primary mobile">
-          <NavLink to="/platform" className="mobile-link" onClick={() => setOpen(false)}>Platform</NavLink>
-          <NavLink to="/resources" className="mobile-link" onClick={() => setOpen(false)}>Resources</NavLink>
+          <span className="mobile-group-label">Platform</span>
+          {platformLinks.map((item) => (
+            <NavLink key={item.to} to={item.to} className="mobile-link mobile-sublink" onClick={() => setOpen(false)}>
+              {item.label}
+            </NavLink>
+          ))}
+
+          <NavLink to="/pricing" className="mobile-link" onClick={() => setOpen(false)}>Pricing</NavLink>
           <NavLink to="/about" className="mobile-link" onClick={() => setOpen(false)}>About Us</NavLink>
-          <NavLink to="/community" className="mobile-link" onClick={() => setOpen(false)}>Community</NavLink>
-          <NavLink to="/login" className="mobile-link" onClick={() => setOpen(false)}>Login</NavLink>
-          <Link to="/contact" className="btn btn-primary mobile-cta" onClick={() => setOpen(false)}>
-            <MessageSquare size={16} />
-            <span>Talk to Wi</span>
+
+          <span className="mobile-group-label">Resources</span>
+          {resourceLinks.map((item) => (
+            <NavLink key={item.to} to={item.to} className="mobile-link mobile-sublink" onClick={() => setOpen(false)}>
+              {item.label}
+            </NavLink>
+          ))}
+
+          <NavLink to="/business-login" className="mobile-link" onClick={() => setOpen(false)}>Business Login</NavLink>
+          <Link to="/candidate-login" className="btn btn-primary mobile-cta" onClick={() => setOpen(false)}>
+            <span>Candidate Login</span>
           </Link>
         </nav>
       )}

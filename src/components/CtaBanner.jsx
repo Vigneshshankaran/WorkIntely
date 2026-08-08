@@ -41,7 +41,7 @@ export default function CtaBanner() {
           {/* Right Action Button */}
           <div className="cta-banner-action">
             <Link to="/contact" className="cta-banner-btn">
-              <span>Talk to Wi</span>
+              <span>Connect Wi</span>
               <ArrowUpRight size={18} />
             </Link>
           </div>

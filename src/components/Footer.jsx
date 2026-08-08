@@ -68,18 +68,15 @@ export default function Footer() {
                 <li><Link to="/about">About Us</Link></li>
                 <li><Link to="/contact">Careers</Link></li>
                 <li><Link to="/#why-wi">Why WorkIntel</Link></li>
-                <li><a href="#newsroom">Newsroom</a></li>
               </ul>
             </div>
 
             <div className="promora-col">
-              <h4 className="promora-col-title">Modules</h4>
+              <h4 className="promora-col-title">Products</h4>
               <ul className="promora-links">
                 <li><Link to="/platform">Overview</Link></li>
-                <li><Link to="/WiTalents">ATS</Link></li>
-                <li><Link to="/WiPeople">People</Link></li>
-                <li><Link to="/WiGrow">Grow</Link></li>
-                <li><Link to="/WiPerform">Perform</Link></li>
+                <li><Link to="/WiTalents">WiTalents</Link></li>
+                <li><Link to="/WiPeople">WiPeople</Link></li>
               </ul>
             </div>
 
@@ -87,7 +84,6 @@ export default function Footer() {
               <h4 className="promora-col-title">Resources</h4>
               <ul className="promora-links">
                 <li><a href="#blog">Blog</a></li>
-                <li><a href="#guides">Guides</a></li>
                 <li><a href="#webinars">Webinars</a></li>
               </ul>
             </div>

@@ -491,7 +491,7 @@ export default function ModulesPage() {
                   need to work smarter, faster, and with greater impact.
                 </p>
                 <Link to="/contact" className="btn btn-primary" onClick={() => setSelectedRole(null)}>
-                  <span>Talk to Wi</span>
+                  <span>Connect Wi</span>
                 </Link>
               </div>
 

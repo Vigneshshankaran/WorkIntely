@@ -1,6 +1,6 @@
 import React from 'react';
 import Hero from '../components/Hero';
-import WiFamilyBanner from '../components/WiFamilyBanner';
+import PlatformHero from '../components/PlatformHero';
 import IndustrySolutions from '../components/IndustrySolutions';
 import PlatformPhilosophy from '../components/PlatformPhilosophy';
 
@@ -8,7 +8,8 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <WiFamilyBanner />
+      {/* h2 here — the page's h1 belongs to the hero above */}
+      <PlatformHero as="h2" />
       <IndustrySolutions />
       <PlatformPhilosophy />
     </>

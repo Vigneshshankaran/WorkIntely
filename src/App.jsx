@@ -49,9 +49,17 @@ export default function App() {
             <Route path="/WiPerform" element={<ProductPage productId="WiPerform" />} />
             <Route path="/WiSales" element={<ProductPage productId="WiSales" />} />
             <Route path="/WiBooks" element={<ProductPage productId="WiBooks" />} />
-            <Route 
-              path="/resources" 
-              element={<ComingSoonPage title="Resources Coming Soon" />} 
+            <Route
+              path="/pricing"
+              element={<ComingSoonPage title="Pricing Coming Soon" />}
+            />
+            <Route
+              path="/business-login"
+              element={<ComingSoonPage title="Business Login Coming Soon" />}
+            />
+            <Route
+              path="/candidate-login"
+              element={<ComingSoonPage title="Candidate Login Coming Soon" />}
             />
             <Route
               path="/login"

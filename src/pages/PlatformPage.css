@@ -1,81 +1,9 @@
 /* ==========================================================================
    Platform Page (PlatformPage.css)
-   Intro band + the tabbed PlatformExplorer section
+   Shell only — the intro band lives in PlatformHero.css, which the home page
+   shares, and the tab section in PlatformExplorer.css
    ========================================================================== */
 
 .platform-page {
   background-color: var(--canvas);
-}
-
-.platform-hero {
-  padding: var(--space-section) 0;
-  background:
-    radial-gradient(60% 80% at 88% 15%, var(--primary-glow) 0%, transparent 60%),
-    radial-gradient(45% 60% at 8% 90%, var(--primary-light) 0%, transparent 65%),
-    var(--canvas);
-}
-
-.platform-hero-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.05fr;
-  gap: 56px;
-  align-items: center;
-}
-
-.platform-hero-copy {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 18px;
-}
-
-.platform-hero-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  color: var(--primary);
-  font-weight: 700;
-  background: var(--primary-light);
-  border: 1px solid var(--border-focus);
-  padding: 6px 14px;
-  border-radius: var(--radius-pill);
-}
-
-.platform-hero-title {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 3.6vw, 3rem);
-  font-weight: 800;
-  color: var(--ink);
-  line-height: 1.12;
-  letter-spacing: -0.03em;
-}
-
-.platform-hero-desc {
-  font-size: 1.05rem;
-  color: var(--ink-muted);
-  line-height: var(--lh-body);
-  max-width: 520px;
-}
-
-.platform-hero-cta {
-  align-self: flex-start;
-  margin-top: 4px;
-}
-
-.platform-hero-visual {
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-lg);
-}
-
-.platform-hero-visual img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-@media (max-width: 900px) {
-  .platform-hero-grid {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
 }

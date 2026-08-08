@@ -74,7 +74,7 @@
 
 .badge-text-light {
   font-family: var(--font-body);
-  font-size: 0.78rem;
+  font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -152,7 +152,7 @@
 /* Description */
 .hero-desc-light {
   font-family: var(--font-body);
-  font-size: 1.12rem;
+  font-size: 1.25rem;
   font-weight: 400;
   line-height: 1.65;
   color: var(--ink-muted, #64748b);
@@ -162,7 +162,7 @@
 
 .hero-typewriter-tagline {
   font-family: var(--font-display);
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: 700;
   line-height: 1.5;
   color: var(--ink);
@@ -170,7 +170,7 @@
   text-align: center;
   /* Reserves room for two lines up front so the typewriter filling in text
      never grows the section and shoves the CTA / rest of the page down. */
-  min-height: calc(1.3rem * 1.5 * 2);
+  min-height: calc(1.5rem * 1.5 * 2);
 }
 
 .typewriter-wrap {
@@ -459,11 +459,15 @@
    Overlay Background Image Hero Styling
    ========================================================================== */
 
+/* Centred behind the copy rather than pinned right, so the hero reads
+   symmetrical. Centring uses margin, not transform — GSAP animates this
+   element's x on entry and would overwrite a translate. */
 .hero-bg-image-right {
   position: absolute;
   top: 0;
-  right: 0;
-  width: 55%;
+  left: 50%;
+  width: 78%;
+  margin-left: -39%;
   height: 100%;
   z-index: 0;
   pointer-events: none;
@@ -482,7 +486,7 @@
 .hero-bg-image-fade {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 78% 50%, rgba(3, 0, 8, 0) 25%, var(--canvas, #030008) 85%),
+  background: radial-gradient(circle at 50% 50%, rgba(3, 0, 8, 0) 22%, var(--canvas, #030008) 82%),
               linear-gradient(180deg, var(--canvas, #030008) 0%, rgba(3, 0, 8, 0) 15%, rgba(3, 0, 8, 0) 85%, var(--canvas, #030008) 100%);
 }
 
@@ -526,6 +530,7 @@
 @media (max-width: 991px) {
   .hero-bg-image-right {
     width: 100%;
+    margin-left: -50%;
     opacity: 0.22;
   }
   
