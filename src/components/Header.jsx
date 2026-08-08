@@ -4,8 +4,8 @@ import { Menu, X, ChevronDown } from 'lucide-react';
 import Logo from './Logo';
 import './Header.css';
 
-/* Nav menus. A `to` on the group makes the label itself a plain link. */
-const platformLinks = [
+/* Nav menus. */
+const productLinks = [
   { label: 'WiTalents', to: '/WiTalents' },
   { label: 'WiPeople', to: '/WiPeople' }
 ];
@@ -104,7 +104,8 @@ export default function Header() {
 
         {/* Center Navigation Links (desktop) */}
         <nav className="nav-menu" aria-label="Primary">
-          <NavDropdown id="platform" label="Platform" items={platformLinks} />
+          <NavLink to="/platform" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>Platform</NavLink>
+          <NavDropdown id="product" label="Product" items={productLinks} />
           <NavLink to="/pricing" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>Pricing</NavLink>
           <NavLink to="/about" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>About Us</NavLink>
           <NavDropdown id="resources" label="Resources" items={resourceLinks} />
@@ -135,8 +136,10 @@ export default function Header() {
       {/* Mobile menu sheet — the dropdown groups flatten into labelled lists */}
       {open && (
         <nav id="mobile-menu" className="mobile-menu" aria-label="Primary mobile">
-          <span className="mobile-group-label">Platform</span>
-          {platformLinks.map((item) => (
+          <NavLink to="/platform" className="mobile-link" onClick={() => setOpen(false)}>Platform</NavLink>
+
+          <span className="mobile-group-label">Product</span>
+          {productLinks.map((item) => (
             <NavLink key={item.to} to={item.to} className="mobile-link mobile-sublink" onClick={() => setOpen(false)}>
               {item.label}
             </NavLink>
