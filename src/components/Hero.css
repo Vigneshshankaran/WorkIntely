@@ -189,48 +189,9 @@
   flex-wrap: wrap;
 }
 
-.btn-primary-purple {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: var(--primary);
-  color: #ffffff;
-  font-family: var(--font-body);
-  font-size: 1rem;
-  font-weight: 700;
-  padding: 14px 28px;
-  border-radius: 999px;
-  text-decoration: none;
-  box-shadow: 0 8px 24px var(--primary-glow);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
 
-.btn-primary-purple:hover {
-  background: var(--primary-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(140, 82, 255, 0.25);
-}
 
-.btn-secondary-light {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-family: var(--font-body);
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--ink);
-  text-decoration: none;
-  padding: 13px 24px;
-  border-radius: 999px;
-  border: 1px solid var(--border-light);
-  background: var(--canvas-subtle);
-  transition: all 0.2s ease;
-}
 
-.btn-secondary-light:hover {
-  border-color: var(--primary);
-  color: var(--primary);
-}
 
 /* Centered Interactive Dashboard Visual */
 .hero-visual-single {
@@ -441,7 +402,7 @@
     width: 100%;
     margin-bottom: 40px;
   }
-  .btn-primary-purple, .btn-secondary-light {
+  .hero-cta-wrap-light .btn {
     width: 100%;
     justify-content: center;
   }

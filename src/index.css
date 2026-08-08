@@ -263,7 +263,7 @@ a {
   font-weight: 500;
   border-radius: var(--radius-pill);
   padding: 0.65rem 1.4rem;
-  border: none;
+  border: 1px solid transparent;
   cursor: pointer;
   text-decoration: none;
   transition: all 0.2s ease;
@@ -285,14 +285,15 @@ a {
 
 .btn-secondary,
 .btn-ghost {
-  background: var(--canvas);
+  background: var(--canvas-subtle);
   color: var(--ink);
-  border: 1px solid var(--border-light);
+  border-color: var(--border-light);
 }
 
 .btn-secondary:hover,
 .btn-ghost:hover {
-  border-color: var(--ink);
+  border-color: var(--primary);
+  color: var(--primary);
   transform: translateY(-1px);
 }
 

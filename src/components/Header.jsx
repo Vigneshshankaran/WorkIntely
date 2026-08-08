@@ -113,10 +113,10 @@ export default function Header() {
 
         {/* Right actions: the two sign-in paths */}
         <div className="nav-actions">
-          <Link to="/business-login" className="nav-link nav-login-link" style={{ marginRight: '0.5rem' }}>
-            Business Login
+          <Link to="/business-login" className="btn btn-nav-business">
+            <span>Business Login</span>
           </Link>
-          <Link to="/candidate-login" className="btn btn-primary btn-talk">
+          <Link to="/candidate-login" className="btn btn-nav-candidate">
             <span>Candidate Login</span>
           </Link>
 
@@ -155,8 +155,10 @@ export default function Header() {
             </NavLink>
           ))}
 
-          <NavLink to="/business-login" className="mobile-link" onClick={() => setOpen(false)}>Business Login</NavLink>
-          <Link to="/candidate-login" className="btn btn-primary mobile-cta" onClick={() => setOpen(false)}>
+          <Link to="/business-login" className="btn btn-nav-business mobile-cta" onClick={() => setOpen(false)}>
+            <span>Business Login</span>
+          </Link>
+          <Link to="/candidate-login" className="btn btn-nav-candidate mobile-cta" onClick={() => setOpen(false)}>
             <span>Candidate Login</span>
           </Link>
         </nav>

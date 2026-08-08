@@ -61,10 +61,16 @@ export default function PlatformHero({ as: Heading = 'h1' }) {
             Every module shares a single source of employee truth — so data flows seamlessly
             from hiring through performance, with no duplicate systems or manual handoffs.
           </p>
-          <Link to="/platform#modules" className="btn btn-primary platform-hero-cta">
-            <span>Explore Solution</span>
-            <ArrowRight size={16} />
-          </Link>
+          <div className="platform-hero-actions">
+            <Link to="/WiTalents" className="btn btn-primary">
+              <span>Explore WiTalents</span>
+              <ArrowRight size={16} />
+            </Link>
+            <Link to="/WiPeople" className="btn btn-secondary">
+              <span>Explore WiPeople</span>
+              <ArrowRight size={16} />
+            </Link>
+          </div>
         </div>
 
         <div className="platform-hero-visual">

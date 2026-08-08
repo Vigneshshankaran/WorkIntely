@@ -115,8 +115,12 @@ export default function Hero() {
 
         {/* CTA Actions */}
         <div className="hero-cta-wrap-light">
-          <Link to="/platform" className="btn-primary-purple btn-no-arrow">
-            <span>Explore Platform</span>
+          <Link to="/WiTalents" className="btn btn-primary">
+            <span>Explore WiTalents</span>
+            <ArrowRight size={16} />
+          </Link>
+          <Link to="/WiPeople" className="btn btn-secondary">
+            <span>Explore WiPeople</span>
             <ArrowRight size={16} />
           </Link>
         </div>

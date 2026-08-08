@@ -192,6 +192,12 @@
     grid-template-columns: 1fr;
     gap: 36px;
   }
+  .philosophy-content-col {
+    order: 1;
+  }
+  .philosophy-visual-col {
+    order: 2;
+  }
 }
 
 @media (max-width: 768px) {
