@@ -4,6 +4,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
   pricingProducts,
+  enquiryProducts,
   pricingPrinciples,
   pricingFaqs,
   teamSizes,
@@ -18,7 +19,7 @@ const emptyForm = {
   workEmail: '',
   company: '',
   phone: '',
-  products: [],
+  product: '',
   teamSize: teamSizes[0],
   notes: ''
 };
@@ -59,14 +60,6 @@ export default function PricingPage() {
   }, [activeProductId]);
 
   const setField = (key) => (e) => setForm((f) => ({ ...f, [key]: e.target.value }));
-
-  const toggleProduct = (name) =>
-    setForm((f) => ({
-      ...f,
-      products: f.products.includes(name)
-        ? f.products.filter((p) => p !== name)
-        : [...f.products, name]
-    }));
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -150,12 +143,16 @@ export default function PricingPage() {
                     </li>
                   ))}
                 </ul>
-
-                <a href="#find-your-plan" className="pricing-card-cta">
-                  Contact Sales
-                </a>
               </article>
             ))}
+          </div>
+
+          {/* One shared call to action for all three tiers */}
+          <div className="pricing-plans-action">
+            <a href="#find-your-plan" className="btn btn-primary">
+              <span>Contact Sales</span>
+              <ArrowRight size={16} />
+            </a>
           </div>
 
         </div>
@@ -294,21 +291,15 @@ export default function PricingPage() {
                 </label>
               </div>
 
-              <fieldset className="pricing-fieldset">
-                <legend>Which products are you interested in?</legend>
-                <div className="pricing-checkbox-grid">
-                  {pricingProducts.map((product) => (
-                    <label key={product.id} className="pricing-checkbox">
-                      <input
-                        type="checkbox"
-                        checked={form.products.includes(product.name)}
-                        onChange={() => toggleProduct(product.name)}
-                      />
-                      <span>{product.name}</span>
-                    </label>
+              <label className="pricing-field">
+                <span>Which product are you interested in?</span>
+                <select value={form.product} onChange={setField('product')}>
+                  <option value="">Select a product</option>
+                  {enquiryProducts.map((name) => (
+                    <option key={name} value={name}>{name}</option>
                   ))}
-                </div>
-              </fieldset>
+                </select>
+              </label>
 
               <label className="pricing-field">
                 <span>Approximate Team Size</span>

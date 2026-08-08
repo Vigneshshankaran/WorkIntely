@@ -227,7 +227,13 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-bottom: 28px;
+}
+
+/* Single CTA under the tier grid, shared by all three cards. */
+.pricing-plans-action {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
 }
 
 .pricing-features li {
@@ -243,38 +249,6 @@
   flex: 0 0 auto;
   margin-top: 3px;
   color: var(--primary);
-}
-
-/* Same control as .platform-explorer-link. */
-.pricing-card-cta {
-  margin-top: auto;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: var(--text-body);
-  font-weight: 600;
-  color: var(--ink);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-pill);
-  padding: 10px 22px;
-  transition: all 0.2s ease;
-}
-
-.pricing-card-cta:hover {
-  color: #ffffff;
-  background: var(--primary);
-  border-color: var(--primary);
-  transform: translateY(-2px);
-}
-
-.pricing-card.featured .pricing-card-cta {
-  color: #ffffff;
-  background: var(--primary);
-  border-color: var(--primary);
-}
-
-.pricing-card.featured .pricing-card-cta:hover {
-  background: var(--primary-hover);
 }
 
 /* ── Principles ── */
@@ -518,52 +492,6 @@
   box-shadow: 0 0 0 3px var(--primary-light);
 }
 
-.pricing-fieldset {
-  border: none;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.pricing-fieldset legend {
-  font-size: var(--text-fine);
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--ink-faint);
-  margin-bottom: 12px;
-}
-
-.pricing-checkbox-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-
-.pricing-checkbox {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: var(--text-body);
-  color: var(--ink-secondary);
-  background: var(--canvas-subtle);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-sm);
-  padding: 12px 14px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.pricing-checkbox:hover {
-  border-color: var(--primary);
-}
-
-.pricing-checkbox input {
-  accent-color: var(--primary);
-  width: 16px;
-  height: 16px;
-}
-
 .pricing-submit {
   align-self: flex-start;
 }
@@ -599,8 +527,7 @@
 }
 
 @media (max-width: 768px) {
-  .pricing-field-row,
-  .pricing-checkbox-grid {
+  .pricing-field-row {
     grid-template-columns: 1fr;
   }
 

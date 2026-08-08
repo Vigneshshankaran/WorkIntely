@@ -107,19 +107,18 @@ export const pricingProducts = [
     name: 'WiPeople',
     strapline: 'TODO — one line on what WiPeople covers',
     tiers: draftTiers('WiPeople')
-  },
-  {
-    id: 'WiGrow',
-    name: 'WiGrow',
-    strapline: 'TODO — one line on what WiGrow covers',
-    tiers: draftTiers('WiGrow')
-  },
-  {
-    id: 'WiPerform',
-    name: 'WiPerform',
-    strapline: 'TODO — one line on what WiPerform covers',
-    tiers: draftTiers('WiPerform')
   }
+  /* WiGrow and WiPerform are out of the tab row until their tiers are written —
+     add them back here with draftTiers('WiGrow') / draftTiers('WiPerform'). */
+];
+
+/* The enquiry form offers the whole suite, including products that have no
+   published tiers yet, so interest in them still reaches sales. */
+export const enquiryProducts = [
+  'WiTalents - Talent Management',
+  'WiPeople - HR Management',
+  'WiGrow',
+  'WiPerform'
 ];
 
 /* "Simple. Transparent. Scalable." — the three pricing principles. */
