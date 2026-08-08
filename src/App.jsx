@@ -10,6 +10,7 @@ import ComingSoonPage from './pages/ComingSoonPage';
 /* Solutions is hidden for now — restore this import with the route below. */
 // import ModulesPage from './pages/ModulesPage';
 import PlatformPage from './pages/PlatformPage';
+import PricingPage from './pages/PricingPage';
 import ProductPage from './pages/ProductPage';
 
 /* Scrolls to top on route change, or to the anchor when a hash is present
@@ -49,10 +50,7 @@ export default function App() {
             <Route path="/WiPerform" element={<ProductPage productId="WiPerform" />} />
             <Route path="/WiSales" element={<ProductPage productId="WiSales" />} />
             <Route path="/WiBooks" element={<ProductPage productId="WiBooks" />} />
-            <Route
-              path="/pricing"
-              element={<ComingSoonPage title="Pricing Coming Soon" />}
-            />
+            <Route path="/pricing" element={<PricingPage />} />
             <Route
               path="/business-login"
               element={<ComingSoonPage title="Business Login Coming Soon" />}
