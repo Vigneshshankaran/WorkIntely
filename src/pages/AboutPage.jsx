@@ -77,10 +77,6 @@ export default function AboutPage() {
               geographies — technology that simplifies complexity while unlocking new
               opportunities through intelligence and innovation.
             </p>
-            <Link to="/platform" className="btn btn-primary about-hero-cta">
-              <span>Explore the platform</span>
-              <ArrowRight size={16} />
-            </Link>
           </div>
 
           <div className="about-hero-visual">
