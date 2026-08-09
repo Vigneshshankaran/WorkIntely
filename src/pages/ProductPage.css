@@ -441,21 +441,22 @@
   padding: var(--space-section) 0;
 }
 
+/* Stacked, not side by side: the eyebrow, the title, then the copy, each on
+   its own line. */
 .wt-overview-grid {
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 48px;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
 }
 
 .wt-overview-grid .wt-section-head {
-  margin-bottom: 0;
+  margin-bottom: 20px;
 }
 
 .wt-overview-copy {
   display: flex;
   flex-direction: column;
   gap: 18px;
+  max-width: 900px;
 }
 
 .wt-overview-copy p {
@@ -637,12 +638,6 @@
   }
 }
 
-@media (max-width: 900px) {
-  .wt-overview-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-}
 
 @media (max-width: 640px) {
   .wt-roles-grid,
