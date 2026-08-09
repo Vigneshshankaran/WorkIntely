@@ -441,22 +441,23 @@
   padding: var(--space-section) 0;
 }
 
-/* Stacked, not side by side: the eyebrow, the title, then the copy, each on
-   its own line. */
-.wt-overview-grid {
-  display: flex;
-  flex-direction: column;
+.wt-overview-eyebrow {
+  margin-bottom: 20px;
 }
 
-.wt-overview-grid .wt-section-head {
-  margin-bottom: 20px;
+/* Heading on the left, the two paragraphs alongside it on the right. Both
+   columns are direct grid children, so their first lines sit level. */
+.wt-overview-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 48px;
+  align-items: start;
 }
 
 .wt-overview-copy {
   display: flex;
   flex-direction: column;
   gap: 18px;
-  max-width: 900px;
 }
 
 .wt-overview-copy p {
@@ -588,10 +589,11 @@
   padding: var(--space-section) 0;
 }
 
+/* One per row — these read as a list, not a pair of columns. */
 .wt-efficiency-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .wt-efficiency-card {
@@ -639,10 +641,16 @@
 }
 
 
+@media (max-width: 900px) {
+  .wt-overview-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
 @media (max-width: 640px) {
   .wt-roles-grid,
-  .wt-intel-grid,
-  .wt-efficiency-grid {
+  .wt-intel-grid {
     grid-template-columns: 1fr;
   }
 

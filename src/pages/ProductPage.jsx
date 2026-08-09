@@ -278,15 +278,20 @@ export default function ProductPage({ productId }) {
         <>
           {/* Product overview */}
           <section className="wt-overview-section section-1440" id="product-overview">
-            <div className="container wt-overview-grid">
-              <div className="wt-section-head">
-                <span className="eyebrow wt-eyebrow">{detail.overview.eyebrow}</span>
+            <div className="container">
+              {/* Eyebrow sits above the split so the heading and the copy start
+                  on the same line. */}
+              <span className="eyebrow wt-eyebrow wt-overview-eyebrow">
+                {detail.overview.eyebrow}
+              </span>
+
+              <div className="wt-overview-grid">
                 <h2 className="wt-section-title">{detail.overview.title}</h2>
-              </div>
-              <div className="wt-overview-copy">
-                {detail.overview.paragraphs.map((text) => (
-                  <p key={text.slice(0, 24)}>{text}</p>
-                ))}
+                <div className="wt-overview-copy">
+                  {detail.overview.paragraphs.map((text) => (
+                    <p key={text.slice(0, 24)}>{text}</p>
+                  ))}
+                </div>
               </div>
             </div>
           </section>
