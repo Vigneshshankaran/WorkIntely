@@ -1,6 +1,8 @@
 /* ==========================================================================
    Wi Product Page (ProductPage.css)
-   Shared by every /Wi* route: platform intro + capability grid + process steps
+   One hero: the product image on the left, a slider on the right carrying the
+   overview, every capability, and the process.
+   Type scale, cards, and controls follow PlatformExplorer.css / PlatformHero.css.
    ========================================================================== */
 
 .wt-page {
@@ -13,213 +15,27 @@
 }
 
 /* ==========================================================================
-   Process Section
+   Hero
    ========================================================================== */
 
-.wt-process-section {
-  padding: var(--space-section) 0 0;
-}
-
-.wt-process-grid {
-  display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
-  gap: 60px;
-  align-items: start;
-}
-
-.wt-process-intro {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 20px;
-  position: sticky;
-  top: 104px;
-}
-
-.wt-eyebrow {
-  color: var(--primary);
-  font-weight: 700;
-}
-
-.wt-process-title {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 3.4vw, 3rem);
-  font-weight: 800;
-  color: var(--ink);
-  line-height: 1.12;
-  letter-spacing: -0.03em;
-}
-
-.wt-process-desc {
-  font-size: 1.05rem;
-  color: var(--ink-muted);
-  line-height: var(--lh-body);
-  max-width: 520px;
-}
-
-/* Stepped list */
-.wt-steps-list {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  list-style: none;
-}
-
-.wt-step-card {
-  background: var(--surface-card);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-lg);
-  padding: 24px 28px 28px;
-  box-shadow: var(--shadow-sm);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.wt-step-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(140, 82, 255, 0.3);
-  box-shadow: var(--shadow-md);
-}
-
-.wt-step-badge {
-  display: inline-flex;
-  align-items: center;
-  background: var(--primary);
-  color: #ffffff;
-  font-size: var(--text-fine);
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 6px 14px;
-  border-radius: var(--radius-sm);
-  margin-bottom: 16px;
-}
-
-.wt-step-title {
-  font-family: var(--font-display);
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--ink);
-  margin-bottom: 8px;
-}
-
-.wt-step-desc {
-  font-size: var(--text-body);
-  color: var(--ink-muted);
-  line-height: 1.55;
-}
-
-/* ==========================================================================
-   Capability Grid
-   ========================================================================== */
-
-.wt-capabilities-section {
-  padding: var(--space-xxl) 0;
-}
-
-/* On the dark surface this band lifts slightly; on a light one the
-   section-light canvas already separates it from the white cards. */
-.wt-capabilities-section:not(.section-light) {
-  background-color: var(--canvas-subtle);
-}
-
-.wt-capabilities-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-.wt-capability-card {
-  background: var(--surface-card);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-lg);
-  padding: 32px 28px;
-  box-shadow: var(--shadow-sm);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.wt-capability-card:hover {
-  transform: translateY(-6px);
-}
-
-/* The purple "featured" look is a hover effect; `.featured` is only added
-   briefly by the hero quicklinks to flash the card they scrolled to. */
-.wt-capability-card.featured,
-.wt-capability-card:hover {
-  background: var(--primary);
-  border-color: var(--primary);
-  box-shadow: 0 10px 28px var(--primary-glow);
-}
-
-.wt-capability-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: var(--radius-full);
-  background: var(--primary-light);
-  border: 1px solid var(--border-focus);
-  color: var(--primary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 24px;
-}
-
-.wt-capability-card.featured .wt-capability-icon,
-.wt-capability-card:hover .wt-capability-icon {
-  background: rgba(255, 255, 255, 0.16);
-  border-color: rgba(255, 255, 255, 0.35);
-  color: #ffffff;
-}
-
-.wt-capability-title {
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--ink);
-  margin-bottom: 10px;
-}
-
-.wt-capability-desc {
-  font-size: var(--text-body);
-  color: var(--ink-muted);
-  line-height: 1.6;
-}
-
-.wt-capability-card.featured .wt-capability-title,
-.wt-capability-card.featured .wt-capability-desc,
-.wt-capability-card:hover .wt-capability-title,
-.wt-capability-card:hover .wt-capability-desc {
-  color: #ffffff;
-}
-
-.wt-capabilities-footnote {
-  margin-top: 40px;
-  text-align: center;
-  font-size: var(--text-tagline);
-  color: var(--ink-muted);
-}
-
-.wt-footnote-link {
-  color: var(--primary);
-  font-weight: 700;
-  border-bottom: 1px solid currentColor;
-}
-
-.wt-footnote-link:hover {
-  color: var(--primary-hover);
-}
-
-/* ==========================================================================
-   Personalised Platform Section
-   ========================================================================== */
-
+/* Fills one screen below the 65px sticky header, so the whole deck is visible
+   without scrolling. */
 .wt-platform-section {
-  padding: var(--space-section) 0;
+  min-height: calc(100vh - 65px);
+  display: flex;
+  align-items: center;
+  padding: 40px 0;
+  background:
+    radial-gradient(60% 80% at 88% 15%, var(--primary-glow) 0%, transparent 60%),
+    radial-gradient(45% 60% at 8% 90%, var(--primary-light) 0%, transparent 65%),
+    var(--canvas);
 }
 
 .wt-platform-grid {
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  gap: 56px;
   align-items: center;
 }
 
@@ -232,51 +48,103 @@
 .wt-platform-visual img {
   display: block;
   width: 100%;
-  height: 100%;
+  height: clamp(320px, calc(100vh - 215px), 560px);
   object-fit: cover;
 }
 
-/* Quick-jump list of every capability title, sitting under the hero photo.
-   Clicking one scrolls to and briefly highlights its card below. */
-.wt-capability-quicklinks {
-  list-style: none;
+/* The brand banner is 2.7:1 — anchor left so the wordmark and tagline survive
+   the crop into this near-square slot. */
+.wt-platform-visual.is-banner img {
+  object-position: left center;
+}
+
+/* ==========================================================================
+   Slider
+   ========================================================================== */
+
+.wt-slider {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Artwork with the section chips stacked beneath it. */
+.wt-platform-media {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Small eyebrow-sized chips that jump to the sections below the hero. */
+.wt-jump-nav {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 16px;
 }
 
-.wt-capability-quicklink {
-  font-family: var(--font-body);
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--ink-secondary);
-  background: var(--canvas-subtle);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-pill);
-  padding: 7px 16px;
+.wt-jump-link {
+  border: none;
   cursor: pointer;
+  font-family: var(--font-body);
+  font-size: var(--text-fine);
   transition: all 0.2s ease;
 }
 
-.wt-capability-quicklink:hover,
-.wt-capability-quicklink:focus-visible {
-  color: #ffffff;
+.wt-jump-link:hover {
   background: var(--primary);
-  border-color: var(--primary);
+  color: #ffffff;
+  transform: translateY(-2px);
 }
 
+.wt-jump-link:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
 
-.wt-platform-content {
+.wt-slider:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 12px;
+  border-radius: var(--radius-md);
+}
+
+/* Tracks the viewport. Every slide is sized to fit inside it — no inner
+   scrollbar, so the deck always shows a whole slide at once. */
+/* Centred: slides differ in length, so the leftover space sits evenly above
+   and below rather than pooling at the bottom. */
+.wt-slide-viewport {
+  height: clamp(320px, calc(100vh - 215px), 560px);
+  display: flex;
+  align-items: center;
+}
+
+.wt-slide {
+  width: 100%;
+}
+
+.wt-platform-content,
+.wt-capability-slide,
+.wt-process-slide {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 20px;
+  gap: 14px;
 }
+
+.wt-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  color: var(--primary);
+  font-weight: 700;
+  background: var(--primary-light);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+}
+
+/* ── Overview slide ── */
 
 .wt-platform-title {
   font-family: var(--font-display);
-  font-size: clamp(1.9rem, 3.2vw, 2.75rem);
+  font-size: clamp(1.7rem, 2.6vw, 2.3rem);
   font-weight: 800;
   color: var(--ink);
   line-height: 1.15;
@@ -284,18 +152,17 @@
 }
 
 .wt-platform-desc {
-  font-size: 1.05rem;
+  font-size: var(--text-body);
   color: var(--ink-muted);
-  line-height: var(--lh-body);
-  max-width: 560px;
+  line-height: 1.6;
 }
 
 .wt-audience-list {
   display: flex;
   flex-direction: column;
-  gap: 22px;
+  gap: 12px;
   list-style: none;
-  margin: 4px 0;
+  margin: 0;
 }
 
 .wt-audience-item {
@@ -305,12 +172,11 @@
 }
 
 .wt-audience-icon {
-  flex: 0 0 44px;
-  width: 44px;
-  height: 44px;
+  flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
   border-radius: var(--radius-full);
   background: var(--primary-light);
-  border: 1px solid var(--border-focus);
   color: var(--primary);
   display: flex;
   align-items: center;
@@ -326,54 +192,476 @@
 }
 
 .wt-audience-desc {
+  font-size: var(--text-caption);
+  color: var(--ink-muted);
+  line-height: 1.5;
+}
+
+/* ── Capability slide ── */
+
+.wt-capability-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-full);
+  background: var(--primary-light);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wt-capability-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+  font-weight: 800;
+  color: var(--ink);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.wt-capability-desc {
+  font-size: 1.05rem;
+  color: var(--ink-muted);
+  line-height: 1.7;
+}
+
+/* ── Process slide ── */
+
+.wt-process-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+  font-weight: 800;
+  color: var(--ink);
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+}
+
+.wt-process-desc {
   font-size: var(--text-body);
   color: var(--ink-muted);
-  line-height: 1.55;
+  line-height: var(--lh-body);
+}
+
+/* Two columns so all six steps fit the slide even on a short screen. */
+.wt-steps-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 20px;
+  width: 100%;
+}
+
+.wt-step-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.wt-step-badge {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  background: var(--primary);
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: var(--text-fine);
+  font-weight: 800;
+}
+
+.wt-step-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.35;
+}
+
+/* ── Controls ── */
+
+.wt-slider-controls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.wt-slider-arrows {
+  display: flex;
+  gap: 10px;
+}
+
+.wt-slider-arrow {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-full);
+  background: var(--surface-card);
+  color: var(--ink);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+}
+
+.wt-slider-arrow:hover {
+  background: var(--primary);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.wt-slider-arrow:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.wt-slider-dots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  flex: 1;
+}
+
+.wt-slider-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--ink-faint);
+  opacity: 0.4;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.wt-slider-dot:hover {
+  opacity: 0.8;
+}
+
+.wt-slider-dot.active {
+  width: 26px;
+  background: var(--primary);
+  opacity: 1;
+}
+
+.wt-slider-dot:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+.wt-slider-counter {
+  font-family: var(--font-display);
+  font-size: var(--text-caption);
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: 0.04em;
+}
+
+.wt-slider-counter-sep {
+  margin: 0 4px;
+  color: var(--ink-faint);
 }
 
 /* ==========================================================================
    Responsive
    ========================================================================== */
 
-@media (max-width: 1024px) {
-  .wt-capabilities-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
 @media (max-width: 900px) {
-  .wt-process-grid,
+  /* Stacked, so one screen is no longer the goal — let it flow. */
+  .wt-platform-section {
+    min-height: 0;
+    padding: var(--space-section) 0;
+  }
+
   .wt-platform-grid {
     grid-template-columns: 1fr;
     gap: 36px;
   }
 
-  .wt-process-intro {
-    position: static;
-    top: auto;
+  .wt-slide-viewport {
+    height: auto;
+    overflow-y: visible;
   }
 
-  /* Lead the stacked page with the headline, not the visual. */
-  .wt-platform-content {
-    order: 1;
-  }
-
-  .wt-platform-visual {
-    order: 2;
+  .wt-platform-visual img {
+    height: auto;
   }
 }
 
 @media (max-width: 640px) {
-  .wt-capabilities-grid {
+  .wt-slider-controls {
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .wt-slider-dots {
+    order: 3;
+    flex-basis: 100%;
+  }
+}
+
+/* ==========================================================================
+   Long-form content below the hero
+   Cards follow the site idiom: surface fill, --radius-lg, --shadow-sm, lift on
+   hover — same as .wt-capability-card elsewhere.
+   ========================================================================== */
+
+.wt-section-head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 40px;
+}
+
+.wt-section-head.is-center {
+  align-items: center;
+  text-align: center;
+}
+
+/* Matches .platform-explorer-title. */
+.wt-section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 3.2vw, 2.75rem);
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  max-width: 760px;
+}
+
+/* ── Overview ── */
+
+.wt-overview-section {
+  padding: var(--space-section) 0;
+}
+
+.wt-overview-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.wt-overview-grid .wt-section-head {
+  margin-bottom: 0;
+}
+
+.wt-overview-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.wt-overview-copy p {
+  font-size: 1.02rem;
+  color: var(--ink-muted);
+  line-height: var(--lh-body);
+}
+
+/* ── Who it's for ── */
+
+.wt-roles-section {
+  padding: var(--space-section) 0;
+}
+
+.wt-roles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.wt-role-card {
+  background: var(--surface-card);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.wt-role-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+}
+
+.wt-role-name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+
+.wt-role-tagline {
+  font-size: var(--text-body);
+  font-weight: 600;
+  color: var(--primary);
+  margin: 6px 0 20px;
+}
+
+.wt-role-points {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.wt-role-points li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: var(--text-body);
+  color: var(--ink-muted);
+  line-height: 1.55;
+}
+
+.wt-role-points svg {
+  flex: 0 0 auto;
+  margin-top: 3px;
+  color: var(--primary);
+}
+
+/* ── What makes it intelligent ── */
+
+.wt-intelligence-section {
+  padding: var(--space-section) 0;
+}
+
+.wt-intel-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.wt-intel-card {
+  position: relative;
+  overflow: hidden;
+  background: var(--surface-card);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.wt-intel-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Ghosted numeral, same device as the About differentiators. */
+.wt-intel-index {
+  position: absolute;
+  top: 10px;
+  right: 18px;
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--primary);
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.wt-intel-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+
+.wt-intel-desc {
+  font-size: var(--text-body);
+  color: var(--ink-muted);
+  line-height: 1.6;
+}
+
+/* ── Where it saves time ── */
+
+.wt-efficiency-section {
+  padding: var(--space-section) 0;
+}
+
+.wt-efficiency-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.wt-efficiency-card {
+  background: var(--surface-card);
+  border-radius: var(--radius-lg);
+  padding: 28px 26px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.wt-efficiency-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+}
+
+.wt-efficiency-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.wt-efficiency-desc {
+  font-size: var(--text-body);
+  color: var(--ink-muted);
+  line-height: 1.6;
+}
+
+.wt-closing {
+  margin-top: 44px;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 1024px) {
+  .wt-roles-grid,
+  .wt-intel-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .wt-overview-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .wt-roles-grid,
+  .wt-intel-grid,
+  .wt-efficiency-grid {
     grid-template-columns: 1fr;
   }
 
-  .wt-step-card,
-  .wt-capability-card {
-    padding: 24px 20px;
+  .wt-role-card,
+  .wt-intel-card,
+  .wt-efficiency-card {
+    padding: 26px 20px;
   }
+}
 
-  .wt-capabilities-footnote {
-    text-align: left;
-  }
+/* Jump targets clear the 65px sticky header. */
+.wt-overview-section,
+.wt-roles-section,
+.wt-intelligence-section,
+.wt-efficiency-section {
+  scroll-margin-top: 90px;
 }
