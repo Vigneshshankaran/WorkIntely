@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Check, Sparkles } from 'lucide-react';
+import { ArrowRight, Check } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
@@ -95,35 +95,41 @@ export default function AboutPage() {
 
       {/* Mission */}
       <section className="about-mission section-1440">
-        <div className="container">
-          <div className="about-section-head">
-            <span className="eyebrow about-eyebrow">Our Mission</span>
-            <h2 className="about-section-title">
-              Secure, scalable, and intelligent cloud solutions
-            </h2>
-            <p className="about-section-lead">
-              Our mission is to develop secure, scalable, and intelligent cloud solutions that
-              enable organizations to:
-            </p>
+        <div className="container about-mission-layout">
+
+          {/* Left: heading and the mission outcomes */}
+          <div className="about-mission-main">
+            <div className="about-section-head is-left">
+              <span className="eyebrow about-eyebrow">Our Mission</span>
+              <h2 className="about-section-title">
+                Secure, scalable, and intelligent cloud solutions
+              </h2>
+              <p className="about-section-lead">
+                Our mission is to develop secure, scalable, and intelligent cloud solutions that
+                enable organizations to:
+              </p>
+            </div>
+
+            <ul className="about-mission-grid">
+              {missionOutcomes.map((outcome) => (
+                <li key={outcome} className="about-mission-card">
+                  <Check size={16} aria-hidden="true" />
+                  <span>{outcome}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <ul className="about-mission-grid">
-            {missionOutcomes.map((outcome) => (
-              <li key={outcome} className="about-mission-card">
-                <Check size={16} aria-hidden="true" />
-                <span>{outcome}</span>
-              </li>
-            ))}
-          </ul>
-
+          {/* Right: the guiding philosophy, on the dark surface */}
           <div className="about-philosophy section-dark">
             <span className="about-philosophy-label">
-              <Sparkles size={14} /> Every solution we build is guided by one philosophy
+              Every solution we build is guided by one philosophy
             </span>
             <p className="about-philosophy-quote">
               Working Intelligently through Automation, AI, and Better Decisions.
             </p>
           </div>
+
         </div>
       </section>
 

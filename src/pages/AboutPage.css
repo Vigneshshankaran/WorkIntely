@@ -129,17 +129,41 @@
   padding: var(--space-section) 0;
 }
 
-/* One soft surface holding the whole list, instead of eight outlined tiles. */
+/* Copy and outcomes on the left, the philosophy panel alongside on the right. */
+.about-mission-layout {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 40px;
+  align-items: stretch;
+}
+
+.about-mission-main {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Section heads default to centred; this one reads down the left column. */
+.about-section-head.is-left {
+  align-items: flex-start;
+  text-align: left;
+  margin-bottom: 28px;
+}
+
+.about-section-head.is-left .about-section-title,
+.about-section-head.is-left .about-section-lead {
+  max-width: none;
+}
+
+/* One soft surface holding the whole list, instead of eight outlined tiles.
+   Spans the container so its edges line up with the philosophy panel below. */
 .about-mission-grid {
   list-style: none;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 4px 40px;
-  max-width: 900px;
-  margin: 0 auto;
+  gap: 6px 40px;
   background: var(--surface-card);
   border-radius: var(--radius-xl);
-  padding: 32px 40px;
+  padding: 36px 32px;
   box-shadow: var(--shadow-md);
 }
 
@@ -169,24 +193,26 @@
 .about-philosophy {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 16px;
-  margin-top: 48px;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: left;
+  gap: 18px;
   background: var(--surface-card);
   border-radius: var(--radius-xl);
-  padding: 56px 40px;
+  padding: 48px 36px;
 }
 
+/* Bold lead-in sentence, a step below the quote it introduces. */
 .about-philosophy-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  font-size: var(--text-fine);
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--primary);
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  color: var(--ink);
 }
 
 .about-philosophy-quote {
@@ -425,13 +451,12 @@
   padding: var(--space-section) 0;
 }
 
-/* A numbered editorial list, not a row of boxes. */
+/* A numbered editorial list, not a row of boxes. Full container width so it
+   aligns with the section head above it. */
 .about-roles {
   list-style: none;
   display: flex;
   flex-direction: column;
-  max-width: 820px;
-  margin: 0 auto;
 }
 
 .about-role {
@@ -498,7 +523,8 @@
 }
 
 @media (max-width: 900px) {
-  .about-hero-grid {
+  .about-hero-grid,
+  .about-mission-layout {
     grid-template-columns: 1fr;
     gap: 32px;
   }
@@ -517,7 +543,7 @@
   }
 
   .about-philosophy {
-    padding: 36px 22px;
+    padding: 32px 22px;
   }
 
   .about-diff-card,
