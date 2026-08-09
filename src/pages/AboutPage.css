@@ -125,13 +125,14 @@
 }
 
 /* Copy and outcomes on the left, the philosophy panel alongside on the right. */
-/* start, not stretch: the panel hugs its copy instead of being padded out to
-   the left column's full height. */
+/* end, not stretch: the panel hugs its copy and sits on the same baseline as
+   the outcomes list, which drops it below the "Our Mission" tag automatically —
+   no hardcoded offset to maintain when the copy changes. */
 .about-mission-layout {
   display: grid;
   grid-template-columns: 1.25fr 0.75fr;
   gap: 40px;
-  align-items: start;
+  align-items: end;
 }
 
 .about-mission-main {
@@ -143,7 +144,8 @@
 .about-section-head.is-left {
   align-items: flex-start;
   text-align: left;
-  margin-bottom: 28px;
+  gap: 12px;
+  margin-bottom: 20px;
 }
 
 .about-section-head.is-left .about-section-title,
@@ -153,31 +155,28 @@
 
 /* One soft surface holding the whole list, instead of eight outlined tiles.
    Spans the container so its edges line up with the philosophy panel below. */
+/* No surface behind the list — the check marks and spacing carry it. */
 .about-mission-grid {
   list-style: none;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 6px 40px;
-  background: var(--surface-card);
-  border-radius: var(--radius-xl);
-  padding: 36px 32px;
-  box-shadow: var(--shadow-md);
+  gap: 0 28px;
 }
 
 .about-mission-card {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 14px 12px;
+  gap: 11px;
+  padding: 9px 10px 9px 0;
   border-radius: var(--radius-md);
   font-size: var(--text-body);
   color: var(--ink-secondary);
-  line-height: 1.45;
+  line-height: 1.4;
   transition: background 0.25s ease, transform 0.25s ease;
 }
 
 .about-mission-card:hover {
-  background: var(--primary-light);
+  color: var(--ink);
   transform: translateX(4px);
 }
 
@@ -187,7 +186,8 @@
 }
 
 /* The guiding-philosophy line, dropped onto the dark surface. */
-/* Centred, with a soft accent bloom rising behind the copy. */
+/* Centred, with a soft accent bloom rising behind the copy. Dropped below the
+   "Our Mission" tag so the two columns don't start on the same line. */
 .about-philosophy {
   position: relative;
   overflow: hidden;
@@ -543,6 +543,11 @@
   .about-mission-layout {
     grid-template-columns: 1fr;
     gap: 32px;
+  }
+
+  /* Stacked, so the desktop offset would just be a gap. */
+  .about-philosophy {
+    margin-top: 0;
   }
 }
 
