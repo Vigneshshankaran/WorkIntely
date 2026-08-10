@@ -35,7 +35,9 @@
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 56px;
+  column-gap: 56px;
+  /* Tight row gap: the only second row is the chip strip. */
+  row-gap: 20px;
   align-items: center;
 }
 
@@ -48,7 +50,7 @@
 .wt-platform-visual img {
   display: block;
   width: 100%;
-  height: clamp(320px, calc(100vh - 215px), 560px);
+  height: clamp(260px, calc(100vh - 335px), 480px);
   object-fit: cover;
 }
 
@@ -72,15 +74,6 @@
     rgba(3, 0, 8, 0.62) 68%,
     rgba(3, 0, 8, 0.88) 100%
   );
-}
-
-.wt-visual-kicker {
-  font-family: var(--font-body);
-  font-size: var(--text-fine);
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #c4a9ff;
 }
 
 .wt-visual-title {
@@ -116,7 +109,7 @@
 .wt-slider {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 18px;
 }
 
 /* Artwork with the section chips stacked beneath it. */
@@ -126,11 +119,13 @@
   gap: 16px;
 }
 
-/* Small eyebrow-sized chips that jump to the sections below the hero. */
+/* Chips jump to the sections below the hero. Spans both grid columns so the
+   four fit one line at full width — nowrap keeps them honest if copy changes. */
 .wt-jump-nav {
+  grid-column: 1 / -1;
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  flex-wrap: nowrap;
+  gap: 10px;
 }
 
 /* Same control as the slider arrows and .platform-explorer-link. */
@@ -173,7 +168,7 @@
 /* Centred: slides differ in length, so the leftover space sits evenly above
    and below rather than pooling at the bottom. */
 .wt-slide-viewport {
-  height: clamp(320px, calc(100vh - 215px), 560px);
+  height: clamp(260px, calc(100vh - 335px), 480px);
   display: flex;
   align-items: center;
 }
@@ -345,8 +340,9 @@
 
 .wt-slider-controls {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
 }
 
 .wt-slider-arrows {
@@ -533,22 +529,10 @@
   padding: var(--space-section) 0;
 }
 
-/* Heading on one side, the role cards on the other. */
-.wt-roles-layout {
-  display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
-  gap: 48px;
-  align-items: start;
-}
-
-.wt-roles-layout .wt-section-head {
-  margin-bottom: 0;
-}
-
 .wt-roles-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
 }
 
 .wt-role-card {
@@ -662,15 +646,13 @@
   padding: var(--space-section) 0;
 }
 
-/* One per row — these read as a list, not a pair of columns. */
 .wt-efficiency-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
 }
 
 .wt-efficiency-card {
-  text-align: center;
   background: var(--surface-card);
   border-radius: var(--radius-lg);
   padding: 28px 26px;
@@ -698,7 +680,7 @@
 }
 
 .wt-closing {
-  margin-top: 44px;
+  margin-top: 32px;
   text-align: center;
   font-family: var(--font-display);
   font-size: clamp(1.1rem, 2vw, 1.4rem);
@@ -707,20 +689,6 @@
   letter-spacing: -0.02em;
 }
 
-@media (max-width: 1024px) {
-  .wt-intel-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 900px) {
-  .wt-roles-layout {
-    grid-template-columns: 1fr;
-    gap: 28px;
-  }
-}
-
-
 @media (max-width: 900px) {
   .wt-overview-grid {
     grid-template-columns: 1fr;
@@ -728,9 +696,17 @@
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 1024px) {
   .wt-roles-grid,
   .wt-intel-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .wt-roles-grid,
+  .wt-intel-grid,
+  .wt-efficiency-grid {
     grid-template-columns: 1fr;
   }
 
@@ -747,4 +723,23 @@
 .wt-intelligence-section,
 .wt-efficiency-section {
   scroll-margin-top: 90px;
+}
+
+/* Narrow screens can't fit four full-size chips on one line, so the strip
+   scrolls sideways rather than overflowing the page. */
+@media (max-width: 900px) {
+  .wt-jump-nav {
+    overflow-x: auto;
+    scrollbar-width: none;
+    margin-inline: -1.5rem;
+    padding-inline: 1.5rem;
+  }
+
+  .wt-jump-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .wt-jump-link {
+    flex: 0 0 auto;
+  }
 }

@@ -17,7 +17,7 @@ const productDetails = {
 /* Hero chips that jump to those sections. */
 const JUMP_LINKS = [
   { id: 'product-overview', label: 'Product Overview' },
-  { id: 'audience', label: 'Audience' },
+  { id: 'audience', label: 'Designed For' },
   { id: 'intelligent-features', label: 'Intelligent Features' },
   { id: 'benefits', label: 'Benefits' }
 ];
@@ -122,15 +122,13 @@ export default function ProductPage({ productId }) {
       <section className="wt-platform-section section-1440">
         <div className="container wt-platform-grid">
 
-          {/* Left: the product artwork stays put across every slide, with the
-              section chips sitting under it. */}
+          {/* Left: the product artwork stays put across every slide. */}
           <div className="wt-platform-media">
             <div className={`wt-platform-visual ${detail?.overlay ? 'has-overlay' : ''}`}>
               <img src={platform.image} alt={platform.imageAlt} />
 
               {detail?.overlay && (
                 <div className="wt-visual-overlay">
-                  <span className="wt-visual-kicker">{detail.overlay.kicker}</span>
                   <span className="wt-visual-title">
                     <WiWordmark className="wt-visual-mark" />
                     {detail.overlay.title}
@@ -140,20 +138,6 @@ export default function ProductPage({ productId }) {
               )}
             </div>
 
-            {detail && (
-              <nav className="wt-jump-nav" aria-label="Jump to a section">
-                {JUMP_LINKS.map(({ id, label }) => (
-                  <button
-                    key={id}
-                    type="button"
-                    className="wt-jump-link"
-                    onClick={() => jumpToSection(id)}
-                  >
-                    {label}
-                  </button>
-                ))}
-              </nav>
-            )}
           </div>
 
           {/* Right: the deck */}
@@ -197,11 +181,6 @@ export default function ProductPage({ productId }) {
                         </li>
                       ))}
                     </ul>
-
-                    <Link to="/contact" className="btn btn-primary wt-cta-btn">
-                      <span>Book Your Demo</span>
-                      <ArrowRight size={16} />
-                    </Link>
                   </div>
                 )}
 
@@ -213,11 +192,6 @@ export default function ProductPage({ productId }) {
                     </div>
                     <h2 className="wt-capability-title">{active.capability.title}</h2>
                     <p className="wt-capability-desc">{active.capability.description}</p>
-
-                    <Link to="/contact" className="btn btn-primary wt-cta-btn">
-                      <span>Book Your Demo</span>
-                      <ArrowRight size={16} />
-                    </Link>
                   </div>
                 )}
 
@@ -283,7 +257,30 @@ export default function ProductPage({ productId }) {
                 {String(slideCount).padStart(2, '0')}
               </span>
             </div>
+
+            {/* One CTA for the whole deck, sitting below the arrows/dots row */}
+            <Link to="/contact" className="btn btn-primary wt-cta-btn">
+              <span>Book Your Demo</span>
+              <ArrowRight size={16} />
+            </Link>
           </div>
+
+          {/* Section chips: their own row across both columns, so all four fit
+              one line at full width without shrinking. */}
+          {detail && (
+            <nav className="wt-jump-nav" aria-label="Jump to a section">
+              {JUMP_LINKS.map(({ id, label }) => (
+                <button
+                  key={id}
+                  type="button"
+                  className="wt-jump-link"
+                  onClick={() => jumpToSection(id)}
+                >
+                  {label}
+                </button>
+              ))}
+            </nav>
+          )}
 
         </div>
       </section>
@@ -312,8 +309,8 @@ export default function ProductPage({ productId }) {
 
           {/* Who it's for */}
           <section className="wt-roles-section section-light section-1440" id="audience">
-            <div className="container wt-roles-layout">
-              <div className="wt-section-head">
+            <div className="container">
+              <div className="wt-section-head is-center">
                 <span className="eyebrow wt-eyebrow">{detail.roles.eyebrow}</span>
                 <h2 className="wt-section-title">{detail.roles.title}</h2>
               </div>

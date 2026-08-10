@@ -6,7 +6,6 @@ export const wiPeopleDetail = {
   /* Laid over the hero photograph. Wording from the document's closing line and
      the product tagline. */
   overlay: {
-    kicker: 'The human side of work',
     title: 'WiPeople',
     tagline: 'One centralized system of record for every employee, everywhere.'
   },
@@ -21,7 +20,7 @@ export const wiPeopleDetail = {
   },
 
   roles: {
-    eyebrow: 'Audience',
+    eyebrow: 'Designed For',
     title: 'Built around three everyday roles',
     items: [
       {

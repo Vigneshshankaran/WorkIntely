@@ -4,7 +4,6 @@
 export const wiTalentsDetail = {
   /* Laid over the hero photograph — the wording from the brand banner. */
   overlay: {
-    kicker: 'Hiring, minus the guesswork',
     title: 'WiTalents',
     tagline: 'Matching people to work — intelligently, transparently.'
   },
@@ -19,7 +18,7 @@ export const wiTalentsDetail = {
   },
 
   roles: {
-    eyebrow: 'Audience',
+    eyebrow: 'Designed For',
     title: 'Built around three everyday roles',
     items: [
       {
