@@ -9,7 +9,8 @@ import ContactPage from './pages/ContactPage';
 import ComingSoonPage from './pages/ComingSoonPage';
 /* Solutions is hidden for now — restore this import with the route below. */
 // import ModulesPage from './pages/ModulesPage';
-import PlatformPage from './pages/PlatformPage';
+/* Standalone platform page is hidden — restore this import with its route. */
+// import PlatformPage from './pages/PlatformPage';
 import PricingPage from './pages/PricingPage';
 import ProductPage from './pages/ProductPage';
 
@@ -40,8 +41,10 @@ export default function App() {
         <Header />
         <main>
           <Routes>
+            {/* The index is what the navbar's "Platform" item points to. */}
             <Route path="/" element={<HomePage />} />
-            <Route path="/platform" element={<PlatformPage />} />
+            {/* Standalone platform page hidden — restore with:
+                <Route path="/platform" element={<PlatformPage />} /> */}
             {/* Hidden for now — un-comment to bring the solution page back.
                 <Route path="/solution" element={<ModulesPage />} /> */}
             <Route path="/WiTalents" element={<ProductPage productId="WiTalents" />} />

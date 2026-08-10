@@ -1,12 +1,12 @@
 /* WiTalents page content below the hero, taken verbatim from the
    "WiTalents Website Content" document. */
 
-import banner from '../assets/witalents-banner.png';
-
 export const wiTalentsDetail = {
-  banner: {
-    src: banner,
-    alt: 'WiTalents — hiring, minus the guesswork. Matching people to work, intelligently and transparently.'
+  /* Laid over the hero photograph — the wording from the brand banner. */
+  overlay: {
+    kicker: 'Hiring, minus the guesswork',
+    title: 'WiTalents',
+    tagline: 'Matching people to work — intelligently, transparently.'
   },
 
   overview: {

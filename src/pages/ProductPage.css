@@ -52,10 +52,61 @@
   object-fit: cover;
 }
 
-/* The brand banner is 2.7:1 — anchor left so the wordmark and tagline survive
-   the crop into this near-square slot. */
-.wt-platform-visual.is-banner img {
-  object-position: left center;
+/* Brand wording laid over the photograph. */
+.wt-platform-visual.has-overlay {
+  position: relative;
+}
+
+.wt-visual-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 36px 32px;
+  /* Scrim: keeps the wording legible whatever the photograph is doing. */
+  background: linear-gradient(
+    180deg,
+    rgba(3, 0, 8, 0) 30%,
+    rgba(3, 0, 8, 0.62) 68%,
+    rgba(3, 0, 8, 0.88) 100%
+  );
+}
+
+.wt-visual-kicker {
+  font-family: var(--font-body);
+  font-size: var(--text-fine);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #c4a9ff;
+}
+
+.wt-visual-title {
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.4vw, 2.9rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+}
+
+/* Brand mark sized to the wordmark's cap height. */
+.wt-visual-mark {
+  height: 0.8em;
+  width: auto;
+  flex: 0 0 auto;
+}
+
+.wt-visual-tagline {
+  font-size: var(--text-body);
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.86);
+  max-width: 420px;
 }
 
 /* ==========================================================================
@@ -82,11 +133,20 @@
   gap: 8px;
 }
 
+/* Same control as the slider arrows and .platform-explorer-link. */
 .wt-jump-link {
-  border: none;
-  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
   font-family: var(--font-body);
-  font-size: var(--text-fine);
+  font-size: var(--text-body);
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--surface-card);
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 10px 20px;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
   transition: all 0.2s ease;
 }
 
@@ -94,6 +154,7 @@
   background: var(--primary);
   color: #ffffff;
   transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 .wt-jump-link:focus-visible {
@@ -472,10 +533,22 @@
   padding: var(--space-section) 0;
 }
 
-.wt-roles-grid {
+/* Heading on one side, the role cards on the other. */
+.wt-roles-layout {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.wt-roles-layout .wt-section-head {
+  margin-bottom: 0;
+}
+
+.wt-roles-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .wt-role-card {
@@ -597,6 +670,7 @@
 }
 
 .wt-efficiency-card {
+  text-align: center;
   background: var(--surface-card);
   border-radius: var(--radius-lg);
   padding: 28px 26px;
@@ -634,9 +708,15 @@
 }
 
 @media (max-width: 1024px) {
-  .wt-roles-grid,
   .wt-intel-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .wt-roles-layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
   }
 }
 

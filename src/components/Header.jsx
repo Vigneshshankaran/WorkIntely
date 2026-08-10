@@ -104,7 +104,7 @@ export default function Header() {
 
         {/* Center Navigation Links (desktop) */}
         <nav className="nav-menu" aria-label="Primary">
-          <NavLink to="/platform" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>Platform</NavLink>
+          <NavLink to="/" end className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>Platform</NavLink>
           <NavDropdown id="product" label="Product" items={productLinks} />
           <NavLink to="/pricing" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>Pricing</NavLink>
           <NavLink to="/about" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>About Us</NavLink>
@@ -136,7 +136,7 @@ export default function Header() {
       {/* Mobile menu sheet — the dropdown groups flatten into labelled lists */}
       {open && (
         <nav id="mobile-menu" className="mobile-menu" aria-label="Primary mobile">
-          <NavLink to="/platform" className="mobile-link" onClick={() => setOpen(false)}>Platform</NavLink>
+          <NavLink to="/" end className="mobile-link" onClick={() => setOpen(false)}>Platform</NavLink>
 
           <span className="mobile-group-label">Product</span>
           {productLinks.map((item) => (

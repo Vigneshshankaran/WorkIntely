@@ -2,12 +2,17 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Check, ChevronLeft, ChevronRight } from 'lucide-react';
 import gsap from 'gsap';
+import WiWordmark from '../components/WiWordmark';
 import { productPages } from '../data/productPages';
 import { wiTalentsDetail } from '../data/wiTalentsContent';
+import { wiPeopleDetail } from '../data/wiPeopleContent';
 import './ProductPage.css';
 
-/* Long-form content sits below the hero. Only WiTalents has it so far. */
-const productDetails = { WiTalents: wiTalentsDetail };
+/* Long-form content sits below the hero, for the products that have it. */
+const productDetails = {
+  WiTalents: wiTalentsDetail,
+  WiPeople: wiPeopleDetail
+};
 
 /* Hero chips that jump to those sections. */
 const JUMP_LINKS = [
@@ -50,7 +55,8 @@ export default function ProductPage({ productId }) {
         label: capability.title,
         capability
       })),
-      { id: 'process', kind: 'process', label: 'Process' }
+      /* Not every product documents a process flow. */
+      ...(product.process ? [{ id: 'process', kind: 'process', label: 'Process' }] : [])
     ];
   }, [product]);
 
@@ -119,11 +125,19 @@ export default function ProductPage({ productId }) {
           {/* Left: the product artwork stays put across every slide, with the
               section chips sitting under it. */}
           <div className="wt-platform-media">
-            <div className={`wt-platform-visual ${detail?.banner ? 'is-banner' : ''}`}>
-              <img
-                src={detail?.banner?.src ?? platform.image}
-                alt={detail?.banner?.alt ?? platform.imageAlt}
-              />
+            <div className={`wt-platform-visual ${detail?.overlay ? 'has-overlay' : ''}`}>
+              <img src={platform.image} alt={platform.imageAlt} />
+
+              {detail?.overlay && (
+                <div className="wt-visual-overlay">
+                  <span className="wt-visual-kicker">{detail.overlay.kicker}</span>
+                  <span className="wt-visual-title">
+                    <WiWordmark className="wt-visual-mark" />
+                    {detail.overlay.title}
+                  </span>
+                  <p className="wt-visual-tagline">{detail.overlay.tagline}</p>
+                </div>
+              )}
             </div>
 
             {detail && (
@@ -132,7 +146,7 @@ export default function ProductPage({ productId }) {
                   <button
                     key={id}
                     type="button"
-                    className="wt-eyebrow wt-jump-link"
+                    className="wt-jump-link"
                     onClick={() => jumpToSection(id)}
                   >
                     {label}
@@ -207,7 +221,7 @@ export default function ProductPage({ productId }) {
                   </div>
                 )}
 
-                {active.kind === 'process' && (
+                {active.kind === 'process' && process && (
                   <div className="wt-process-slide">
                     {!detail && <span className="eyebrow wt-eyebrow">Process</span>}
                     <h2 className="wt-process-title">
@@ -298,8 +312,8 @@ export default function ProductPage({ productId }) {
 
           {/* Who it's for */}
           <section className="wt-roles-section section-light section-1440" id="audience">
-            <div className="container">
-              <div className="wt-section-head is-center">
+            <div className="container wt-roles-layout">
+              <div className="wt-section-head">
                 <span className="eyebrow wt-eyebrow">{detail.roles.eyebrow}</span>
                 <h2 className="wt-section-title">{detail.roles.title}</h2>
               </div>

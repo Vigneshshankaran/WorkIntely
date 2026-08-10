@@ -20,7 +20,10 @@ import {
   GraduationCap,
   Target,
   TrendingUp,
-  Wallet
+  Wallet,
+  BrainCircuit,
+  ShieldCheck,
+  Layers
 } from 'lucide-react';
 /* Photography comes from Unsplash's CDN — free to hotlink, and one distinct
    shot per product so no image repeats across the site. Swap any `unsplash(id)`
@@ -160,13 +163,64 @@ export const productPages = {
     }
   },
 
-  WiPeople: draftProduct(
-    'Wi People',
-    Users,
-    'One centralized system of record for every employee, everywhere.',
-    IMAGES.people,
-    'Colleagues collaborating around a shared workspace'
-  ),
+  /* Slider content from the WiPeople website-content document. */
+  WiPeople: {
+    name: 'Wi People',
+    eyebrow: 'Wi People',
+    icon: Users,
+    tagline: 'One centralized system of record for every employee, everywhere.',
+    platform: {
+      title: ["HR software for people who'd rather be ", { accent: 'doing their jobs' }],
+      description:
+        'WiPeople is a lightweight HR system built around the parts of HR your team actually opens every week: who’s on the team, where the documents live, what’s due during onboarding, what’s been announced, and how to get a real answer fast.',
+      image: IMAGES.people,
+      imageAlt: 'Colleagues collaborating around a shared workspace'
+    },
+    audiences: [
+      { id: 'hr-manager', icon: Users, title: 'HR Manager', description: 'Runs the system, end to end.' },
+      { id: 'people-manager', icon: Briefcase, title: 'People Manager', description: 'Leads a team, not the system.' },
+      { id: 'employee', icon: User, title: 'Employee', description: 'Self-serve, without the hunting.' }
+    ],
+    capabilities: [
+      {
+        id: 'ask-hr',
+        icon: BrainCircuit,
+        title: 'Ask HR',
+        description:
+          'A built-in assistant that answers policy and process questions instantly, in plain language — pulling from your actual company documents instead of sending employees searching through folders.'
+      },
+      {
+        id: 'leave-conflicts',
+        icon: ShieldCheck,
+        title: 'Leave conflict detection',
+        description:
+          "Automatically flags when a leave request overlaps with a teammate's approved time off or a key deadline, before a manager has to notice it manually."
+      },
+      {
+        id: 'onboarding-paths',
+        icon: ListChecks,
+        title: 'Smart onboarding paths',
+        description:
+          'New-hire checklists that adapt automatically by role and department, assigning the right tasks, documents, and people — instead of one generic checklist for everyone.',
+        featured: true
+      },
+      {
+        id: 'org-chart',
+        icon: Layers,
+        title: 'Living org chart',
+        description:
+          'The org chart updates itself the moment a role, manager, or team changes — no one has to remember to redraw it.'
+      },
+      {
+        id: 'expiry-alerts',
+        icon: Target,
+        title: 'Document expiry alerts',
+        description:
+          'Contracts, certifications, and compliance documents are watched automatically, with reminders sent well before something lapses.'
+      }
+    ]
+    /* No process flow in the source document — the slider skips that slide. */
+  },
 
   WiGrow: draftProduct(
     'Wi Grow',
