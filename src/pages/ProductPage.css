@@ -88,9 +88,10 @@
   color: #ffffff;
 }
 
-/* Brand mark sized to the wordmark's cap height. */
+/* Sized to the text's cap height, not its full font-size — at 0.8em it read
+   as large as the word itself; a logomark should sit a step smaller. */
 .wt-visual-mark {
-  height: 0.8em;
+  height: 0.56em;
   width: auto;
   flex: 0 0 auto;
 }
