@@ -106,7 +106,7 @@ export default function Header() {
         <nav className="nav-menu" aria-label="Primary">
           <NavLink to="/" end className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>Platform</NavLink>
           <NavDropdown id="product" label="Product" items={productLinks} />
-          <NavLink to="/pricing" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>Pricing.</NavLink>
+          <NavLink to="/pricing" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>Pricing</NavLink>
           <NavLink to="/about" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>About Us</NavLink>
           <NavDropdown id="resources" label="Resources" items={resourceLinks} />
         </nav>
