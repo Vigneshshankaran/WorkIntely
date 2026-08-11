@@ -118,29 +118,41 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+  /* Grid items default to min-width:auto, which lets the <img>'s intrinsic
+     size push past the track even with width:100% set on the image itself.
+     min-width:0 lets this column actually shrink with the viewport. */
+  min-width: 0;
 }
 
-/* Chips jump to the sections below the hero. Spans both grid columns so the
-   four fit one line at full width — nowrap keeps them honest if copy changes. */
+/* Chips jump to the sections below the hero, right under the image. Nowrap
+   keeps them one line; the tighter gap/padding below is what makes four of
+   them actually fit the narrower media column instead of the full section. */
 .wt-jump-nav {
-  grid-column: 1 / -1;
   display: flex;
   flex-wrap: nowrap;
-  gap: 10px;
+  gap: 4px;
 }
 
-/* Same control as the slider arrows and .platform-explorer-link. */
+/* Same control as the slider arrows and .platform-explorer-link, sized down
+   slightly so four fit one line in the media column. */
 .wt-jump-link {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  flex: 1 1 auto;
+  min-width: 0;
   font-family: var(--font-body);
-  font-size: var(--text-body);
+  font-size: var(--text-caption);
   font-weight: 600;
   color: var(--ink);
   background: var(--surface-card);
   border: none;
   border-radius: var(--radius-pill);
-  padding: 10px 20px;
+  padding: 9px 7px;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   cursor: pointer;
   box-shadow: var(--shadow-sm);
   transition: all 0.2s ease;

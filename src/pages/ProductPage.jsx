@@ -138,6 +138,22 @@ export default function ProductPage({ productId }) {
               )}
             </div>
 
+            {/* Section chips sit right under the image, not far below the
+                whole deck on the right. */}
+            {detail && (
+              <nav className="wt-jump-nav" aria-label="Jump to a section">
+                {JUMP_LINKS.map(({ id, label }) => (
+                  <button
+                    key={id}
+                    type="button"
+                    className="wt-jump-link"
+                    onClick={() => jumpToSection(id)}
+                  >
+                    {label}
+                  </button>
+                ))}
+              </nav>
+            )}
           </div>
 
           {/* Right: the deck */}
@@ -264,23 +280,6 @@ export default function ProductPage({ productId }) {
               <ArrowRight size={16} />
             </Link>
           </div>
-
-          {/* Section chips: their own row across both columns, so all four fit
-              one line at full width without shrinking. */}
-          {detail && (
-            <nav className="wt-jump-nav" aria-label="Jump to a section">
-              {JUMP_LINKS.map(({ id, label }) => (
-                <button
-                  key={id}
-                  type="button"
-                  className="wt-jump-link"
-                  onClick={() => jumpToSection(id)}
-                >
-                  {label}
-                </button>
-              ))}
-            </nav>
-          )}
 
         </div>
       </section>
