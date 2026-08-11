@@ -13,6 +13,7 @@ import {
   whyChoose,
   closingCta
 } from '../data/industryCorporateContent';
+import Seo from '../components/Seo';
 import './IndustryCorporatePage.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -66,6 +67,12 @@ export default function IndustryCorporatePage() {
       {/* Hero — coded from banner-corporate-companies.svg (its own navy→
           indigo→violet wash, purple glow, and a lifecycle-loop motif), built
           as real markup rather than an embedded image. */}
+      <Seo
+        title="WorkIntel for Corporate Companies"
+        description={hero.description}
+        path="/Corporate"
+      />
+
       <section className="corp-hero">
         <div className="corp-hero-glow" aria-hidden="true" />
         <div className="corp-hero-motif" aria-hidden="true">

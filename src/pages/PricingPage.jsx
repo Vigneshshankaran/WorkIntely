@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import { ArrowRight, Check, Sparkles, Plus, CheckCircle } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Seo from '../components/Seo';
+import { faqPageJsonLd } from '../data/structuredData';
 import {
   pricingProducts,
   enquiryProducts,
@@ -68,6 +70,13 @@ export default function PricingPage() {
 
   return (
     <div className="pricing-page">
+
+      <Seo
+        title="Pricing"
+        description="Every Wi Suite product ships in Basic, Standard, and Premium — from core essentials to AI-powered intelligence. See plans and find the tier that fits your team."
+        path="/pricing"
+        jsonLd={faqPageJsonLd(pricingFaqs)}
+      />
 
       {/* Plans: product switcher + the three tiers */}
       <section className="pricing-plans section-light section-1440" ref={plansRef}>

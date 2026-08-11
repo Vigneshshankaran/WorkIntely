@@ -13,6 +13,7 @@ import {
   whyChoose,
   closingCta
 } from '../data/industryEducationContent';
+import Seo from '../components/Seo';
 import './IndustryEducationPage.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -66,6 +67,12 @@ export default function IndustryEducationPage() {
       {/* Hero — coded from the banner-educational-institutes.svg reference:
           same diagonal navy→teal→green wash, purple glow, and a checkmark
           motif, built as real markup rather than an embedded image. */}
+      <Seo
+        title="WorkIntel for Educational Institutes"
+        description={hero.description}
+        path="/Institution"
+      />
+
       <section className="edu-hero">
         <div className="edu-hero-glow" aria-hidden="true" />
         <div className="edu-hero-motif" aria-hidden="true">

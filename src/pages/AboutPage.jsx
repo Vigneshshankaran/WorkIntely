@@ -10,7 +10,8 @@ import {
   productPortfolio,
   peopleRoles
 } from '../data/aboutContent';
-import aboutHero from '../assets/about-hero.png';
+import Seo from '../components/Seo';
+import aboutHero from '../assets/about-hero.webp';
 import './AboutPage.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -56,6 +57,12 @@ export default function AboutPage() {
 
   return (
     <div className="about-page" ref={pageRef}>
+
+      <Seo
+        title="About Us"
+        description="WorkIntel builds intelligent business platforms that help organizations work smarter — connecting hiring, people data, learning, and performance into one system."
+        path="/about"
+      />
 
       {/* Hero: vision statement + the brand graphic */}
       <section className="about-hero section-1440">

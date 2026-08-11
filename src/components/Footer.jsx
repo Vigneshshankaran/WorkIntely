@@ -127,9 +127,10 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Giant Brand Typography Watermark Banner */}
+        {/* Bottom Giant Brand Typography Watermark Banner — decorative, not a
+            heading, so it doesn't compete with each page's real <h1>. */}
         <div className="promora-watermark-wrap">
-          <h1 className="promora-giant-text">WorkIntel</h1>
+          <p className="promora-giant-text" aria-hidden="true">WorkIntel</p>
         </div>
 
         {/* Legal & Copyright */}

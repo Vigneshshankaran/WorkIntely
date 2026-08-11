@@ -5,8 +5,8 @@
    Rules, Shift Scheduling, Payroll, Benefits Enrolment, Wage & Tax Compliance)
    are deliberately left out until they are packaged. */
 
-export const SALES_EMAIL = 'sales@workintely.com';
-export const GENERAL_EMAIL = 'connect@workintely.com';
+export const SALES_EMAIL = 'sales@workintel.ai';
+export const GENERAL_EMAIL = 'connect@workintel.ai';
 
 export const pricingProducts = [
   {

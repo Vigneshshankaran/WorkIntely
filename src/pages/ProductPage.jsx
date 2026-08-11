@@ -3,9 +3,11 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Check, ChevronLeft, ChevronRight } from 'lucide-react';
 import gsap from 'gsap';
 import WiWordmark from '../components/WiWordmark';
+import Seo from '../components/Seo';
 import { productPages } from '../data/productPages';
 import { wiTalentsDetail } from '../data/wiTalentsContent';
 import { wiPeopleDetail } from '../data/wiPeopleContent';
+import { softwareApplicationJsonLd } from '../data/structuredData';
 import './ProductPage.css';
 
 /* Long-form content sits below the hero, for the products that have it. */
@@ -119,11 +121,27 @@ export default function ProductPage({ productId }) {
   return (
     <div className="wt-page">
 
+      <Seo
+        title={product.name}
+        description={product.tagline}
+        path={`/${productId}`}
+        noindex={!!product.isDraft}
+        jsonLd={product.isDraft ? undefined : softwareApplicationJsonLd({
+          name: product.name,
+          description: product.tagline,
+          path: `/${productId}`
+        })}
+      />
+
       <section className="wt-platform-section section-1440">
         <div className="container wt-platform-grid">
 
-          {/* Left: the product artwork stays put across every slide. */}
+          {/* Left: the product artwork stays put across every slide. The
+              carousel below rotates its own heading out of the DOM every
+              AUTOPLAY_MS, so the page's one real h1 lives here instead,
+              where it's always mounted. */}
           <div className="wt-platform-media">
+            <h1 className="wt-platform-name">{product.name}</h1>
             <div className={`wt-platform-visual ${detail?.overlay ? 'has-overlay' : ''}`}>
               <img src={platform.image} alt={platform.imageAlt} />
 
@@ -181,9 +199,9 @@ export default function ProductPage({ productId }) {
                 {active.kind === 'overview' && (
                   <div className="wt-platform-content">
                     {!detail && <span className="eyebrow wt-eyebrow">{product.eyebrow}</span>}
-                    <h1 className="wt-platform-title">
+                    <h2 className="wt-platform-title">
                       <Title parts={platform.title} />
-                    </h1>
+                    </h2>
                     <p className="wt-platform-desc">{platform.description}</p>
 
                     <ul className="wt-audience-list">
