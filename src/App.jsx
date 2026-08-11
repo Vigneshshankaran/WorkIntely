@@ -14,6 +14,8 @@ import ComingSoonPage from './pages/ComingSoonPage';
 import PricingPage from './pages/PricingPage';
 import ProductPage from './pages/ProductPage';
 import IndustryEducationPage from './pages/IndustryEducationPage';
+import IndustryCorporatePage from './pages/IndustryCorporatePage';
+import IndustryStaffingPage from './pages/IndustryStaffingPage';
 
 /* Scrolls to top on route change, or to the anchor when a hash is present
    (makes cross-page links like /#modules work). */
@@ -67,7 +69,9 @@ export default function App() {
               path="/login"
               element={<ComingSoonPage title="Login Coming Soon" />}
             />
-            <Route path="/industry-solutions" element={<IndustryEducationPage />} />
+            <Route path="/Institution" element={<IndustryEducationPage />} />
+            <Route path="/Corporate" element={<IndustryCorporatePage />} />
+            <Route path="/Staffing" element={<IndustryStaffingPage />} />
             <Route
               path="/community"
               element={<ComingSoonPage title="Community Coming Soon" />}

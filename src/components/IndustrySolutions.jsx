@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom';
 import { ChevronDown, ArrowRight } from 'lucide-react';
 import './IndustrySolutions.css';
 
+/* `to` is where "Discover solutions" sends each choice. */
 const INDUSTRIES = [
-  { value: 'staffing', label: 'Staffing Company' },
-  { value: 'corporates', label: 'Corporates' },
-  { value: 'institution', label: 'Institution' }
+  { value: 'staffing', label: 'Staffing Company', to: '/Staffing' },
+  { value: 'corporates', label: 'Corporates', to: '/Corporate' },
+  { value: 'institution', label: 'Institution', to: '/Institution' }
 ];
 
 export default function IndustrySolutions() {
@@ -39,7 +40,10 @@ export default function IndustrySolutions() {
             </div>
 
             {industry && (
-              <Link to="/industry-solutions" className="btn btn-primary industry-discover-btn">
+              <Link
+                to={INDUSTRIES.find((item) => item.value === industry).to}
+                className="btn btn-primary industry-discover-btn"
+              >
                 <span>Discover solutions</span>
                 <ArrowRight size={16} />
               </Link>

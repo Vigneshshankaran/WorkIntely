@@ -216,13 +216,13 @@
 
 .btn-nav-candidate {
   background: transparent;
-  color: var(--primary);
+  color: var(--ink);
   font-family: var(--font-body);
   font-size: 0.875rem;
   font-weight: 600;
   padding: 0.5rem 1.15rem;
   border-radius: 9999px;
-  border: 1px solid var(--primary);
+  border: 1px solid var(--ink);
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
@@ -231,9 +231,8 @@
 }
 
 .btn-nav-candidate:hover {
-  background: var(--primary-light);
-  border-color: var(--primary-hover);
-  color: var(--primary-hover);
+  background: var(--ink);
+  color: var(--canvas);
   transform: translateY(-1px);
 }
 
