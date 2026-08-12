@@ -13,6 +13,7 @@ import {
   whyChoose,
   closingCta
 } from '../data/industryStaffingContent';
+import Seo from '../components/Seo';
 import './IndustryStaffingPage.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -66,6 +67,12 @@ export default function IndustryStaffingPage() {
       {/* Hero — coded from banner-staffing-companies.svg (its own navy→
           indigo→blue wash, orange glow, and a pipeline-chain motif), built
           as real markup rather than an embedded image. */}
+      <Seo
+        title="WorkIntel for Staffing Companies"
+        description={hero.description}
+        path="/Staffing"
+      />
+
       <section className="staff-hero">
         <div className="staff-hero-glow" aria-hidden="true" />
         <div className="staff-hero-motif" aria-hidden="true">

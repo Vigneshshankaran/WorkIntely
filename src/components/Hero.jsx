@@ -3,7 +3,7 @@ import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import './Hero.css';
-import realHumanRobotBg from '../assets/real_human_robot_bg.png';
+import realHumanRobotBg from '../assets/real_human_robot_bg.webp';
 
 export default function Hero() {
   const heroRef = useRef(null);

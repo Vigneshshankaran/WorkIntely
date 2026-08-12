@@ -70,6 +70,9 @@ const draftProduct = (name, icon, tagline, image, imageAlt) => ({
   eyebrow: name,
   icon,
   tagline,
+  /* Drives noindex + skips SoftwareApplication schema in ProductPage — this
+     page is still TODO copy, not something to rank or mark up yet. */
+  isDraft: true,
   platform: {
     title: [{ accent: name }, ' — TODO: headline for this product.'],
     description: tagline,

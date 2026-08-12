@@ -124,6 +124,18 @@
   min-width: 0;
 }
 
+/* The page's one persistent h1 — small and unobtrusive since the carousel's
+   own headline is the visual focal point; this just needs to stay in the DOM. */
+.wt-platform-name {
+  font-family: var(--font-display);
+  font-size: var(--text-caption);
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
 /* Chips jump to the sections below the hero, right under the image. Nowrap
    keeps them one line; the tighter gap/padding below is what makes four of
    them actually fit the narrower media column instead of the full section. */

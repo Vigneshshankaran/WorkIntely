@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Send, CheckCircle } from 'lucide-react';
+import Seo from '../components/Seo';
 import './ContactPage.css';
 
 export default function ContactPage() {
@@ -21,6 +22,11 @@ export default function ContactPage() {
 
   return (
     <section className="contact-page section-1440">
+      <Seo
+        title="Contact Us"
+        description="Tell us about your team and we'll show you how WorkIntel fits your talent management needs."
+        path="/contact"
+      />
       <div className="container">
         <div className="contact-layout">
           
@@ -37,8 +43,8 @@ export default function ContactPage() {
               
               <div className="reach-email-row">
                 <Mail size={16} className="reach-icon" />
-                <a href="mailto:connect@workintel.com" className="email-link">
-                  connect@workintel.com
+                <a href="mailto:connect@workintel.ai" className="email-link">
+                  connect@workintel.ai
                 </a>
               </div>
 

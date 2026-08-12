@@ -16,6 +16,8 @@ import ProductPage from './pages/ProductPage';
 import IndustryEducationPage from './pages/IndustryEducationPage';
 import IndustryCorporatePage from './pages/IndustryCorporatePage';
 import IndustryStaffingPage from './pages/IndustryStaffingPage';
+import NotFoundPage from './pages/NotFoundPage';
+import SiteJsonLd from './components/SiteJsonLd';
 
 /* Scrolls to top on route change, or to the anchor when a hash is present
    (makes cross-page links like /#modules work). */
@@ -41,6 +43,7 @@ export default function App() {
     <Router>
       <div className="workintel-app">
         <ScrollManager />
+        <SiteJsonLd />
         <Header />
         <main>
           <Routes>
@@ -78,7 +81,7 @@ export default function App() {
             />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
-            <Route path="*" element={<HomePage />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>
 
