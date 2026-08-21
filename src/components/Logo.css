@@ -1,0 +1,35 @@
+.brand-logo-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-logo-img {
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.brand-logo-text {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  /* "WorkIntel" has no descenders, so its ink sits in the upper half of the
+     line box; nudge down to optically center against the icon mark. */
+  transform: translateY(1px);
+}
+
+.brand-logo-text-work {
+  color: var(--ink);
+}
+
+.brand-logo-text-work.is-dark {
+  color: var(--white);
+}
+
+.brand-logo-text-intel {
+  color: var(--primary);
+}

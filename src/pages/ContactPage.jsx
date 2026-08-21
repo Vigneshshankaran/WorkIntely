@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
-import { Mail, Send, CheckCircle } from 'lucide-react';
+import { Mail, Send, CheckCircle, AlertCircle } from 'lucide-react';
 import Seo from '../components/Seo';
 import './ContactPage.css';
 
+/* Set in Vercel (and a local .env.local) once you have a Formspree form —
+   see the project README for the exact steps. Formspree endpoints are meant
+   to be used directly from client-side code, so there's no secret here. */
+const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT;
+
 export default function ContactPage() {
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState('idle'); // idle | submitting | submitted | error
   const [formData, setFormData] = useState({
     fullName: '',
     workEmail: '',
@@ -13,10 +18,28 @@ export default function ContactPage() {
     message: ''
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (formData.fullName && formData.workEmail && formData.message) {
-      setSubmitted(true);
+    if (!formData.fullName || !formData.workEmail || !formData.message) return;
+
+    if (!FORMSPREE_ENDPOINT) {
+      console.error('VITE_FORMSPREE_ENDPOINT is not set — see README for setup.');
+      setStatus('error');
+      return;
+    }
+
+    setStatus('submitting');
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(formData)
+      });
+      if (!res.ok) throw new Error(`Formspree responded ${res.status}`);
+      setStatus('submitted');
+    } catch (err) {
+      console.error('Contact form submission failed:', err);
+      setStatus('error');
     }
   };
 
@@ -85,7 +108,7 @@ export default function ContactPage() {
 
           {/* Right Column: Form Card */}
           <div className="contact-right-card">
-            {submitted ? (
+            {status === 'submitted' ? (
               <div className="contact-success">
                 <CheckCircle size={48} className="success-check-icon" />
                 <h3>Thank You, {formData.fullName}!</h3>
@@ -93,6 +116,15 @@ export default function ContactPage() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="talk-form">
+                {status === 'error' && (
+                  <div className="form-error-msg">
+                    <AlertCircle size={16} />
+                    <span>
+                      Something went wrong sending your message. Please try again, or reach us
+                      directly at <a href="mailto:connect@workintel.ai">connect@workintel.ai</a>.
+                    </span>
+                  </div>
+                )}
                 
                 {/* Field Grid: 2 Columns for inputs */}
                 <div className="form-fields-grid">
@@ -162,9 +194,9 @@ export default function ContactPage() {
                 </div>
 
                 {/* Submit Button */}
-                <button type="submit" className="talk-submit-btn">
+                <button type="submit" className="talk-submit-btn" disabled={status === 'submitting'}>
                   <Send size={16} />
-                  <span>Submit</span>
+                  <span>{status === 'submitting' ? 'Sending…' : 'Submit'}</span>
                 </button>
               </form>
             )}

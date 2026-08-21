@@ -99,7 +99,7 @@ export default function Header() {
       <div className="container navbar-container">
         {/* Brand Logo */}
         <Link to="/" className="brand-logo" aria-label="WorkIntel Home">
-          <Logo height={32} />
+          <Logo height={28} />
         </Link>
 
         {/* Center Navigation Links (desktop) */}

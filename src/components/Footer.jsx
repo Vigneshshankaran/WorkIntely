@@ -25,7 +25,7 @@ export default function Footer() {
           {/* Left Column: Brand, Tagline, Vision & Newsletter */}
           <div className="promora-brand-col">
             <Link to="/" className="promora-logo" aria-label="WorkIntel Home">
-              <Logo dark={true} height={32} />
+              <Logo dark={true} height={28} />
             </Link>
 
             <p className="promora-tagline">
@@ -66,25 +66,14 @@ export default function Footer() {
               <h4 className="promora-col-title">Company</h4>
               <ul className="promora-links">
                 <li><Link to="/about">About Us</Link></li>
-                <li><Link to="/contact">Careers</Link></li>
-                <li><Link to="/#why-wi">Why WorkIntel</Link></li>
               </ul>
             </div>
 
             <div className="promora-col">
               <h4 className="promora-col-title">Products</h4>
               <ul className="promora-links">
-                <li><Link to="/">Overview</Link></li>
                 <li><Link to="/WiTalents">WiTalents</Link></li>
                 <li><Link to="/WiPeople">WiPeople</Link></li>
-              </ul>
-            </div>
-
-            <div className="promora-col">
-              <h4 className="promora-col-title">Resources</h4>
-              <ul className="promora-links">
-                <li><a href="#blog">Blog</a></li>
-                <li><a href="#webinars">Webinars</a></li>
               </ul>
             </div>
           </div>

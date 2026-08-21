@@ -117,8 +117,9 @@
 /* Nav Columns */
 .promora-nav-columns {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(2, max-content);
+  justify-content: flex-start;
+  gap: 56px;
 }
 
 .promora-col-title {
@@ -227,14 +228,12 @@
     grid-template-columns: 1fr;
     gap: 36px;
   }
-  .promora-nav-columns {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 @media (max-width: 480px) {
   .promora-nav-columns {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
   .promora-legal-row {
     flex-direction: column;
